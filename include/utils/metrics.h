@@ -99,7 +99,12 @@ static double bytesToGB(uint64_t bytes) {
 }
 
 class ExecutionProfiler {
+    bool mem_debug = false;
+
 public:
+    ExecutionProfiler() = default;
+    ExecutionProfiler(bool mem_debug) : mem_debug(mem_debug) {};
+    
     void start(const std::string& tag) {
         start_times[tag] = std::chrono::high_resolution_clock::now();
         start_memory[tag] = getCurrentProcessRSSBytes();
@@ -123,12 +128,15 @@ public:
         int64_t delta = static_cast<int64_t>(end_mem) - static_cast<int64_t>(start_mem);
         uint64_t limit = getEffectiveMemoryLimitBytes();
         std::cout << "[PROFILER_STOP] " << tag << ": " << duration << " ms (" << duration / 60000.0 << " minutes)" << std::endl;
-        std::cout << "[PROFILER_MEM] " << tag
-              << " start=" << start_mem << " bytes (" << bytesToGB(start_mem) << " GB)"
-              << " stop=" << end_mem << " bytes (" << bytesToGB(end_mem) << " GB)"
-              << " delta=" << delta << " bytes (" << bytesToGB((delta >= 0) ? static_cast<uint64_t>(delta) : static_cast<uint64_t>(-delta)) << " GB)"
-              << " limit=" << limit << " bytes (" << bytesToGB(limit) << " GB)"
-              << std::endl;
+        
+        if (mem_debug) {
+            std::cout << "[PROFILER_MEM] " << tag
+                << " start=" << start_mem << " bytes (" << bytesToGB(start_mem) << " GB)"
+                << " stop=" << end_mem << " bytes (" << bytesToGB(end_mem) << " GB)"
+                << " delta=" << delta << " bytes (" << bytesToGB((delta >= 0) ? static_cast<uint64_t>(delta) : static_cast<uint64_t>(-delta)) << " GB)"
+                << " limit=" << limit << " bytes (" << bytesToGB(limit) << " GB)"
+                << std::endl;
+        }
         memory_delta[tag] = delta;
     }
 

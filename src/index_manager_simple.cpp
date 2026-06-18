@@ -64,7 +64,7 @@ std::vector<std::vector<InvertedBlock>> IndexManagerSimple::buildInvertedIndex(
     int n_docs = data.rows();
     int n_dims = data.cols();
 
-    std::cout << "[INDEXING] buildInvertedIndex start: n_docs=" << n_docs
+    std::cout << "[INDEXING] SIMPLE buildInvertedIndex start: n_docs=" << n_docs
               << " n_dims=" << n_dims
               << " nonzeros=" << data.nonZeros()
               << " max_blocks_per_dimension=" << config.max_blocks_per_dimension
@@ -72,15 +72,17 @@ std::vector<std::vector<InvertedBlock>> IndexManagerSimple::buildInvertedIndex(
               << " max_docs_to_visit=" << config.max_docs_to_visit
               << std::endl;
 
-    const double estimated_index_gbytes = estimateIndexMemoryGBytes(n_dims, num_clusters, config);
-    std::cout << "[MEMORY_ESTIMATE] Estimated build memory=" << estimated_index_gbytes
-              << " GB. Proceeding with index build regardless of system limits." << std::endl;
+    if (config.mem_debug) {
+        const double estimated_index_gbytes = estimateIndexMemoryGBytes(n_dims, num_clusters, config);
+        std::cout << "[MEMORY_ESTIMATE] Estimated build memory=" << estimated_index_gbytes
+                  << " GB. Proceeding with index build regardless of system limits." << std::endl;
+    }
 
     try {
         // The partitioned index: Concept -> List of Blocks
         std::vector<std::vector<InvertedBlock>> index(n_dims);
 
-        std::cout << "[INDEXING] Building inverted index from summary vectors (simple approach)..." << std::endl;
+        // std::cout << "[INDEXING] Building inverted index from summary vectors (simple approach)..." << std::endl;
 
         // collect all documents per (concept, cluster) in a single pass over non-zeros
         using DocWeight = std::pair<int, float>;

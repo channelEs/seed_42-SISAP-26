@@ -33,4 +33,6 @@ struct ExecConfig {
     int max_docs_per_block = 0;
     int max_docs_to_visit = 0;
     float heap_factor = 0.60f;
+    bool log_debug = false;
+    bool mem_debug = false;
 };
