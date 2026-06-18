@@ -4957,3 +4957,2481 @@ Total Concepts indexed: 30522
 [PROFILER_START] search_phase_top_n_30 memory_start=14024433664 bytes (13.0613 GB) limit=16734404608 bytes (15.5851 GB)
   Processed 0/3452 queries...
   Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 117761 ms (1.96268 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=120 md=60000 heap_factor=0.1
+  Average Recall@30 = 0.901349
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 117761 ms (1.96268 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1143.44 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=153.878
+
+[TIME-QUERY] Average Time per Query: 34.1138 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=120 md=70000 heap_factor=0.15
+
+--- Indexing | nb = 350 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=120 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=179655288 avg_docs_per_block=19.5266 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 266650 ms (4.44417 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14024433664 bytes (13.0613 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14024433664 bytes (13.0613 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 132840 ms (2.214 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=120 md=70000 heap_factor=0.15
+  Average Recall@30 = 0.923336
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 132840 ms (2.214 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1318.07 avg_blocks_skipped=0.00173812 avg_docs_examined=70000 avg_docs_popped=154.918
+
+[TIME-QUERY] Average Time per Query: 38.482 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=120 md=70000 heap_factor=0.12
+
+--- Indexing | nb = 350 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=120 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=179655288 avg_docs_per_block=19.5266 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 247338 ms (4.1223 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14024163328 bytes (13.061 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14024163328 bytes (13.061 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 132025 ms (2.20042 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=120 md=70000 heap_factor=0.12
+  Average Recall@30 = 0.923336
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 132026 ms (2.20043 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1318.07 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=154.918
+
+[TIME-QUERY] Average Time per Query: 38.2462 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=120 md=70000 heap_factor=0.1
+
+--- Indexing | nb = 350 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=120 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=179655288 avg_docs_per_block=19.5266 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 252117 ms (4.20195 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14024163328 bytes (13.061 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14024163328 bytes (13.061 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 132627 ms (2.21045 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=120 md=70000 heap_factor=0.1
+  Average Recall@30 = 0.923336
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 132628 ms (2.21047 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1318.07 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=154.918
+
+[TIME-QUERY] Average Time per Query: 38.4206 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=120 md=80000 heap_factor=0.15
+
+--- Indexing | nb = 350 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=120 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=179655288 avg_docs_per_block=19.5266 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 242329 ms (4.03882 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14024163328 bytes (13.061 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14024163328 bytes (13.061 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 150708 ms (2.5118 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=120 md=80000 heap_factor=0.15
+  Average Recall@30 = 0.939702
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 150709 ms (2.51182 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1490.66 avg_blocks_skipped=0.00376593 avg_docs_examined=80000 avg_docs_popped=155.645
+
+[TIME-QUERY] Average Time per Query: 43.6585 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=120 md=80000 heap_factor=0.12
+
+--- Indexing | nb = 350 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=120 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=179655288 avg_docs_per_block=19.5266 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 242837 ms (4.04728 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14024433664 bytes (13.0613 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14024433664 bytes (13.0613 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 149872 ms (2.49787 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=120 md=80000 heap_factor=0.12
+  Average Recall@30 = 0.939702
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 149872 ms (2.49787 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1490.66 avg_blocks_skipped=0.00144844 avg_docs_examined=80000 avg_docs_popped=155.645
+
+[TIME-QUERY] Average Time per Query: 43.416 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=120 md=80000 heap_factor=0.1
+
+--- Indexing | nb = 350 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=120 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=179655288 avg_docs_per_block=19.5266 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240562 ms (4.00937 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14024163328 bytes (13.061 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14024163328 bytes (13.061 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 150628 ms (2.51047 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=120 md=80000 heap_factor=0.1
+  Average Recall@30 = 0.939702
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 150628 ms (2.51047 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1490.66 avg_blocks_skipped=0.000579374 avg_docs_examined=80000 avg_docs_popped=155.645
+
+[TIME-QUERY] Average Time per Query: 43.635 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=100 md=60000 heap_factor=0.15
+
+--- Indexing | nb = 350 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=100 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=168091090 avg_docs_per_block=18.2697 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 244110 ms (4.0685 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 115063 ms (1.91772 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=100 md=60000 heap_factor=0.15
+  Average Recall@30 = 0.909962
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 115063 ms (1.91772 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1267.71 avg_blocks_skipped=0.00173812 avg_docs_examined=60000 avg_docs_popped=153.379
+
+[TIME-QUERY] Average Time per Query: 33.3323 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=100 md=60000 heap_factor=0.12
+
+--- Indexing | nb = 350 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=100 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=168091090 avg_docs_per_block=18.2697 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241772 ms (4.02953 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 114877 ms (1.91462 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=100 md=60000 heap_factor=0.12
+  Average Recall@30 = 0.909962
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 114878 ms (1.91463 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1267.72 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=153.379
+
+[TIME-QUERY] Average Time per Query: 33.2787 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=100 md=60000 heap_factor=0.1
+
+--- Indexing | nb = 350 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=100 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=168091090 avg_docs_per_block=18.2697 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 242684 ms (4.04473 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 113804 ms (1.89673 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=100 md=60000 heap_factor=0.1
+  Average Recall@30 = 0.909962
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 113804 ms (1.89673 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1267.72 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=153.379
+
+[TIME-QUERY] Average Time per Query: 32.9676 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=100 md=70000 heap_factor=0.15
+
+--- Indexing | nb = 350 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=100 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=168091090 avg_docs_per_block=18.2697 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 237498 ms (3.9583 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 132747 ms (2.21245 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=100 md=70000 heap_factor=0.15
+  Average Recall@30 = 0.929255
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 132748 ms (2.21247 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1463.04 avg_blocks_skipped=0.00202781 avg_docs_examined=70000 avg_docs_popped=154.239
+
+[TIME-QUERY] Average Time per Query: 38.4554 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=100 md=70000 heap_factor=0.12
+
+--- Indexing | nb = 350 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=100 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=168091090 avg_docs_per_block=18.2697 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 237836 ms (3.96393 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 132686 ms (2.21143 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=100 md=70000 heap_factor=0.12
+  Average Recall@30 = 0.929255
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 132686 ms (2.21143 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1463.04 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=154.239
+
+[TIME-QUERY] Average Time per Query: 38.4374 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=100 md=70000 heap_factor=0.1
+
+--- Indexing | nb = 350 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=100 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=168091090 avg_docs_per_block=18.2697 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 244433 ms (4.07388 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 134399 ms (2.23998 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=100 md=70000 heap_factor=0.1
+  Average Recall@30 = 0.929255
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 134400 ms (2.24 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1463.04 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=154.239
+
+[TIME-QUERY] Average Time per Query: 38.934 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=100 md=80000 heap_factor=0.15
+
+--- Indexing | nb = 350 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=100 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=168091090 avg_docs_per_block=18.2697 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 237132 ms (3.9522 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 151871 ms (2.53118 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=100 md=80000 heap_factor=0.15
+  Average Recall@30 = 0.941691
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 151871 ms (2.53118 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1654.9 avg_blocks_skipped=0.00434531 avg_docs_examined=80000 avg_docs_popped=154.775
+
+[TIME-QUERY] Average Time per Query: 43.9951 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=100 md=80000 heap_factor=0.12
+
+--- Indexing | nb = 350 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=100 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=168091090 avg_docs_per_block=18.2697 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 239213 ms (3.98688 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 152306 ms (2.53843 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=100 md=80000 heap_factor=0.12
+  Average Recall@30 = 0.941691
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 152307 ms (2.53845 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1654.9 avg_blocks_skipped=0.00144844 avg_docs_examined=80000 avg_docs_popped=154.775
+
+[TIME-QUERY] Average Time per Query: 44.1214 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=350 nd=100 md=80000 heap_factor=0.1
+
+--- Indexing | nb = 350 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=350 max_docs_per_block=100 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=9200562 total_docs_in_blocks=168091090 avg_docs_per_block=18.2697 avg_blocks_per_dimension=301.44 empty_dimensions=1783
+[PROFILER_STOP] building_index: 246152 ms (4.10253 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14020919296 bytes (13.058 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 151728 ms (2.5288 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=350 nd=100 md=80000 heap_factor=0.1
+  Average Recall@30 = 0.941691
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 151728 ms (2.5288 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1654.9 avg_blocks_skipped=0.000579374 avg_docs_examined=80000 avg_docs_popped=154.775
+
+[TIME-QUERY] Average Time per Query: 43.9537 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=150 md=60000 heap_factor=0.15
+
+--- Indexing | nb = 300 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=150 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=174500218 avg_docs_per_block=21.843 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240711 ms (4.01185 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14030651392 bytes (13.0671 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14030651392 bytes (13.0671 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 112982 ms (1.88303 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=150 md=60000 heap_factor=0.15
+  Average Recall@30 = 0.896318
+  STATUS: FAIL (Tune pruning hyperparameter/clustering balance)
+====================================================
+[PROFILER_STOP] search_phase: 112982 ms (1.88303 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=979.347 avg_blocks_skipped=0.00115875 avg_docs_examined=60000 avg_docs_popped=154.47
+
+[TIME-QUERY] Average Time per Query: 32.7294 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=150 md=60000 heap_factor=0.12
+
+--- Indexing | nb = 300 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=150 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=174500218 avg_docs_per_block=21.843 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240349 ms (4.00582 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14030921728 bytes (13.0673 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14030921728 bytes (13.0673 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 112855 ms (1.88092 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=150 md=60000 heap_factor=0.12
+  Average Recall@30 = 0.896318
+  STATUS: FAIL (Tune pruning hyperparameter/clustering balance)
+====================================================
+[PROFILER_STOP] search_phase: 112855 ms (1.88092 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=979.348 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=154.47
+
+[TIME-QUERY] Average Time per Query: 32.6926 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=150 md=60000 heap_factor=0.1
+
+--- Indexing | nb = 300 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=150 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=174500218 avg_docs_per_block=21.843 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241541 ms (4.02568 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14030921728 bytes (13.0673 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14030921728 bytes (13.0673 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 112672 ms (1.87787 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=150 md=60000 heap_factor=0.1
+  Average Recall@30 = 0.896318
+  STATUS: FAIL (Tune pruning hyperparameter/clustering balance)
+====================================================
+[PROFILER_STOP] search_phase: 112673 ms (1.87788 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=979.348 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=154.47
+
+[TIME-QUERY] Average Time per Query: 32.6399 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=150 md=70000 heap_factor=0.15
+
+--- Indexing | nb = 300 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=150 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=174500218 avg_docs_per_block=21.843 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 243726 ms (4.0621 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14030651392 bytes (13.0671 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14030651392 bytes (13.0671 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 130338 ms (2.1723 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=150 md=70000 heap_factor=0.15
+  Average Recall@30 = 0.920622
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 130339 ms (2.17232 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1129.57 avg_blocks_skipped=0.00115875 avg_docs_examined=70000 avg_docs_popped=155.648
+
+[TIME-QUERY] Average Time per Query: 37.7575 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=150 md=70000 heap_factor=0.12
+
+--- Indexing | nb = 300 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=150 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=174500218 avg_docs_per_block=21.843 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241791 ms (4.02985 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14030651392 bytes (13.0671 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14030651392 bytes (13.0671 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 130272 ms (2.1712 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=150 md=70000 heap_factor=0.12
+  Average Recall@30 = 0.920622
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 130272 ms (2.1712 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1129.57 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=155.648
+
+[TIME-QUERY] Average Time per Query: 37.7381 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=150 md=70000 heap_factor=0.1
+
+--- Indexing | nb = 300 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=150 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=174500218 avg_docs_per_block=21.843 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 243529 ms (4.05882 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14030921728 bytes (13.0673 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14030921728 bytes (13.0673 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 130194 ms (2.1699 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=150 md=70000 heap_factor=0.1
+  Average Recall@30 = 0.920622
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 130194 ms (2.1699 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1129.57 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=155.648
+
+[TIME-QUERY] Average Time per Query: 37.7155 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=150 md=80000 heap_factor=0.15
+
+--- Indexing | nb = 300 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=150 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=174500218 avg_docs_per_block=21.843 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241630 ms (4.02717 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14030651392 bytes (13.0671 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14030651392 bytes (13.0671 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 151056 ms (2.5176 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=150 md=80000 heap_factor=0.15
+  Average Recall@30 = 0.935945
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 151056 ms (2.5176 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1276.88 avg_blocks_skipped=0.0023175 avg_docs_examined=80000 avg_docs_popped=156.353
+
+[TIME-QUERY] Average Time per Query: 43.759 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=150 md=80000 heap_factor=0.12
+
+--- Indexing | nb = 300 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=150 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=174500218 avg_docs_per_block=21.843 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240149 ms (4.00248 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14030651392 bytes (13.0671 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14030651392 bytes (13.0671 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 147932 ms (2.46553 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=150 md=80000 heap_factor=0.12
+  Average Recall@30 = 0.935945
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 147933 ms (2.46555 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1276.88 avg_blocks_skipped=0.000869061 avg_docs_examined=80000 avg_docs_popped=156.353
+
+[TIME-QUERY] Average Time per Query: 42.8543 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=150 md=80000 heap_factor=0.1
+
+--- Indexing | nb = 300 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=150 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=174500218 avg_docs_per_block=21.843 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 243766 ms (4.06277 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14030921728 bytes (13.0673 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14030921728 bytes (13.0673 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 149063 ms (2.48438 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=150 md=80000 heap_factor=0.1
+  Average Recall@30 = 0.935945
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 149063 ms (2.48438 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1276.88 avg_blocks_skipped=0.000579374 avg_docs_examined=80000 avg_docs_popped=156.353
+
+[TIME-QUERY] Average Time per Query: 43.1816 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=120 md=60000 heap_factor=0.15
+
+--- Indexing | nb = 300 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=120 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=161363294 avg_docs_per_block=20.1986 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240790 ms (4.01317 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 113820 ms (1.897 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=120 md=60000 heap_factor=0.15
+  Average Recall@30 = 0.90943
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 113820 ms (1.897 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1108.73 avg_blocks_skipped=0.00115875 avg_docs_examined=60000 avg_docs_popped=154.17
+
+[TIME-QUERY] Average Time per Query: 32.9722 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=120 md=60000 heap_factor=0.12
+
+--- Indexing | nb = 300 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=120 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=161363294 avg_docs_per_block=20.1986 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240988 ms (4.01647 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 113754 ms (1.8959 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=120 md=60000 heap_factor=0.12
+  Average Recall@30 = 0.90943
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 113754 ms (1.8959 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1108.73 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=154.17
+
+[TIME-QUERY] Average Time per Query: 32.9531 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=120 md=60000 heap_factor=0.1
+
+--- Indexing | nb = 300 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=120 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=161363294 avg_docs_per_block=20.1986 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 238570 ms (3.97617 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14027677696 bytes (13.0643 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14027677696 bytes (13.0643 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 113786 ms (1.89643 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=120 md=60000 heap_factor=0.1
+  Average Recall@30 = 0.90943
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 113787 ms (1.89645 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1108.73 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=154.17
+
+[TIME-QUERY] Average Time per Query: 32.9626 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=120 md=70000 heap_factor=0.15
+
+--- Indexing | nb = 300 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=120 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=161363294 avg_docs_per_block=20.1986 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240017 ms (4.00028 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14027677696 bytes (13.0643 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14027677696 bytes (13.0643 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 132897 ms (2.21495 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=120 md=70000 heap_factor=0.15
+  Average Recall@30 = 0.928511
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 132897 ms (2.21495 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1278.05 avg_blocks_skipped=0.00115875 avg_docs_examined=70000 avg_docs_popped=155.043
+
+[TIME-QUERY] Average Time per Query: 38.4986 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=120 md=70000 heap_factor=0.12
+
+--- Indexing | nb = 300 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=120 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=161363294 avg_docs_per_block=20.1986 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241780 ms (4.02967 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 131530 ms (2.19217 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=120 md=70000 heap_factor=0.12
+  Average Recall@30 = 0.928511
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 131530 ms (2.19217 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1278.05 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=155.043
+
+[TIME-QUERY] Average Time per Query: 38.1025 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=120 md=70000 heap_factor=0.1
+
+--- Indexing | nb = 300 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=120 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=161363294 avg_docs_per_block=20.1986 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240263 ms (4.00438 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 131468 ms (2.19113 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=120 md=70000 heap_factor=0.1
+  Average Recall@30 = 0.928511
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 131469 ms (2.19115 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1278.05 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=155.043
+
+[TIME-QUERY] Average Time per Query: 38.0849 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=120 md=80000 heap_factor=0.15
+
+--- Indexing | nb = 300 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=120 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=161363294 avg_docs_per_block=20.1986 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241981 ms (4.03302 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 150312 ms (2.5052 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=120 md=80000 heap_factor=0.15
+  Average Recall@30 = 0.940928
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 150312 ms (2.5052 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1445.66 avg_blocks_skipped=0.00318656 avg_docs_examined=80000 avg_docs_popped=155.581
+
+[TIME-QUERY] Average Time per Query: 43.5435 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=120 md=80000 heap_factor=0.12
+
+--- Indexing | nb = 300 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=120 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=161363294 avg_docs_per_block=20.1986 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 245600 ms (4.09333 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14027677696 bytes (13.0643 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14027677696 bytes (13.0643 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 149204 ms (2.48673 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=120 md=80000 heap_factor=0.12
+  Average Recall@30 = 0.940928
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 149204 ms (2.48673 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1445.66 avg_blocks_skipped=0.00115875 avg_docs_examined=80000 avg_docs_popped=155.581
+
+[TIME-QUERY] Average Time per Query: 43.2225 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=120 md=80000 heap_factor=0.1
+
+--- Indexing | nb = 300 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=120 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=161363294 avg_docs_per_block=20.1986 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 244124 ms (4.06873 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14027948032 bytes (13.0645 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 150466 ms (2.50777 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=120 md=80000 heap_factor=0.1
+  Average Recall@30 = 0.940928
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 150466 ms (2.50777 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1445.66 avg_blocks_skipped=0.000579374 avg_docs_examined=80000 avg_docs_popped=155.581
+
+[TIME-QUERY] Average Time per Query: 43.5881 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=100 md=60000 heap_factor=0.15
+
+--- Indexing | nb = 300 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=100 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=150741069 avg_docs_per_block=18.869 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 245623 ms (4.09372 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 114375 ms (1.90625 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=100 md=60000 heap_factor=0.15
+  Average Recall@30 = 0.915205
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 114376 ms (1.90627 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1231.48 avg_blocks_skipped=0.00115875 avg_docs_examined=60000 avg_docs_popped=153.518
+
+[TIME-QUERY] Average Time per Query: 33.1333 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=100 md=60000 heap_factor=0.12
+
+--- Indexing | nb = 300 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=100 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=150741069 avg_docs_per_block=18.869 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 247989 ms (4.13315 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 114476 ms (1.90793 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=100 md=60000 heap_factor=0.12
+  Average Recall@30 = 0.915205
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 114477 ms (1.90795 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1231.48 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=153.518
+
+[TIME-QUERY] Average Time per Query: 33.1625 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=100 md=60000 heap_factor=0.1
+
+--- Indexing | nb = 300 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=100 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=150741069 avg_docs_per_block=18.869 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 245240 ms (4.08733 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14025515008 bytes (13.0623 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14025515008 bytes (13.0623 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 113374 ms (1.88957 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=100 md=60000 heap_factor=0.1
+  Average Recall@30 = 0.915205
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 113375 ms (1.88958 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1231.48 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=153.518
+
+[TIME-QUERY] Average Time per Query: 32.8433 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=100 md=70000 heap_factor=0.15
+
+--- Indexing | nb = 300 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=100 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=150741069 avg_docs_per_block=18.869 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 245683 ms (4.09472 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 134103 ms (2.23505 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=100 md=70000 heap_factor=0.15
+  Average Recall@30 = 0.930954
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 134104 ms (2.23507 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1419.89 avg_blocks_skipped=0.00289687 avg_docs_examined=70000 avg_docs_popped=154.201
+
+[TIME-QUERY] Average Time per Query: 38.8482 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=100 md=70000 heap_factor=0.12
+
+--- Indexing | nb = 300 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=100 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=150741069 avg_docs_per_block=18.869 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 246099 ms (4.10165 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 132028 ms (2.20047 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=100 md=70000 heap_factor=0.12
+  Average Recall@30 = 0.930954
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 132029 ms (2.20048 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1419.89 avg_blocks_skipped=0.00115875 avg_docs_examined=70000 avg_docs_popped=154.201
+
+[TIME-QUERY] Average Time per Query: 38.2471 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=100 md=70000 heap_factor=0.1
+
+--- Indexing | nb = 300 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=100 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=150741069 avg_docs_per_block=18.869 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 246228 ms (4.1038 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 132258 ms (2.2043 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=100 md=70000 heap_factor=0.1
+  Average Recall@30 = 0.930954
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 132259 ms (2.20432 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1419.89 avg_blocks_skipped=0.000579374 avg_docs_examined=70000 avg_docs_popped=154.201
+
+[TIME-QUERY] Average Time per Query: 38.3137 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=100 md=80000 heap_factor=0.15
+
+--- Indexing | nb = 300 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=100 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=150741069 avg_docs_per_block=18.869 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 246604 ms (4.11007 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 150942 ms (2.5157 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=100 md=80000 heap_factor=0.15
+  Average Recall@30 = 0.941758
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 150942 ms (2.5157 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1609.03 avg_blocks_skipped=0.00376593 avg_docs_examined=80000 avg_docs_popped=154.665
+
+[TIME-QUERY] Average Time per Query: 43.726 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=100 md=80000 heap_factor=0.12
+
+--- Indexing | nb = 300 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=100 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=150741069 avg_docs_per_block=18.869 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 246187 ms (4.10312 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 151220 ms (2.52033 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=100 md=80000 heap_factor=0.12
+  Average Recall@30 = 0.941758
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 151220 ms (2.52033 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1609.04 avg_blocks_skipped=0.00173812 avg_docs_examined=80000 avg_docs_popped=154.665
+
+[TIME-QUERY] Average Time per Query: 43.8065 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=300 nd=100 md=80000 heap_factor=0.1
+
+--- Indexing | nb = 300 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=300 max_docs_per_block=100 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=7988838 total_docs_in_blocks=150741069 avg_docs_per_block=18.869 avg_blocks_per_dimension=261.74 empty_dimensions=1783
+[PROFILER_STOP] building_index: 246110 ms (4.10183 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=14025244672 bytes (13.062 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 151332 ms (2.5222 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=300 nd=100 md=80000 heap_factor=0.1
+  Average Recall@30 = 0.941758
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 151333 ms (2.52222 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1609.04 avg_blocks_skipped=0.000579374 avg_docs_examined=80000 avg_docs_popped=154.665
+
+[TIME-QUERY] Average Time per Query: 43.8392 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=150 md=60000 heap_factor=0.15
+
+--- Indexing | nb = 250 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=150 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=153406679 avg_docs_per_block=22.773 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 243723 ms (4.06205 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 111242 ms (1.85403 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=150 md=60000 heap_factor=0.15
+  Average Recall@30 = 0.903356
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 111243 ms (1.85405 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=945.282 avg_blocks_skipped=0.000869061 avg_docs_examined=60000 avg_docs_popped=154.79
+
+[TIME-QUERY] Average Time per Query: 32.2257 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=150 md=60000 heap_factor=0.12
+
+--- Indexing | nb = 250 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=150 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=153406679 avg_docs_per_block=22.773 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 243442 ms (4.05737 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 112393 ms (1.87322 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=150 md=60000 heap_factor=0.12
+  Average Recall@30 = 0.903356
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 112393 ms (1.87322 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=945.283 avg_blocks_skipped=0 avg_docs_examined=60000 avg_docs_popped=154.79
+
+[TIME-QUERY] Average Time per Query: 32.5588 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=150 md=60000 heap_factor=0.1
+
+--- Indexing | nb = 250 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=150 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=153406679 avg_docs_per_block=22.773 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 242084 ms (4.03473 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 111300 ms (1.855 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=150 md=60000 heap_factor=0.1
+  Average Recall@30 = 0.903356
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 111301 ms (1.85502 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=945.283 avg_blocks_skipped=0 avg_docs_examined=60000 avg_docs_popped=154.79
+
+[TIME-QUERY] Average Time per Query: 32.2425 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=150 md=70000 heap_factor=0.15
+
+--- Indexing | nb = 250 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=150 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=153406679 avg_docs_per_block=22.773 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 245329 ms (4.08882 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 129941 ms (2.16568 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=150 md=70000 heap_factor=0.15
+  Average Recall@30 = 0.923045
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 129941 ms (2.16568 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1088.96 avg_blocks_skipped=0.00173812 avg_docs_examined=70000 avg_docs_popped=155.705
+
+[TIME-QUERY] Average Time per Query: 37.6422 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=150 md=70000 heap_factor=0.12
+
+--- Indexing | nb = 250 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=150 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=153406679 avg_docs_per_block=22.773 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 245237 ms (4.08728 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 130306 ms (2.17177 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=150 md=70000 heap_factor=0.12
+  Average Recall@30 = 0.923045
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 130306 ms (2.17177 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1088.96 avg_blocks_skipped=0.000579374 avg_docs_examined=70000 avg_docs_popped=155.705
+
+[TIME-QUERY] Average Time per Query: 37.748 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=150 md=70000 heap_factor=0.1
+
+--- Indexing | nb = 250 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=150 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=153406679 avg_docs_per_block=22.773 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 243058 ms (4.05097 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 131320 ms (2.18867 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=150 md=70000 heap_factor=0.1
+  Average Recall@30 = 0.923045
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 131320 ms (2.18867 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1088.96 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=155.705
+
+[TIME-QUERY] Average Time per Query: 38.0417 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=150 md=80000 heap_factor=0.15
+
+--- Indexing | nb = 250 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=150 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=153406679 avg_docs_per_block=22.773 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 242787 ms (4.04645 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 149055 ms (2.48425 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=150 md=80000 heap_factor=0.15
+  Average Recall@30 = 0.936592
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 149056 ms (2.48427 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1231.27 avg_blocks_skipped=0.00289687 avg_docs_examined=80000 avg_docs_popped=156.298
+
+[TIME-QUERY] Average Time per Query: 43.1796 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=150 md=80000 heap_factor=0.12
+
+--- Indexing | nb = 250 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=150 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=153406679 avg_docs_per_block=22.773 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 242861 ms (4.04768 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 148910 ms (2.48183 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=150 md=80000 heap_factor=0.12
+  Average Recall@30 = 0.936592
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 148910 ms (2.48183 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1231.27 avg_blocks_skipped=0.000869061 avg_docs_examined=80000 avg_docs_popped=156.298
+
+[TIME-QUERY] Average Time per Query: 43.1373 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=150 md=80000 heap_factor=0.1
+
+--- Indexing | nb = 250 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=150 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=153406679 avg_docs_per_block=22.773 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 243609 ms (4.06015 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 148645 ms (2.47742 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=150 md=80000 heap_factor=0.1
+  Average Recall@30 = 0.936592
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 148645 ms (2.47742 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1231.27 avg_blocks_skipped=0.000289687 avg_docs_examined=80000 avg_docs_popped=156.298
+
+[TIME-QUERY] Average Time per Query: 43.0605 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=120 md=60000 heap_factor=0.15
+
+--- Indexing | nb = 250 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=120 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=141550298 avg_docs_per_block=21.013 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 243001 ms (4.05002 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752479744 bytes (12.808 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 113759 ms (1.89598 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=120 md=60000 heap_factor=0.15
+  Average Recall@30 = 0.91222
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 113759 ms (1.89598 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1070.78 avg_blocks_skipped=0.000869061 avg_docs_examined=60000 avg_docs_popped=154.233
+
+[TIME-QUERY] Average Time per Query: 32.9545 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=120 md=60000 heap_factor=0.12
+
+--- Indexing | nb = 250 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=120 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=141550298 avg_docs_per_block=21.013 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 243194 ms (4.05323 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 113794 ms (1.89657 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=120 md=60000 heap_factor=0.12
+  Average Recall@30 = 0.91222
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 113795 ms (1.89658 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1070.78 avg_blocks_skipped=0 avg_docs_examined=60000 avg_docs_popped=154.233
+
+[TIME-QUERY] Average Time per Query: 32.9649 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=120 md=60000 heap_factor=0.1
+
+--- Indexing | nb = 250 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=120 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=141550298 avg_docs_per_block=21.013 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 238127 ms (3.96878 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 113579 ms (1.89298 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=120 md=60000 heap_factor=0.1
+  Average Recall@30 = 0.91222
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 113579 ms (1.89298 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1070.78 avg_blocks_skipped=0 avg_docs_examined=60000 avg_docs_popped=154.233
+
+[TIME-QUERY] Average Time per Query: 32.9024 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=120 md=70000 heap_factor=0.15
+
+--- Indexing | nb = 250 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=120 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=141550298 avg_docs_per_block=21.013 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 237260 ms (3.95433 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 130972 ms (2.18287 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=120 md=70000 heap_factor=0.15
+  Average Recall@30 = 0.927921
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 130973 ms (2.18288 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1234.59 avg_blocks_skipped=0.00260718 avg_docs_examined=70000 avg_docs_popped=154.921
+
+[TIME-QUERY] Average Time per Query: 37.9412 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=120 md=70000 heap_factor=0.12
+
+--- Indexing | nb = 250 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=120 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=141550298 avg_docs_per_block=21.013 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 237850 ms (3.96417 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 131181 ms (2.18635 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=120 md=70000 heap_factor=0.12
+  Average Recall@30 = 0.927921
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 131181 ms (2.18635 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1234.6 avg_blocks_skipped=0.000869061 avg_docs_examined=70000 avg_docs_popped=154.921
+
+[TIME-QUERY] Average Time per Query: 38.0014 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=120 md=70000 heap_factor=0.1
+
+--- Indexing | nb = 250 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=120 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=141550298 avg_docs_per_block=21.013 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240962 ms (4.01603 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 131229 ms (2.18715 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=120 md=70000 heap_factor=0.1
+  Average Recall@30 = 0.927921
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 131230 ms (2.18717 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1234.6 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=154.921
+
+[TIME-QUERY] Average Time per Query: 38.0156 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=120 md=80000 heap_factor=0.15
+
+--- Indexing | nb = 250 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=120 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=141550298 avg_docs_per_block=21.013 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 245068 ms (4.08447 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 149818 ms (2.49697 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=120 md=80000 heap_factor=0.15
+  Average Recall@30 = 0.938891
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 149818 ms (2.49697 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1398.26 avg_blocks_skipped=0.00376593 avg_docs_examined=80000 avg_docs_popped=155.398
+
+[TIME-QUERY] Average Time per Query: 43.4003 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=120 md=80000 heap_factor=0.12
+
+--- Indexing | nb = 250 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=120 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=141550298 avg_docs_per_block=21.013 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241747 ms (4.02912 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 150558 ms (2.5093 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=120 md=80000 heap_factor=0.12
+  Average Recall@30 = 0.938891
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 150559 ms (2.50932 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1398.26 avg_blocks_skipped=0.00144844 avg_docs_examined=80000 avg_docs_popped=155.398
+
+[TIME-QUERY] Average Time per Query: 43.615 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=120 md=80000 heap_factor=0.1
+
+--- Indexing | nb = 250 | nd = 120 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=120 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=141550298 avg_docs_per_block=21.013 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240737 ms (4.01228 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 149835 ms (2.49725 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=120 md=80000 heap_factor=0.1
+  Average Recall@30 = 0.938891
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 149835 ms (2.49725 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1398.26 avg_blocks_skipped=0.000289687 avg_docs_examined=80000 avg_docs_popped=155.398
+
+[TIME-QUERY] Average Time per Query: 43.4053 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=100 md=60000 heap_factor=0.15
+
+--- Indexing | nb = 250 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=100 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=131995960 avg_docs_per_block=19.5946 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241705 ms (4.02842 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 113069 ms (1.88448 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=100 md=60000 heap_factor=0.15
+  Average Recall@30 = 0.915089
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 113069 ms (1.88448 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1190.87 avg_blocks_skipped=0.00260718 avg_docs_examined=60000 avg_docs_popped=153.379
+
+[TIME-QUERY] Average Time per Query: 32.7546 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=100 md=60000 heap_factor=0.12
+
+--- Indexing | nb = 250 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=100 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=131995960 avg_docs_per_block=19.5946 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241283 ms (4.02138 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 114327 ms (1.90545 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=100 md=60000 heap_factor=0.12
+  Average Recall@30 = 0.915089
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 114328 ms (1.90547 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1190.87 avg_blocks_skipped=0.000869061 avg_docs_examined=60000 avg_docs_popped=153.379
+
+[TIME-QUERY] Average Time per Query: 33.1194 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=100 md=60000 heap_factor=0.1
+
+--- Indexing | nb = 250 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=100 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=131995960 avg_docs_per_block=19.5946 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241128 ms (4.0188 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 112851 ms (1.88085 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=100 md=60000 heap_factor=0.1
+  Average Recall@30 = 0.915089
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 112852 ms (1.88087 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1190.87 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=153.379
+
+[TIME-QUERY] Average Time per Query: 32.6918 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=100 md=70000 heap_factor=0.15
+
+--- Indexing | nb = 250 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=100 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=131995960 avg_docs_per_block=19.5946 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 240778 ms (4.01297 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 131844 ms (2.1974 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=100 md=70000 heap_factor=0.15
+  Average Recall@30 = 0.928751
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 131844 ms (2.1974 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1375.56 avg_blocks_skipped=0.00347625 avg_docs_examined=70000 avg_docs_popped=153.982
+
+[TIME-QUERY] Average Time per Query: 38.1935 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=100 md=70000 heap_factor=0.12
+
+--- Indexing | nb = 250 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=100 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=131995960 avg_docs_per_block=19.5946 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 239054 ms (3.98423 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 132167 ms (2.20278 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=100 md=70000 heap_factor=0.12
+  Average Recall@30 = 0.928751
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 132168 ms (2.2028 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1375.56 avg_blocks_skipped=0.00144844 avg_docs_examined=70000 avg_docs_popped=153.982
+
+[TIME-QUERY] Average Time per Query: 38.2874 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=100 md=70000 heap_factor=0.1
+
+--- Indexing | nb = 250 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=100 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=131995960 avg_docs_per_block=19.5946 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 243105 ms (4.05175 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 131968 ms (2.19947 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=100 md=70000 heap_factor=0.1
+  Average Recall@30 = 0.928751
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 131968 ms (2.19947 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1375.56 avg_blocks_skipped=0.000289687 avg_docs_examined=70000 avg_docs_popped=153.982
+
+[TIME-QUERY] Average Time per Query: 38.2294 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=100 md=80000 heap_factor=0.15
+
+--- Indexing | nb = 250 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=100 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=131995960 avg_docs_per_block=19.5946 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 244204 ms (4.07007 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 151088 ms (2.51813 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=100 md=80000 heap_factor=0.15
+  Average Recall@30 = 0.939344
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 151089 ms (2.51815 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1560.62 avg_blocks_skipped=0.00782155 avg_docs_examined=80000 avg_docs_popped=154.435
+
+[TIME-QUERY] Average Time per Query: 43.7685 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=100 md=80000 heap_factor=0.12
+
+--- Indexing | nb = 250 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=100 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=131995960 avg_docs_per_block=19.5946 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 245454 ms (4.0909 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 151021 ms (2.51702 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=100 md=80000 heap_factor=0.12
+  Average Recall@30 = 0.939344
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 151021 ms (2.51702 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1560.62 avg_blocks_skipped=0.00347625 avg_docs_examined=80000 avg_docs_popped=154.435
+
+[TIME-QUERY] Average Time per Query: 43.7488 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb=250 nd=100 md=80000 heap_factor=0.1
+
+--- Indexing | nb = 250 | nd = 100 ---
+[PROFILER_START] building_index memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=100 max_docs_to_visit=80000
+[INDEX_PROFILE] total_blocks=6736332 total_docs_in_blocks=131995960 avg_docs_per_block=19.5946 avg_blocks_per_dimension=220.704 empty_dimensions=1783
+[PROFILER_STOP] building_index: 245931 ms (4.09885 minutes)
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 151346 ms (2.52243 minutes)
+====================================================
+
+[RUN] k=2000 itr=3 nb=250 nd=100 md=80000 heap_factor=0.1
+  Average Recall@30 = 0.939344
+  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)
+====================================================
+[PROFILER_STOP] search_phase: 151346 ms (2.52243 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1560.62 avg_blocks_skipped=0.000579374 avg_docs_examined=80000 avg_docs_popped=154.435
+
+[TIME-QUERY] Average Time per Query: 43.843 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+[PROFILER_STOP] total_run_config_F2_k=2000_itr=3.json: 47364815 ms (789.414 minutes)
+
+=====================
+[CONFIG] Running config: config/fixed_engine_experiments_v1/config_F3_k=1500_itr=5.json
+[PROFILER_START] total_run_config_F3_k=1500_itr=5.json memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+[PARAMS] k=1500 itr=5 (base values)
+
+--- Clustering | k = 1500 | iterations = 5 ---
+[PROFILER_START] clustering memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/5 ---
+[PROFILER_START] clustering_iteration_1 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+[PROFILER_STOP] clustering_iteration_1: 1117089 ms (18.6181 minutes)
+
+--- Iteration 2/5 ---
+[PROFILER_START] clustering_iteration_2 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+[PROFILER_STOP] clustering_iteration_2: 1133533 ms (18.8922 minutes)
+
+--- Iteration 3/5 ---
+[PROFILER_START] clustering_iteration_3 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+[PROFILER_STOP] clustering_iteration_3: 1112028 ms (18.5338 minutes)
+
+--- Iteration 4/5 ---
+[PROFILER_START] clustering_iteration_4 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+[PROFILER_STOP] clustering_iteration_4: 1113422 ms (18.557 minutes)
+
+--- Iteration 5/5 ---
+[PROFILER_START] clustering_iteration_5 memory_start=13752745984 bytes (12.8082 GB) limit=16734404608 bytes (15.5851 GB)
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+[PROFILER_STOP] clustering_iteration_5: 1137501 ms (18.9583 minutes)
+[PROFILER_STOP] clustering: 5613660 ms (93.561 minutes)
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1674
+Largest Cluster Size: 8823
+Smallest Cluster Size: 110
+Empty Clusters: 0
+Cluster Size Deviation: 858.163
+Avg Similarity (Docs and its cluster assignments with dot product): 4.97891
+
+--- Summary Vectors for each cluster & Indexing ---
+[PROFILER_START] computing_summaries memory_start=13752614912 bytes (12.8081 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+[PROFILER_STOP] computing_summaries: 2491 ms (0.0415167 minutes)
+
+[RUN starts] k=1500 itr=5 nb=400 nd=150 md=60000 heap_factor=0.15
+
+--- Indexing | nb = 400 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752614912 bytes (12.8081 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=400 max_docs_per_block=150 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=10261308 total_docs_in_blocks=226454161 avg_docs_per_block=22.0687 avg_blocks_per_dimension=336.194 empty_dimensions=1783
+[PROFILER_STOP] building_index: 252277 ms (4.20462 minutes)
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13752614912 bytes (12.8081 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13752614912 bytes (12.8081 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 116235 ms (1.93725 minutes)
+====================================================
+
+[RUN] k=1500 itr=5 nb=400 nd=150 md=60000 heap_factor=0.15
+  Average Recall@30 = 0.841424
+  STATUS: FAIL (Tune pruning hyperparameter/clustering balance)
+====================================================
+[PROFILER_STOP] search_phase: 116236 ms (1.93727 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=985.797 avg_blocks_skipped=0.000869061 avg_docs_examined=60000 avg_docs_popped=152.196
+
+[TIME-QUERY] Average Time per Query: 33.6721 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=1500 itr=5 nb=400 nd=150 md=60000 heap_factor=0.12
+
+--- Indexing | nb = 400 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13752614912 bytes (12.8081 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=400 max_docs_per_block=150 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=10261308 total_docs_in_blocks=226454161 avg_docs_per_block=22.0687 avg_blocks_per_dimension=336.194 empty_dimensions=1783
+[PROFILER_STOP] building_index: 267738 ms (4.4623 minutes)
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13750906880 bytes (12.8065 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13750906880 bytes (12.8065 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 115552 ms (1.92587 minutes)
+====================================================
+
+[RUN] k=1500 itr=5 nb=400 nd=150 md=60000 heap_factor=0.12
+  Average Recall@30 = 0.841424
+  STATUS: FAIL (Tune pruning hyperparameter/clustering balance)
+====================================================
+[PROFILER_STOP] search_phase: 115553 ms (1.92588 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=985.797 avg_blocks_skipped=0.000579374 avg_docs_examined=60000 avg_docs_popped=152.196
+
+[TIME-QUERY] Average Time per Query: 33.4742 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=1500 itr=5 nb=400 nd=150 md=60000 heap_factor=0.1
+
+--- Indexing | nb = 400 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13750906880 bytes (12.8065 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=400 max_docs_per_block=150 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=10261308 total_docs_in_blocks=226454161 avg_docs_per_block=22.0687 avg_blocks_per_dimension=336.194 empty_dimensions=1783
+[PROFILER_STOP] building_index: 241800 ms (4.03 minutes)
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13750906880 bytes (12.8065 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13750906880 bytes (12.8065 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+[PROFILER_STOP] search_phase_top_n_30: 116313 ms (1.93855 minutes)
+====================================================
+
+[RUN] k=1500 itr=5 nb=400 nd=150 md=60000 heap_factor=0.1
+  Average Recall@30 = 0.841424
+  STATUS: FAIL (Tune pruning hyperparameter/clustering balance)
+====================================================
+[PROFILER_STOP] search_phase: 116314 ms (1.93857 minutes)
+[SEARCH_DEBUG_AVG] avg_blocks_entered=985.798 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=152.196
+
+[TIME-QUERY] Average Time per Query: 33.6947 ms
+
+[OK] Results saved to "results/fixed_engine_experiments_v1.csv"
+
+[RUN starts] k=1500 itr=5 nb=400 nd=150 md=70000 heap_factor=0.15
+
+--- Indexing | nb = 400 | nd = 150 ---
+[PROFILER_START] building_index memory_start=13750906880 bytes (12.8065 GB) limit=16734404608 bytes (15.5851 GB)
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=400 max_docs_per_block=150 max_docs_to_visit=70000
+[INDEX_PROFILE] total_blocks=10261308 total_docs_in_blocks=226454161 avg_docs_per_block=22.0687 avg_blocks_per_dimension=336.194 empty_dimensions=1783
+[PROFILER_STOP] building_index: 259551 ms (4.32585 minutes)
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+[PROFILER_START] search_phase memory_start=13750726656 bytes (12.8064 GB) limit=16734404608 bytes (15.5851 GB)
+
+--- Evaluating Recall@30 ---
+[PROFILER_START] search_phase_top_n_30 memory_start=13750726656 bytes (12.8064 GB) limit=16734404608 bytes (15.5851 GB)
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
