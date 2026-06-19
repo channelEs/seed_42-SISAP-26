@@ -22,6 +22,7 @@
 #include <filesystem>
 #include <limits>
 #include <cstdint>
+#include <cctype>
 #include <Eigen/Sparse>
 #include <hdf5.h>
 
@@ -84,10 +85,12 @@ static std::string buildParamsString(const ExecConfig& cfg) {
 }
 
 static std::filesystem::path buildSisapResultPath(
+    const std::filesystem::path& output_root,
     const std::string& task,
     const std::string& algo,
     const std::string& dataset,
-    const ExecConfig& cfg
+    const ExecConfig& cfg,
+    bool include_task_subdir
 ) {
     const std::string filename = sanitizeFilenameToken(algo)
         + "_"
@@ -100,7 +103,61 @@ static std::filesystem::path buildSisapResultPath(
         + "_hf" + toCompactFloatToken(cfg.heap_factor)
         + ".h5";
 
-    return std::filesystem::path("results") / task / filename;
+    if (include_task_subdir) {
+        return output_root / task / filename;
+    }
+    return output_root / filename;
+}
+
+static std::string parseJsonString(const std::string& json, const std::string& key, const std::string& defaultValue) {
+    if (json.empty()) {
+        return defaultValue;
+    }
+
+    std::string quotedKey = "\"" + key + "\"";
+    auto pos = json.find(quotedKey);
+    if (pos == std::string::npos) {
+        pos = json.find(key);
+        if (pos == std::string::npos) {
+            return defaultValue;
+        }
+    }
+
+    auto colon = json.find(':', pos);
+    if (colon == std::string::npos) {
+        return defaultValue;
+    }
+
+    auto first_quote = json.find('"', colon + 1);
+    if (first_quote == std::string::npos) {
+        return defaultValue;
+    }
+
+    auto second_quote = json.find('"', first_quote + 1);
+    if (second_quote == std::string::npos) {
+        return defaultValue;
+    }
+
+    return json.substr(first_quote + 1, second_quote - first_quote - 1);
+}
+
+static std::string normalizeTaskName(const std::string& raw_task, const std::string& fallback_task) {
+    if (raw_task.empty()) {
+        return fallback_task;
+    }
+
+    std::string compact;
+    compact.reserve(raw_task.size());
+    for (char ch : raw_task) {
+        if (std::isalnum(static_cast<unsigned char>(ch))) {
+            compact.push_back(static_cast<char>(std::tolower(static_cast<unsigned char>(ch))));
+        }
+    }
+
+    if (compact == "task1") return "task1";
+    if (compact == "task2") return "task2";
+    if (compact == "task3") return "task3";
+    return fallback_task;
 }
 
 static void writeStringRootAttribute(hid_t file, const char* key, const std::string& value) {
@@ -426,6 +483,9 @@ int main(int argc, char* argv[]) {
         std::string dataset = STATIC_DATASET;
         std::string task = STATIC_TASK;
         std::string config_folder = "clusters";
+        std::string input_h5_path;
+        std::string task_description_path;
+        std::filesystem::path output_root = "results";
 
         std::filesystem::path params_path = std::filesystem::path("config") / config_folder;
         std::vector<std::filesystem::path> config_paths;
@@ -439,7 +499,33 @@ int main(int argc, char* argv[]) {
                 task = argv[++i];
             } else if (arg == "--params" && i + 1 < argc) {
                 config_folder = argv[++i];
+            } else if (arg == "--input" && i + 1 < argc) {
+                input_h5_path = argv[++i];
+            } else if (arg == "--task-description" && i + 1 < argc) {
+                task_description_path = argv[++i];
+            } else if (arg == "--output" && i + 1 < argc) {
+                output_root = std::filesystem::path(argv[++i]);
             }
+        }
+
+        if (!task_description_path.empty()) {
+            std::ifstream task_desc_file(task_description_path);
+            if (task_desc_file.is_open()) {
+                std::stringstream task_desc_buffer;
+                task_desc_buffer << task_desc_file.rdbuf();
+                const std::string task_desc_json = task_desc_buffer.str();
+                const std::string parsed_task = parseJsonString(task_desc_json, "task", "");
+                const std::string parsed_task_name = parseJsonString(task_desc_json, "task_name", "");
+                if (!parsed_task.empty()) {
+                    task = normalizeTaskName(parsed_task, task);
+                } else if (!parsed_task_name.empty()) {
+                    task = normalizeTaskName(parsed_task_name, task);
+                }
+            }
+        }
+
+        if (!input_h5_path.empty()) {
+            dataset = std::filesystem::path(input_h5_path).stem().string();
         }
         if (DEV) {
             params_path = std::filesystem::path("config") / config_folder;
@@ -476,8 +562,8 @@ int main(int argc, char* argv[]) {
         }
 
 
-        // Dynamically resolve dataset file pathway using the mount layout
-        std::string dataset_path = "data/" + dataset + ".h5";
+        // Resolve dataset either from TIRA --input or local fallback layout.
+        std::string dataset_path = input_h5_path.empty() ? ("data/" + dataset + ".h5") : input_h5_path;
         std::cout << "[SISAP] Running " << task << " on dataset: " << dataset_path << std::endl;
         if (DEV) {
             std::cout << "[CONFIG] Executing " << config_paths.size() << " config files from `" << params_path.string() << "`" << std::endl;
@@ -632,7 +718,14 @@ int main(int argc, char* argv[]) {
 
                     const std::string algo_name = "chnsw";
                     const std::string params_str = buildParamsString(exec_config);
-                    const std::filesystem::path sisap_output_path = buildSisapResultPath(task, algo_name, dataset, exec_config);
+                    const std::filesystem::path sisap_output_path = buildSisapResultPath(
+                        output_root,
+                        task,
+                        algo_name,
+                        dataset,
+                        exec_config,
+                        DEV
+                    );
                     const double build_time_seconds = clustering_time_sec + indexing_time_sec;
                     const double query_time_seconds = static_cast<double>(search_time) / 1000.0;
                     writeSisapResultH5(
