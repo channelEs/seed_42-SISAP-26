@@ -1,0 +1,1 @@
+k,itr,nb,nd,md,heap_factor,Avg_Cluster_Size,Median_Cluster_Size,Avg_Cluster_Similarity,Avg_Blocks_Entered,Avg_Blocks_Skipped,Avg_Docs_Examined,Avg_Docs_Popped,Clustering_Time_s,Indexing_Time_s,Recall@30,Avg_Time_Per_Query_ms,Search_Time_s,Total_Time_s

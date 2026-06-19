@@ -20,7 +20,169 @@
 #include <algorithm>
 #include <random>
 #include <filesystem>
+#include <limits>
+#include <cstdint>
 #include <Eigen/Sparse>
+#include <hdf5.h>
+
+bool DEV = false;
+
+static const std::string STATIC_DATASET = "nq";
+static const std::string STATIC_TASK = "task3";
+static const std::string STATIC_RESULTS_FILE = "static_prod.csv";
+
+static ExecConfig getStaticExecConfig() {
+    ExecConfig cfg;
+    cfg.num_clusters = 2000;
+    cfg.max_iterations = 3;
+    cfg.max_blocks_per_dimension = 250;
+    cfg.max_docs_per_block = 150;
+    cfg.max_docs_to_visit = 60000;
+    cfg.heap_factor = 0.15f;
+    cfg.log_debug = false;
+    cfg.mem_debug = false;
+    return cfg;
+}
+
+static std::string sanitizeFilenameToken(const std::string& value) {
+    std::string out = value;
+    for (char& ch : out) {
+        const bool is_alnum = (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9');
+        if (!is_alnum && ch != '-' && ch != '_') {
+            ch = '_';
+        }
+    }
+    return out;
+}
+
+static std::string toCompactFloatToken(float value, int precision = 3) {
+    std::ostringstream oss;
+    oss.setf(std::ios::fixed);
+    oss.precision(precision);
+    oss << value;
+    std::string token = oss.str();
+    while (!token.empty() && token.back() == '0') {
+        token.pop_back();
+    }
+    if (!token.empty() && token.back() == '.') {
+        token.pop_back();
+    }
+    std::replace(token.begin(), token.end(), '.', 'p');
+    std::replace(token.begin(), token.end(), '-', 'm');
+    return token.empty() ? "0" : token;
+}
+
+static std::string buildParamsString(const ExecConfig& cfg) {
+    std::ostringstream params;
+    params << "k=" << cfg.num_clusters
+           << ",itr=" << cfg.max_iterations
+           << ",nb=" << cfg.max_blocks_per_dimension
+           << ",nd=" << cfg.max_docs_per_block
+           << ",md=" << cfg.max_docs_to_visit
+           << ",heap_factor=" << cfg.heap_factor;
+    return params.str();
+}
+
+static std::filesystem::path buildSisapResultPath(
+    const std::string& task,
+    const std::string& algo,
+    const std::string& dataset,
+    const ExecConfig& cfg
+) {
+    const std::string filename = sanitizeFilenameToken(algo)
+        + "_"
+        + sanitizeFilenameToken(dataset)
+        + "_k" + std::to_string(cfg.num_clusters)
+        + "_itr" + std::to_string(cfg.max_iterations)
+        + "_nb" + std::to_string(cfg.max_blocks_per_dimension)
+        + "_nd" + std::to_string(cfg.max_docs_per_block)
+        + "_md" + std::to_string(cfg.max_docs_to_visit)
+        + "_hf" + toCompactFloatToken(cfg.heap_factor)
+        + ".h5";
+
+    return std::filesystem::path("results") / task / filename;
+}
+
+static void writeStringRootAttribute(hid_t file, const char* key, const std::string& value) {
+    hid_t str_type = H5Tcopy(H5T_C_S1);
+    H5Tset_size(str_type, value.size() + 1);
+    H5Tset_strpad(str_type, H5T_STR_NULLTERM);
+
+    hid_t space = H5Screate(H5S_SCALAR);
+    hid_t attr = H5Acreate2(file, key, str_type, space, H5P_DEFAULT, H5P_DEFAULT);
+    H5Awrite(attr, str_type, value.c_str());
+
+    H5Aclose(attr);
+    H5Sclose(space);
+    H5Tclose(str_type);
+}
+
+template <typename T>
+static void writeNumericRootAttribute(hid_t file, const char* key, hid_t type, const T& value) {
+    hid_t space = H5Screate(H5S_SCALAR);
+    hid_t attr = H5Acreate2(file, key, type, space, H5P_DEFAULT, H5P_DEFAULT);
+    H5Awrite(attr, type, &value);
+    H5Aclose(attr);
+    H5Sclose(space);
+}
+
+static void writeSisapResultH5(
+    const std::filesystem::path& output_path,
+    const std::vector<std::vector<std::pair<float, int>>>& evaluation_results,
+    int top_k,
+    const std::string& algo,
+    const std::string& task,
+    double build_time_seconds,
+    double query_time_seconds,
+    const std::string& params
+) {
+    const int n_queries = static_cast<int>(evaluation_results.size());
+    if (n_queries <= 0 || top_k <= 0) {
+        throw std::runtime_error("Invalid shape for SISAP result export.");
+    }
+
+    std::filesystem::create_directories(output_path.parent_path());
+
+    const size_t total = static_cast<size_t>(n_queries) * static_cast<size_t>(top_k);
+    std::vector<int32_t> knns_flat(total, 0);
+    std::vector<float> dists_flat(total, std::numeric_limits<float>::infinity());
+
+    for (int q = 0; q < n_queries; ++q) {
+        const auto& hits = evaluation_results[q];
+        const int filled = std::min<int>(top_k, static_cast<int>(hits.size()));
+        for (int i = 0; i < filled; ++i) {
+            const size_t pos = static_cast<size_t>(q) * static_cast<size_t>(top_k) + static_cast<size_t>(i);
+            const int doc_id_zero_based = hits[i].second;
+            knns_flat[pos] = (doc_id_zero_based >= 0) ? static_cast<int32_t>(doc_id_zero_based + 1) : 0;
+            dists_flat[pos] = hits[i].first;
+        }
+    }
+
+    hid_t file = H5Fcreate(output_path.string().c_str(), H5F_ACC_TRUNC, H5P_DEFAULT, H5P_DEFAULT);
+    if (file < 0) {
+        throw std::runtime_error("Failed to create HDF5 result file: " + output_path.string());
+    }
+
+    hsize_t dims[2] = {static_cast<hsize_t>(n_queries), static_cast<hsize_t>(top_k)};
+    hid_t space = H5Screate_simple(2, dims, nullptr);
+
+    hid_t knns_ds = H5Dcreate2(file, "knns", H5T_NATIVE_INT32, space, H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
+    hid_t dists_ds = H5Dcreate2(file, "dists", H5T_NATIVE_FLOAT, space, H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
+
+    H5Dwrite(knns_ds, H5T_NATIVE_INT32, H5S_ALL, H5S_ALL, H5P_DEFAULT, knns_flat.data());
+    H5Dwrite(dists_ds, H5T_NATIVE_FLOAT, H5S_ALL, H5S_ALL, H5P_DEFAULT, dists_flat.data());
+
+    writeStringRootAttribute(file, "algo", algo);
+    writeStringRootAttribute(file, "task", task);
+    writeStringRootAttribute(file, "params", params);
+    writeNumericRootAttribute<double>(file, "buildtime", H5T_NATIVE_DOUBLE, build_time_seconds);
+    writeNumericRootAttribute<double>(file, "querytime", H5T_NATIVE_DOUBLE, query_time_seconds);
+
+    H5Dclose(knns_ds);
+    H5Dclose(dists_ds);
+    H5Sclose(space);
+    H5Fclose(file);
+}
 
 static int parseJsonInt(const std::string& json, const std::string& key, int defaultValue) {
     if (json.empty()) {
@@ -189,7 +351,13 @@ static std::vector<ExecConfig> loadConfigSetFromFile(const std::string& filepath
 
     baseConfig.num_clusters = parseJsonInt(json_content, "k", 200);
     baseConfig.max_iterations = parseJsonInt(json_content, "itr", 3);
-    
+    if (DEV) {
+        baseConfig.log_debug = true;
+    } else {
+        baseConfig.log_debug = false;
+    }
+    baseConfig.mem_debug = false;
+
     auto nbs = parseJsonIntArray(json_content, "nb");
     if (nbs.empty()) {
         nbs.push_back(parseJsonInt(json_content, "nb", 0));
@@ -207,7 +375,7 @@ static std::vector<ExecConfig> loadConfigSetFromFile(const std::string& filepath
 
     auto heap_factors = parseJsonFloatArray(json_content, "heap_factor");
     if (heap_factors.empty()) {
-        heap_factors.push_back(parseJsonFloat(json_content, "heap_factor", 0.60f));
+        heap_factors.push_back(parseJsonFloat(json_content, "heap_factor", 0.15f));
     }
 
     for (int nb : nbs) {
@@ -255,11 +423,14 @@ int main(int argc, char* argv[]) {
         });
 
         // Default fallbacks if flags aren't passed
-        std::string dataset = "fiqa-dev"; 
-        std::string task = "task3";
+        std::string dataset = STATIC_DATASET;
+        std::string task = STATIC_TASK;
         std::string config_folder = "clusters";
 
-        // Parse command line arguments from SISAP
+        std::filesystem::path params_path = std::filesystem::path("config") / config_folder;
+        std::vector<std::filesystem::path> config_paths;
+
+        // Parse command line arguments from SISAP only in development mode
         for (int i = 1; i < argc; ++i) {
             std::string arg = argv[i];
             if (arg == "--dataset" && i + 1 < argc) {
@@ -270,38 +441,49 @@ int main(int argc, char* argv[]) {
                 config_folder = argv[++i];
             }
         }
-
-        // Parse the config path, which can be a single JSON file or a directory of JSON configs
-        std::filesystem::path params_path = std::filesystem::path("config") / config_folder;
-        auto config_paths = getConfigFiles(params_path);
-        if (config_paths.empty()) {
-            std::cerr << "[ERROR] No JSON config files found at: " << params_path << "\n";
-            return 1;
+        if (DEV) {
+            params_path = std::filesystem::path("config") / config_folder;
+            config_paths = getConfigFiles(params_path);
+            if (config_paths.empty()) {
+                std::cerr << "[ERROR] No JSON config files found at: " << params_path << "\n";
+                return 1;
+            }
+        } else {
+            config_paths.push_back("STATIC_PROD_CONFIG");
         }
 
-        std::filesystem::path results_csv = std::filesystem::path("results") / (config_folder + ".csv");
+        std::filesystem::path results_csv = DEV
+            ? (std::filesystem::path("results") / (config_folder + ".csv"))
+            : (std::filesystem::path("results") / STATIC_RESULTS_FILE);
 
-        bool new_results_file = !std::filesystem::exists(results_csv);
-        std::ofstream csv_file(results_csv, std::ios::app);
-        csv_file << std::unitbuf;
-        
-        if (!csv_file.is_open()) {
-            std::cerr << "[ERROR] Could not open results file: " << results_csv << "\n";
-            return 1;
+        std::ofstream csv_file;
+        if (DEV) {
+            bool new_results_file = !std::filesystem::exists(results_csv);
+            csv_file.open(results_csv, std::ios::app);
+            csv_file << std::unitbuf;
+            
+            if (!csv_file.is_open()) {
+                std::cerr << "[ERROR] Could not open results file: " << results_csv << "\n";
+                return 1;
+            }
+            if (new_results_file) {
+                csv_file << "k,itr,nb,nd,md,heap_factor,"
+                         << "Avg_Cluster_Size,Median_Cluster_Size,Avg_Cluster_Similarity,"
+                         << "Avg_Blocks_Entered,Avg_Blocks_Skipped,Avg_Docs_Examined,Avg_Docs_Popped,"
+                         << "Clustering_Time_s,Indexing_Time_s,"
+                         << "Recall@30,Avg_Time_Per_Query_ms,Search_Time_s,Total_Time_s\n";
+            }
         }
 
-        if (new_results_file) {
-            csv_file << "k,itr,nb,nd,md,heap_factor,"
-                     << "Avg_Cluster_Size,Median_Cluster_Size,Avg_Cluster_Similarity,"
-                     << "Avg_Blocks_Entered,Avg_Blocks_Skipped,Avg_Docs_Examined,Avg_Docs_Popped,"
-                     << "Clustering_Time_s,Indexing_Time_s,"
-                     << "Recall@30,Avg_Time_Per_Query_ms,Search_Time_s,Total_Time_s\n";
-        }
 
         // Dynamically resolve dataset file pathway using the mount layout
         std::string dataset_path = "data/" + dataset + ".h5";
         std::cout << "[SISAP] Running " << task << " on dataset: " << dataset_path << std::endl;
-        std::cout << "[CONFIG] Executing " << config_paths.size() << " config file(s) from `" << params_path.string() << "`" << std::endl;
+        if (DEV) {
+            std::cout << "[CONFIG] Executing " << config_paths.size() << " config files from `" << params_path.string() << "`" << std::endl;
+        } else {
+            std::cout << "[CONFIG] Production exec" << std::endl;
+        }
 
         std::cout << "\n--- Read data (" << dataset_path << ") ---" << std::endl;
         HDF5SparseLoader loader(dataset_path);
@@ -316,14 +498,20 @@ int main(int argc, char* argv[]) {
             std::cout << "\n=====================\n";
             std::cout << "[CONFIG] Running config: " << config_path.string() << "\n";
 
-            auto exec_configs = loadConfigSetFromFile(config_path.string());
+            std::vector<ExecConfig> exec_configs;
+            if (DEV) {
+                exec_configs = loadConfigSetFromFile(config_path.string());
+            } else {
+                exec_configs.push_back(getStaticExecConfig());
+            }
+
             if (exec_configs.empty()) {
                 std::cerr << "[SKIP] No valid configurations could be parsed from " << config_path.string() << "\n";
                 continue;
             }
             const ExecConfig base_config = exec_configs.front();
 
-            ExecutionProfiler run_profiler(base_config.mem_debug);
+            ExecutionProfiler run_profiler(base_config.mem_debug, base_config.log_debug);
             run_profiler.start("total_run_" + config_path.filename().string());
 
             std::cout << "[PARAMS] k=" << base_config.num_clusters
@@ -351,7 +539,7 @@ int main(int argc, char* argv[]) {
 
             auto gold_standard = loader.loadGoldStandard("otest/knns");
             int num_eval_queries = query.rows();
-            long long clustering_time_sec = run_profiler.getDuration("clustering") / 6000.0;
+            double clustering_time_sec = static_cast<double>(run_profiler.getDuration("clustering")) / 1000.0;
 
             for (const auto& exec_config : exec_configs) {
                 std::cout << "\n[RUN starts] k=" << exec_config.num_clusters
@@ -380,7 +568,6 @@ int main(int argc, char* argv[]) {
 
                     std::cout << "\n--- SEARCH PHASE ---" << std::endl;
                     float average_recall_30 = 0.0f;
-                    std::vector<int> top_n_values = {30};
                     run_profiler.start("search_phase");
                     
                     int top_n_to_check= 30;
@@ -422,9 +609,9 @@ int main(int argc, char* argv[]) {
                         << "\n";
                     std::cout << "  Average Recall@" << top_n_to_check << " = " << average_recall_30 << "\n";
                     if (average_recall_30 >= 0.90f) {
-                        std::cout << "  STATUS: SUCCESS (Passed Challenge Benchmark Threshold)\n";
+                        std::cout << "  STATUS: SUCCESS >= 0.90\n";
                     } else {
-                        std::cout << "  STATUS: FAIL (Tune pruning hyperparameter/clustering balance)\n";
+                        std::cout << "  STATUS: FAIL < 0.90 \n";
                     }
                     std::cout << "====================================================\n";
 
@@ -437,33 +624,52 @@ int main(int argc, char* argv[]) {
                     search_engine_ref.getAvgDebugStats(avg_blocks_entered, avg_blocks_skipped, avg_docs_examined, avg_docs_popped);
                     search_engine_ref.printAvgDebugStats();
 
-                    long long indexing_time_sec = run_profiler.getDuration("building_index") / 6000.0;
+                    double indexing_time_sec = static_cast<double>(run_profiler.getDuration("building_index")) / 1000.0;
                     long long search_time = run_profiler.getDuration("search_phase");
                     double avg_time_per_query_ms = (num_eval_queries > 0) ? static_cast<double>(search_time) / num_eval_queries : 0.0;
                     std::cout << "\n[TIME-QUERY] Average Time per Query: " << avg_time_per_query_ms << " ms\n";
-                    double total_time_sec = clustering_time_sec + indexing_time_sec + search_time / 6000.0;
+                    double total_time_sec = clustering_time_sec + indexing_time_sec + (static_cast<double>(search_time) / 1000.0);
 
-                    csv_file << exec_config.num_clusters << ","
-                             << exec_config.max_iterations << ","
-                             << exec_config.max_blocks_per_dimension << ","
-                             << exec_config.max_docs_per_block << ","
-                             << exec_config.max_docs_to_visit << ","
-                             << exec_config.heap_factor << ","
-                             << clustering_metrics.avg_cluster_size << ","
-                             << clustering_metrics.median_cluster_size << ","
-                             << clustering_metrics.avg_intra_cluster_similarity << ","
-                             << avg_blocks_entered << ","
-                             << avg_blocks_skipped << ","
-                             << avg_docs_examined << ","
-                             << avg_docs_popped << ","
-                             << clustering_time_sec << ","
-                             << indexing_time_sec << ","
-                             << average_recall_30 << ","
-                             << avg_time_per_query_ms << ","
-                             << search_time / 6000.0 << ","
-                             << total_time_sec << std::endl;
+                    const std::string algo_name = "chnsw";
+                    const std::string params_str = buildParamsString(exec_config);
+                    const std::filesystem::path sisap_output_path = buildSisapResultPath(task, algo_name, dataset, exec_config);
+                    const double build_time_seconds = clustering_time_sec + indexing_time_sec;
+                    const double query_time_seconds = static_cast<double>(search_time) / 1000.0;
+                    writeSisapResultH5(
+                        sisap_output_path,
+                        evaluation_results,
+                        top_n_to_check,
+                        algo_name,
+                        task,
+                        build_time_seconds,
+                        query_time_seconds,
+                        params_str
+                    );
+                    std::cout << "[OK] SISAP HDF5 saved to " << sisap_output_path << "\n";
 
-                    std::cout << "\n[OK] Results saved to " << results_csv << "\n";
+                    if (DEV) {
+                        csv_file << exec_config.num_clusters << ","
+                                << exec_config.max_iterations << ","
+                                << exec_config.max_blocks_per_dimension << ","
+                                << exec_config.max_docs_per_block << ","
+                                << exec_config.max_docs_to_visit << ","
+                                << exec_config.heap_factor << ","
+                                << clustering_metrics.avg_cluster_size << ","
+                                << clustering_metrics.median_cluster_size << ","
+                                << clustering_metrics.avg_intra_cluster_similarity << ","
+                                << avg_blocks_entered << ","
+                                << avg_blocks_skipped << ","
+                                << avg_docs_examined << ","
+                                << avg_docs_popped << ","
+                                << clustering_time_sec << ","
+                                << indexing_time_sec << ","
+                                << average_recall_30 << ","
+                                << avg_time_per_query_ms << ","
+                                << search_time / 1000.0 << ","
+                                << total_time_sec << std::endl;
+
+                        std::cout << "\n[OK] Results saved to " << results_csv << "\n";
+                    }
                 } catch (const std::bad_alloc& e) {
                     std::cerr << "[SKIP] Run skipped due to memory allocation failure: " << e.what() << "\n";
                     continue;

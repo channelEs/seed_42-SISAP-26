@@ -100,18 +100,21 @@ static double bytesToGB(uint64_t bytes) {
 
 class ExecutionProfiler {
     bool mem_debug = false;
+    bool log_events = true;
 
 public:
     ExecutionProfiler() = default;
-    ExecutionProfiler(bool mem_debug) : mem_debug(mem_debug) {};
+    ExecutionProfiler(bool mem_debug, bool log_events = true) : mem_debug(mem_debug), log_events(log_events) {};
     
     void start(const std::string& tag) {
         start_times[tag] = std::chrono::high_resolution_clock::now();
         start_memory[tag] = getCurrentProcessRSSBytes();
-        uint64_t limit = getEffectiveMemoryLimitBytes();
-        std::cout << "[PROFILER_START] " << tag
-                  << " memory_start=" << start_memory[tag] << " bytes (" << bytesToGB(start_memory[tag]) << " GB)"
-                  << " limit=" << limit << " bytes (" << bytesToGB(limit) << " GB)" << std::endl;
+        if (log_events) {
+            uint64_t limit = getEffectiveMemoryLimitBytes();
+            std::cout << "[PROFILER_START] " << tag
+                      << " memory_start=" << start_memory[tag] << " bytes (" << bytesToGB(start_memory[tag]) << " GB)"
+                      << " limit=" << limit << " bytes (" << bytesToGB(limit) << " GB)" << std::endl;
+        }
     }
 
     void stop(const std::string& tag) {
@@ -126,8 +129,13 @@ public:
             start_mem = mem_it->second;
         }
         int64_t delta = static_cast<int64_t>(end_mem) - static_cast<int64_t>(start_mem);
-        uint64_t limit = getEffectiveMemoryLimitBytes();
-        std::cout << "[PROFILER_STOP] " << tag << ": " << duration << " ms (" << duration / 60000.0 << " minutes)" << std::endl;
+        uint64_t limit = 0;
+        if (log_events || mem_debug) {
+            limit = getEffectiveMemoryLimitBytes();
+        }
+        if (log_events) {
+            std::cout << "[PROFILER_STOP] " << tag << ": " << duration << " ms (" << duration / 60000.0 << " minutes)" << std::endl;
+        }
         
         if (mem_debug) {
             std::cout << "[PROFILER_MEM] " << tag
