@@ -3,6 +3,7 @@
 #include <sstream>
 #include <new>
 #include "utils/hdf5_sparse_loader.h"
+#include "utils/runtime_helpers.h"
 #include "utils/types.h"
 #include "utils/metrics.h"
 #include "clustering_engine.h"
@@ -20,458 +21,10 @@
 #include <algorithm>
 #include <random>
 #include <filesystem>
-#include <limits>
-#include <cstdint>
-#include <cctype>
 #include <Eigen/Sparse>
-#include <hdf5.h>
-
-bool DEV = false;
 
 static const std::string STATIC_DATASET = "nq";
 static const std::string STATIC_TASK = "task3";
-static const std::string STATIC_RESULTS_FILE = "static_prod.csv";
-
-static ExecConfig getStaticExecConfig() {
-    ExecConfig cfg;
-    cfg.num_clusters = 2000;
-    cfg.max_iterations = 3;
-    cfg.max_blocks_per_dimension = 250;
-    cfg.max_docs_per_block = 150;
-    cfg.max_docs_to_visit = 60000;
-    cfg.heap_factor = 0.15f;
-    cfg.log_debug = false;
-    cfg.mem_debug = false;
-    return cfg;
-}
-
-static std::string sanitizeFilenameToken(const std::string& value) {
-    std::string out = value;
-    for (char& ch : out) {
-        const bool is_alnum = (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9');
-        if (!is_alnum && ch != '-' && ch != '_') {
-            ch = '_';
-        }
-    }
-    return out;
-}
-
-static std::string toCompactFloatToken(float value, int precision = 3) {
-    std::ostringstream oss;
-    oss.setf(std::ios::fixed);
-    oss.precision(precision);
-    oss << value;
-    std::string token = oss.str();
-    while (!token.empty() && token.back() == '0') {
-        token.pop_back();
-    }
-    if (!token.empty() && token.back() == '.') {
-        token.pop_back();
-    }
-    std::replace(token.begin(), token.end(), '.', 'p');
-    std::replace(token.begin(), token.end(), '-', 'm');
-    return token.empty() ? "0" : token;
-}
-
-static std::string buildParamsString(const ExecConfig& cfg) {
-    std::ostringstream params;
-    params << "k=" << cfg.num_clusters
-           << ",itr=" << cfg.max_iterations
-           << ",nb=" << cfg.max_blocks_per_dimension
-           << ",nd=" << cfg.max_docs_per_block
-           << ",md=" << cfg.max_docs_to_visit
-           << ",heap_factor=" << cfg.heap_factor;
-    return params.str();
-}
-
-static std::filesystem::path buildSisapResultPath(
-    const std::filesystem::path& output_root,
-    const std::string& task,
-    const std::string& algo,
-    const std::string& dataset,
-    const ExecConfig& cfg,
-    bool include_task_subdir
-) {
-    const std::string filename = sanitizeFilenameToken(algo)
-        + "_"
-        + sanitizeFilenameToken(dataset)
-        + "_k" + std::to_string(cfg.num_clusters)
-        + "_itr" + std::to_string(cfg.max_iterations)
-        + "_nb" + std::to_string(cfg.max_blocks_per_dimension)
-        + "_nd" + std::to_string(cfg.max_docs_per_block)
-        + "_md" + std::to_string(cfg.max_docs_to_visit)
-        + "_hf" + toCompactFloatToken(cfg.heap_factor)
-        + ".h5";
-
-    if (include_task_subdir) {
-        return output_root / task / filename;
-    }
-    return output_root / filename;
-}
-
-static std::string parseJsonString(const std::string& json, const std::string& key, const std::string& defaultValue) {
-    if (json.empty()) {
-        return defaultValue;
-    }
-
-    std::string quotedKey = "\"" + key + "\"";
-    auto pos = json.find(quotedKey);
-    if (pos == std::string::npos) {
-        pos = json.find(key);
-        if (pos == std::string::npos) {
-            return defaultValue;
-        }
-    }
-
-    auto colon = json.find(':', pos);
-    if (colon == std::string::npos) {
-        return defaultValue;
-    }
-
-    auto first_quote = json.find('"', colon + 1);
-    if (first_quote == std::string::npos) {
-        return defaultValue;
-    }
-
-    auto second_quote = json.find('"', first_quote + 1);
-    if (second_quote == std::string::npos) {
-        return defaultValue;
-    }
-
-    return json.substr(first_quote + 1, second_quote - first_quote - 1);
-}
-
-static std::string normalizeTaskName(const std::string& raw_task, const std::string& fallback_task) {
-    if (raw_task.empty()) {
-        return fallback_task;
-    }
-
-    std::string compact;
-    compact.reserve(raw_task.size());
-    for (char ch : raw_task) {
-        if (std::isalnum(static_cast<unsigned char>(ch))) {
-            compact.push_back(static_cast<char>(std::tolower(static_cast<unsigned char>(ch))));
-        }
-    }
-
-    if (compact == "task1") return "task1";
-    if (compact == "task2") return "task2";
-    if (compact == "task3") return "task3";
-    return fallback_task;
-}
-
-static void writeStringRootAttribute(hid_t file, const char* key, const std::string& value) {
-    hid_t str_type = H5Tcopy(H5T_C_S1);
-    H5Tset_size(str_type, value.size() + 1);
-    H5Tset_strpad(str_type, H5T_STR_NULLTERM);
-
-    hid_t space = H5Screate(H5S_SCALAR);
-    hid_t attr = H5Acreate2(file, key, str_type, space, H5P_DEFAULT, H5P_DEFAULT);
-    H5Awrite(attr, str_type, value.c_str());
-
-    H5Aclose(attr);
-    H5Sclose(space);
-    H5Tclose(str_type);
-}
-
-template <typename T>
-static void writeNumericRootAttribute(hid_t file, const char* key, hid_t type, const T& value) {
-    hid_t space = H5Screate(H5S_SCALAR);
-    hid_t attr = H5Acreate2(file, key, type, space, H5P_DEFAULT, H5P_DEFAULT);
-    H5Awrite(attr, type, &value);
-    H5Aclose(attr);
-    H5Sclose(space);
-}
-
-static void writeSisapResultH5(
-    const std::filesystem::path& output_path,
-    const std::vector<std::vector<std::pair<float, int>>>& evaluation_results,
-    int top_k,
-    const std::string& algo,
-    const std::string& task,
-    double build_time_seconds,
-    double query_time_seconds,
-    const std::string& params
-) {
-    const int n_queries = static_cast<int>(evaluation_results.size());
-    if (n_queries <= 0 || top_k <= 0) {
-        throw std::runtime_error("Invalid shape for SISAP result export.");
-    }
-
-    std::filesystem::create_directories(output_path.parent_path());
-
-    const size_t total = static_cast<size_t>(n_queries) * static_cast<size_t>(top_k);
-    std::vector<int32_t> knns_flat(total, 0);
-    std::vector<float> dists_flat(total, std::numeric_limits<float>::infinity());
-
-    for (int q = 0; q < n_queries; ++q) {
-        const auto& hits = evaluation_results[q];
-        const int filled = std::min<int>(top_k, static_cast<int>(hits.size()));
-        for (int i = 0; i < filled; ++i) {
-            const size_t pos = static_cast<size_t>(q) * static_cast<size_t>(top_k) + static_cast<size_t>(i);
-            const int doc_id_zero_based = hits[i].second;
-            knns_flat[pos] = (doc_id_zero_based >= 0) ? static_cast<int32_t>(doc_id_zero_based + 1) : 0;
-            dists_flat[pos] = hits[i].first;
-        }
-    }
-
-    hid_t file = H5Fcreate(output_path.string().c_str(), H5F_ACC_TRUNC, H5P_DEFAULT, H5P_DEFAULT);
-    if (file < 0) {
-        throw std::runtime_error("Failed to create HDF5 result file: " + output_path.string());
-    }
-
-    hsize_t dims[2] = {static_cast<hsize_t>(n_queries), static_cast<hsize_t>(top_k)};
-    hid_t space = H5Screate_simple(2, dims, nullptr);
-
-    hid_t knns_ds = H5Dcreate2(file, "knns", H5T_NATIVE_INT32, space, H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
-    hid_t dists_ds = H5Dcreate2(file, "dists", H5T_NATIVE_FLOAT, space, H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
-
-    H5Dwrite(knns_ds, H5T_NATIVE_INT32, H5S_ALL, H5S_ALL, H5P_DEFAULT, knns_flat.data());
-    H5Dwrite(dists_ds, H5T_NATIVE_FLOAT, H5S_ALL, H5S_ALL, H5P_DEFAULT, dists_flat.data());
-
-    writeStringRootAttribute(file, "algo", algo);
-    writeStringRootAttribute(file, "task", task);
-    writeStringRootAttribute(file, "params", params);
-    writeNumericRootAttribute<double>(file, "buildtime", H5T_NATIVE_DOUBLE, build_time_seconds);
-    writeNumericRootAttribute<double>(file, "querytime", H5T_NATIVE_DOUBLE, query_time_seconds);
-
-    H5Dclose(knns_ds);
-    H5Dclose(dists_ds);
-    H5Sclose(space);
-    H5Fclose(file);
-}
-
-static int parseJsonInt(const std::string& json, const std::string& key, int defaultValue) {
-    if (json.empty()) {
-        return defaultValue;
-    }
-
-    std::string quotedKey = "\"" + key + "\"";
-    auto pos = json.find(quotedKey);
-    if (pos == std::string::npos) {
-        pos = json.find(key);
-        if (pos == std::string::npos) {
-            return defaultValue;
-        }
-    }
-
-    auto colon = json.find(':', pos);
-    if (colon == std::string::npos) {
-        return defaultValue;
-    }
-
-    auto start = json.find_first_of("-0123456789", colon + 1);
-    if (start == std::string::npos) {
-        return defaultValue;
-    }
-
-    auto end = json.find_first_not_of("0123456789", start + 1);
-    std::string token = json.substr(start, end == std::string::npos ? json.size() - start : end - start);
-    try {
-        return std::stoi(token);
-    } catch (...) {
-        return defaultValue;
-    }
-}
-
-static float parseJsonFloat(const std::string& json, const std::string& key, float defaultValue) {
-    if (json.empty()) {
-        return defaultValue;
-    }
-
-    std::string quotedKey = "\"" + key + "\"";
-    auto pos = json.find(quotedKey);
-    if (pos == std::string::npos) {
-        pos = json.find(key);
-        if (pos == std::string::npos) {
-            return defaultValue;
-        }
-    }
-
-    auto colon = json.find(':', pos);
-    if (colon == std::string::npos) {
-        return defaultValue;
-    }
-
-    auto start = json.find_first_of("-0123456789.", colon + 1);
-    if (start == std::string::npos) {
-        return defaultValue;
-    }
-
-    auto end = json.find_first_not_of("0123456789.", start + 1);
-    std::string token = json.substr(start, end == std::string::npos ? json.size() - start : end - start);
-    try {
-        return std::stof(token);
-    } catch (...) {
-        return defaultValue;
-    }
-}
-
-static std::vector<float> parseJsonFloatArray(const std::string& json, const std::string& key) {
-    std::vector<float> values;
-    if (json.empty()) {
-        return values;
-    }
-
-    std::string quotedKey = "\"" + key + "\"";
-    auto pos = json.find(quotedKey);
-    if (pos == std::string::npos) {
-        pos = json.find(key);
-        if (pos == std::string::npos) {
-            return values;
-        }
-    }
-
-    auto colon = json.find(':', pos);
-    if (colon == std::string::npos) {
-        return values;
-    }
-
-    auto start = json.find_first_of("[", colon + 1);
-    if (start == std::string::npos) {
-        return values;
-    }
-
-    auto end = json.find(']', start + 1);
-    if (end == std::string::npos) {
-        return values;
-    }
-
-    std::string array_content = json.substr(start + 1, end - start - 1);
-    std::stringstream ss(array_content);
-    float value;
-    char separator;
-    while (ss >> value) {
-        values.push_back(value);
-        ss >> separator;
-    }
-
-    return values;
-}
-
-static std::vector<int> parseJsonIntArray(const std::string& json, const std::string& key) {
-    std::vector<int> values;
-    if (json.empty()) {
-        return values;
-    }
-
-    std::string quotedKey = "\"" + key + "\"";
-    auto pos = json.find(quotedKey);
-    if (pos == std::string::npos) {
-        pos = json.find(key);
-        if (pos == std::string::npos) {
-            return values;
-        }
-    }
-
-    auto colon = json.find(':', pos);
-    if (colon == std::string::npos) {
-        return values;
-    }
-
-    auto start = json.find('[', colon + 1);
-    if (start == std::string::npos) {
-        return values;
-    }
-
-    auto end = json.find(']', start + 1);
-    if (end == std::string::npos) {
-        return values;
-    }
-
-    std::string array_content = json.substr(start + 1, end - start - 1);
-    std::stringstream ss(array_content);
-    int value;
-    char separator;
-    while (ss >> value) {
-        values.push_back(value);
-        ss >> separator;
-    }
-
-    return values;
-}
-
-static std::vector<ExecConfig> loadConfigSetFromFile(const std::string& filepath) {
-    std::vector<ExecConfig> configs;
-    ExecConfig baseConfig;
-
-    std::ifstream file(filepath);
-    if (!file.is_open()) {
-        std::cerr << "[WARNING] Could not open config file: " << filepath << ". Using defaults.\n";
-        return configs;
-    }
-
-    std::stringstream buffer;
-    buffer << file.rdbuf();
-    std::string json_content = buffer.str();
-    file.close();
-
-    baseConfig.num_clusters = parseJsonInt(json_content, "k", 200);
-    baseConfig.max_iterations = parseJsonInt(json_content, "itr", 3);
-    if (DEV) {
-        baseConfig.log_debug = true;
-    } else {
-        baseConfig.log_debug = false;
-    }
-    baseConfig.mem_debug = false;
-
-    auto nbs = parseJsonIntArray(json_content, "nb");
-    if (nbs.empty()) {
-        nbs.push_back(parseJsonInt(json_content, "nb", 0));
-    }
-    
-    auto nds = parseJsonIntArray(json_content, "nd");
-    if (nds.empty()) {
-        nds.push_back(parseJsonInt(json_content, "nd", 0));
-    }
-    
-    auto mds = parseJsonIntArray(json_content, "md");
-    if (mds.empty()) {
-        mds.push_back(parseJsonInt(json_content, "md", 0));
-    }
-
-    auto heap_factors = parseJsonFloatArray(json_content, "heap_factor");
-    if (heap_factors.empty()) {
-        heap_factors.push_back(parseJsonFloat(json_content, "heap_factor", 0.15f));
-    }
-
-    for (int nb : nbs) {
-        for (int nd : nds) {
-            for (int md : mds) {
-                for (float heap_factor : heap_factors) {
-                    ExecConfig cfg = baseConfig;
-                    cfg.max_blocks_per_dimension = nb;
-                    cfg.max_docs_per_block = nd;
-                    cfg.max_docs_to_visit = md;
-                    cfg.heap_factor = heap_factor;
-                    configs.push_back(cfg);
-                }
-            }
-        }
-    }
-
-    return configs;
-}
-
-static std::vector<std::filesystem::path> getConfigFiles(const std::filesystem::path& params_path) {
-    std::vector<std::filesystem::path> config_files;
-
-    if (std::filesystem::is_directory(params_path)) {
-        for (const auto& entry : std::filesystem::directory_iterator(params_path)) {
-            if (!entry.is_regular_file()) {
-                continue;
-            }
-            if (entry.path().extension() == ".json") {
-                config_files.push_back(entry.path());
-            }
-        }
-        std::sort(config_files.begin(), config_files.end());
-    } else {
-        config_files.push_back(params_path);
-    }
-
-    return config_files;
-}
 
 int main(int argc, char* argv[]) {
     try {
@@ -514,12 +67,12 @@ int main(int argc, char* argv[]) {
                 std::stringstream task_desc_buffer;
                 task_desc_buffer << task_desc_file.rdbuf();
                 const std::string task_desc_json = task_desc_buffer.str();
-                const std::string parsed_task = parseJsonString(task_desc_json, "task", "");
-                const std::string parsed_task_name = parseJsonString(task_desc_json, "task_name", "");
+                const std::string parsed_task = RuntimeHelpers::parseJsonString(task_desc_json, "task", "");
+                const std::string parsed_task_name = RuntimeHelpers::parseJsonString(task_desc_json, "task_name", "");
                 if (!parsed_task.empty()) {
-                    task = normalizeTaskName(parsed_task, task);
+                    task = RuntimeHelpers::normalizeTaskName(parsed_task, task);
                 } else if (!parsed_task_name.empty()) {
-                    task = normalizeTaskName(parsed_task_name, task);
+                    task = RuntimeHelpers::normalizeTaskName(parsed_task_name, task);
                 }
             }
         }
@@ -527,49 +80,39 @@ int main(int argc, char* argv[]) {
         if (!input_h5_path.empty()) {
             dataset = std::filesystem::path(input_h5_path).stem().string();
         }
-        if (DEV) {
-            params_path = std::filesystem::path("config") / config_folder;
-            config_paths = getConfigFiles(params_path);
-            if (config_paths.empty()) {
-                std::cerr << "[ERROR] No JSON config files found at: " << params_path << "\n";
-                return 1;
-            }
-        } else {
-            config_paths.push_back("STATIC_PROD_CONFIG");
+
+        params_path = std::filesystem::path("config") / config_folder;
+        config_paths = RuntimeHelpers::getConfigFiles(params_path);
+        if (config_paths.empty()) {
+            std::cerr << "[ERROR] No JSON config files found at: " << params_path << "\n";
+            return 1;
         }
 
-        std::filesystem::path results_csv = DEV
-            ? (std::filesystem::path("results") / (config_folder + ".csv"))
-            : (std::filesystem::path("results") / STATIC_RESULTS_FILE);
+        std::filesystem::path results_csv = std::filesystem::path("results") / (config_folder + ".csv");
+        std::filesystem::create_directories(results_csv.parent_path());
 
         std::ofstream csv_file;
-        if (DEV) {
-            bool new_results_file = !std::filesystem::exists(results_csv);
-            csv_file.open(results_csv, std::ios::app);
-            csv_file << std::unitbuf;
-            
-            if (!csv_file.is_open()) {
-                std::cerr << "[ERROR] Could not open results file: " << results_csv << "\n";
-                return 1;
-            }
-            if (new_results_file) {
-                csv_file << "k,itr,nb,nd,md,heap_factor,"
-                         << "Avg_Cluster_Size,Median_Cluster_Size,Avg_Cluster_Similarity,"
-                         << "Avg_Blocks_Entered,Avg_Blocks_Skipped,Avg_Docs_Examined,Avg_Docs_Popped,"
-                         << "Clustering_Time_s,Indexing_Time_s,"
-                         << "Recall@30,Avg_Time_Per_Query_ms,Search_Time_s,Total_Time_s\n";
-            }
+        bool new_results_file = !std::filesystem::exists(results_csv);
+        csv_file.open(results_csv, std::ios::app);
+        csv_file << std::unitbuf;
+
+        if (!csv_file.is_open()) {
+            std::cerr << "[ERROR] Could not open results file: " << results_csv << "\n";
+            return 1;
+        }
+        if (new_results_file) {
+            csv_file << "k,itr,nb,nd,heap_factor,mqt,msb,md,"
+                     << "Avg_Cluster_Size,Median_Cluster_Size,Avg_Cluster_Similarity,"
+                     << "Avg_Blocks_Entered,Avg_Blocks_Skipped,Avg_Docs_Examined,Avg_Docs_Popped,"
+                     << "Clustering_Time_s,Indexing_Time_s,"
+                     << "Recall@30,Avg_Time_Per_Query_ms,Search_Time_s,Total_Time_s\n";
         }
 
 
         // Resolve dataset either from TIRA --input or local fallback layout.
         std::string dataset_path = input_h5_path.empty() ? ("data/" + dataset + ".h5") : input_h5_path;
         std::cout << "[SISAP] Running " << task << " on dataset: " << dataset_path << std::endl;
-        if (DEV) {
-            std::cout << "[CONFIG] Executing " << config_paths.size() << " config files from `" << params_path.string() << "`" << std::endl;
-        } else {
-            std::cout << "[CONFIG] Production exec" << std::endl;
-        }
+        std::cout << "[CONFIG] Executing " << config_paths.size() << " config files from `" << params_path.string() << "`" << std::endl;
 
         std::cout << "\n--- Read data (" << dataset_path << ") ---" << std::endl;
         HDF5SparseLoader loader(dataset_path);
@@ -585,11 +128,7 @@ int main(int argc, char* argv[]) {
             std::cout << "[CONFIG] Running config: " << config_path.string() << "\n";
 
             std::vector<ExecConfig> exec_configs;
-            if (DEV) {
-                exec_configs = loadConfigSetFromFile(config_path.string());
-            } else {
-                exec_configs.push_back(getStaticExecConfig());
-            }
+            exec_configs = RuntimeHelpers::loadConfigSetFromFile(config_path.string(), false);
 
             if (exec_configs.empty()) {
                 std::cerr << "[SKIP] No valid configurations could be parsed from " << config_path.string() << "\n";
@@ -629,11 +168,13 @@ int main(int argc, char* argv[]) {
 
             for (const auto& exec_config : exec_configs) {
                 std::cout << "\n[RUN starts] k=" << exec_config.num_clusters
-                          << " itr=" << exec_config.max_iterations 
-                          << " nb=" << exec_config.max_blocks_per_dimension
-                          << " nd=" << exec_config.max_docs_per_block
-                          << " md=" << exec_config.max_docs_to_visit 
+                          << " itr=" << exec_config.max_iterations
+                          << " nb_build=" << exec_config.max_blocks_per_dimension
+                          << " nd_build=" << exec_config.max_docs_per_block
                           << " heap_factor=" << exec_config.heap_factor
+                          << " mqt=" << exec_config.max_query_terms
+                          << " msb=" << exec_config.max_search_blocks
+                          << " md=" << exec_config.max_docs_to_visit
                           << "\n";
 
                 try {
@@ -687,11 +228,13 @@ int main(int argc, char* argv[]) {
                     std::cout << "====================================================\n";
                     // std::cout << "  VAL RESULTS (N = " << num_eval_queries << " queries || MaxDocs = " << exec_config.max_docs_to_visit << ")\n";
                     std::cout << "\n[RUN] k=" << exec_config.num_clusters
-                        << " itr=" << exec_config.max_iterations 
-                        << " nb=" << exec_config.max_blocks_per_dimension
-                        << " nd=" << exec_config.max_docs_per_block
-                        << " md=" << exec_config.max_docs_to_visit 
+                        << " itr=" << exec_config.max_iterations
+                        << " nb_build=" << exec_config.max_blocks_per_dimension
+                        << " nd_build=" << exec_config.max_docs_per_block
                         << " heap_factor=" << exec_config.heap_factor
+                        << " mqt=" << exec_config.max_query_terms
+                        << " msb=" << exec_config.max_search_blocks
+                        << " md=" << exec_config.max_docs_to_visit
                         << "\n";
                     std::cout << "  Average Recall@" << top_n_to_check << " = " << average_recall_30 << "\n";
                     if (average_recall_30 >= 0.90f) {
@@ -717,18 +260,18 @@ int main(int argc, char* argv[]) {
                     double total_time_sec = clustering_time_sec + indexing_time_sec + (static_cast<double>(search_time) / 1000.0);
 
                     const std::string algo_name = "chnsw";
-                    const std::string params_str = buildParamsString(exec_config);
-                    const std::filesystem::path sisap_output_path = buildSisapResultPath(
+                    const std::string params_str = RuntimeHelpers::buildParamsString(exec_config);
+                    const std::filesystem::path sisap_output_path = RuntimeHelpers::buildSisapResultPath(
                         output_root,
                         task,
                         algo_name,
                         dataset,
                         exec_config,
-                        DEV
+                        true
                     );
                     const double build_time_seconds = clustering_time_sec + indexing_time_sec;
                     const double query_time_seconds = static_cast<double>(search_time) / 1000.0;
-                    writeSisapResultH5(
+                    RuntimeHelpers::writeSisapResultH5(
                         sisap_output_path,
                         evaluation_results,
                         top_n_to_check,
@@ -740,29 +283,29 @@ int main(int argc, char* argv[]) {
                     );
                     std::cout << "[OK] SISAP HDF5 saved to " << sisap_output_path << "\n";
 
-                    if (DEV) {
                         csv_file << exec_config.num_clusters << ","
-                                << exec_config.max_iterations << ","
-                                << exec_config.max_blocks_per_dimension << ","
-                                << exec_config.max_docs_per_block << ","
-                                << exec_config.max_docs_to_visit << ","
-                                << exec_config.heap_factor << ","
-                                << clustering_metrics.avg_cluster_size << ","
-                                << clustering_metrics.median_cluster_size << ","
-                                << clustering_metrics.avg_intra_cluster_similarity << ","
-                                << avg_blocks_entered << ","
-                                << avg_blocks_skipped << ","
-                                << avg_docs_examined << ","
-                                << avg_docs_popped << ","
-                                << clustering_time_sec << ","
-                                << indexing_time_sec << ","
-                                << average_recall_30 << ","
-                                << avg_time_per_query_ms << ","
-                                << search_time / 1000.0 << ","
-                                << total_time_sec << std::endl;
+                            << exec_config.max_iterations << ","
+                            << exec_config.max_blocks_per_dimension << ","
+                            << exec_config.max_docs_per_block << ","
+                            << exec_config.heap_factor << ","
+                            << exec_config.max_query_terms << ","
+                            << exec_config.max_search_blocks << ","
+                            << exec_config.max_docs_to_visit << ","
+                            << clustering_metrics.avg_cluster_size << ","
+                            << clustering_metrics.median_cluster_size << ","
+                            << clustering_metrics.avg_intra_cluster_similarity << ","
+                            << avg_blocks_entered << ","
+                            << avg_blocks_skipped << ","
+                            << avg_docs_examined << ","
+                            << avg_docs_popped << ","
+                            << clustering_time_sec << ","
+                            << indexing_time_sec << ","
+                            << average_recall_30 << ","
+                            << avg_time_per_query_ms << ","
+                            << search_time / 1000.0 << ","
+                            << total_time_sec << std::endl;
 
                         std::cout << "\n[OK] Results saved to " << results_csv << "\n";
-                    }
                 } catch (const std::bad_alloc& e) {
                     std::cerr << "[SKIP] Run skipped due to memory allocation failure: " << e.what() << "\n";
                     continue;

@@ -15,6 +15,8 @@ std::vector<std::pair<float, int>> SearchEngineOptimized::search(
 ) {
     int max_docs_to_visit = config.max_docs_to_visit;
     float heap_factor = config.heap_factor;
+    int max_query_terms = config.max_query_terms;
+    int max_search_blocks = config.max_search_blocks;
     int num_clusters = summary_vectors.size();
     int n_docs = train.rows();
     int n_dims = train.cols();
@@ -32,6 +34,11 @@ std::vector<std::pair<float, int>> SearchEngineOptimized::search(
     std::sort(query_terms.begin(), query_terms.end(), [](const auto& a, const auto& b) {
         return a.second > b.second;
     });
+
+    // Truncate long tail of sparse query to the top max_query_terms coordinates
+    if (max_query_terms > 0 && static_cast<int>(query_terms.size()) > max_query_terms) {
+        query_terms.resize(max_query_terms);
+    }
 
     std::vector<float> cluster_ub(num_clusters, 0.0f);
     for (int c = 0; c < num_clusters; ++c) {
@@ -61,7 +68,11 @@ std::vector<std::pair<float, int>> SearchEngineOptimized::search(
 
         // The index is already built with the most promising clusters first for each concept.
         // Avoid per-query heap allocations and sorts by scanning blocks in stored order.
+        int blocks_evaluated_for_term = 0;
         for (const auto& block : blocks) {
+            // Truncate: only evaluate up to max_search_blocks per query term
+            if (max_search_blocks > 0 && blocks_evaluated_for_term >= max_search_blocks) break;
+            ++blocks_evaluated_for_term;
             int c_id = block.cluster_id;
             float ub = cluster_ub[c_id];
 

@@ -181,24 +181,24 @@ docker run \
   --memory-swap=24g \
   --memory-swappiness=0 \
   --volume $(pwd)/data:/sisap2026/data:ro \
-  --volume $(pwd)/results:/sisap2026/results:rw \
   --volume $(pwd)/config:/sisap2026/config:ro \
-  chnsw --task task3 --dataset nq --params clusters
+  --volume $(pwd)/results:/sisap2026/results:rw \
+  chnsw --task task3 --dataset nq --params static_engine_experiments_v1 --output /sisap2026/results
 ```
 
 **Docker run parameters:**
 - `--cpus=8`: Limit container to 8 CPUs
 - `--memory=24g`: Limit container memory to 24GB
 - `--volume $(pwd)/data:/sisap2026/data:ro`: Mount local data directory (read-only)
-- `--volume $(pwd)/results:/sisap2026/results:rw`: Mount results directory (read-write) for CSV output
-- `--volume $(pwd)/exec_config.json:/sisap2026/exec_config.json:ro`: Mount configuration file (read-only)
+- `--volume $(pwd)/config:/sisap2026/config:ro`: Mount config directory (read-only) so `--params <folder>` resolves inside container
+- `--volume $(pwd)/results:/sisap2026/results:rw`: Mount results directory (read-write) for CSV and generated `.h5` outputs
 
 **Capturing results locally:**
 
-After the container finishes execution, the `results.csv` file will be in your local `results/` directory:
+After the container finishes execution, both CSV and generated `.h5` files will be in your local `results/` directory:
 
 ```bash
-cat results/results.csv
+ls -lah results
 ```
 
 The CSV file is cumulative—each run appends a new row with:

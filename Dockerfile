@@ -39,6 +39,11 @@ WORKDIR /sisap2026
 # Pull the compiled binary
 COPY --from=builder /src/build/main /app/chnsw_app
 
+COPY ./config /sisap2026/config
+COPY ./results /sisap2026/results
+
+RUN mkdir -p /sisap2026/config /sisap2026/results
+
 ENV OMP_NUM_THREADS=8
 ENV OMP_PLACES=cores
 ENV OMP_PROC_BIND=close

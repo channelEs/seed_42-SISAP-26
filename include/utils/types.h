@@ -27,12 +27,19 @@ struct ClusterResult {
 
 struct ExecConfig {
     std::string config_file = "exec_config.json";
-    int num_clusters = 200;
+
+    // --- Offline indexing parameters (static build phase) ---
+    int num_clusters = 2000;
     int max_iterations = 3;
-    int max_blocks_per_dimension = 0;
-    int max_docs_per_block = 0;
-    int max_docs_to_visit = 0;
-    float heap_factor = 0.60f;
+    int max_blocks_per_dimension = 1000;  // nb_build: max inverted blocks retained per concept
+    int max_docs_per_block = 500;         // nd_build: max documents retained per block
+
+    // --- Online search hyperparameters (dynamic query phase) ---
+    float heap_factor = 0.15f;            // relaxation multiplier for block pruning
+    int max_query_terms = 0;              // max highest-weighted query coordinates to evaluate (0 = all)
+    int max_search_blocks = 0;            // max inverted blocks to evaluate per query term (0 = all)
+    int max_docs_to_visit = 0;            // hard termination cap on exact dot products (0 = unlimited)
+
     bool log_debug = false;
     bool mem_debug = false;
 };
