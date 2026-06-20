@@ -108,7 +108,6 @@ int main(int argc, char* argv[]) {
                      << "Recall@30,Avg_Time_Per_Query_ms,Search_Time_s,Total_Time_s\n";
         }
 
-
         // Resolve dataset either from TIRA --input or local fallback layout.
         std::string dataset_path = input_h5_path.empty() ? ("data/" + dataset + ".h5") : input_h5_path;
         std::cout << "[SISAP] Running " << task << " on dataset: " << dataset_path << std::endl;
@@ -165,12 +164,20 @@ int main(int argc, char* argv[]) {
             auto gold_standard = loader.loadGoldStandard("otest/knns");
             int num_eval_queries = query.rows();
             double clustering_time_sec = static_cast<double>(run_profiler.getDuration("clustering")) / 1000.0;
+            
+            std::cout << "\n--- Indexing | nb = " << base_config.max_blocks_per_dimension
+                      << " | nd = " << base_config.max_docs_per_block << " ---" << std::endl;
+            run_profiler.start("building_index");
+            auto inverted_index = index_manager_ref.buildInvertedIndex(train, result.assignments, base_config.num_clusters, base_config, summaries);
+            run_profiler.stop("building_index");
+            std::cout << "Total Summary Vectors: " << summaries.size() << std::endl;
+            std::cout << "Total Concepts indexed: " << inverted_index.size() << std::endl;
 
             for (const auto& exec_config : exec_configs) {
                 std::cout << "\n[RUN starts] k=" << exec_config.num_clusters
                           << " itr=" << exec_config.max_iterations
-                          << " nb_build=" << exec_config.max_blocks_per_dimension
-                          << " nd_build=" << exec_config.max_docs_per_block
+                          << " nb=" << exec_config.max_blocks_per_dimension
+                          << " nd=" << exec_config.max_docs_per_block
                           << " heap_factor=" << exec_config.heap_factor
                           << " mqt=" << exec_config.max_query_terms
                           << " msb=" << exec_config.max_search_blocks
@@ -178,16 +185,6 @@ int main(int argc, char* argv[]) {
                           << "\n";
 
                 try {
-                    // ExecutionProfiler run_profiler;
-                    std::cout << "\n--- Indexing | nb = " << exec_config.max_blocks_per_dimension
-                              << " | nd = " << exec_config.max_docs_per_block << " ---" << std::endl;
-                    run_profiler.start("building_index");
-                    auto inverted_index = index_manager_ref.buildInvertedIndex(train, result.assignments, exec_config.num_clusters, exec_config, summaries);
-                    run_profiler.stop("building_index");
-
-                    std::cout << "Total Summary Vectors: " << summaries.size() << std::endl;
-                    std::cout << "Total Concepts indexed: " << inverted_index.size() << std::endl;
-
                     SearchEngineOptimized search_engine;
                     // SearchEngineSimple search_engine;
                     SearchEngine& search_engine_ref = search_engine;
@@ -229,8 +226,8 @@ int main(int argc, char* argv[]) {
                     // std::cout << "  VAL RESULTS (N = " << num_eval_queries << " queries || MaxDocs = " << exec_config.max_docs_to_visit << ")\n";
                     std::cout << "\n[RUN] k=" << exec_config.num_clusters
                         << " itr=" << exec_config.max_iterations
-                        << " nb_build=" << exec_config.max_blocks_per_dimension
-                        << " nd_build=" << exec_config.max_docs_per_block
+                        << " nb=" << exec_config.max_blocks_per_dimension
+                        << " nd=" << exec_config.max_docs_per_block
                         << " heap_factor=" << exec_config.heap_factor
                         << " mqt=" << exec_config.max_query_terms
                         << " msb=" << exec_config.max_search_blocks

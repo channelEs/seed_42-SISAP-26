@@ -12,3 +12,4 @@ data
 *.out
 *.synctex.gz
 *.tex
+*.h5
