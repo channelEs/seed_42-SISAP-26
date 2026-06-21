@@ -5698,3 +5698,1230 @@ Total Concepts indexed: 30522
 
 --- Indexing | nb = 500 | nd = 500 ---
 [INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=0 msb=50 md=60000
+  Average Recall@30 = 0.798444
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=388.067 avg_blocks_skipped=0.0023175 avg_docs_examined=59996.2 avg_docs_popped=158.101
+
+[TIME-QUERY] Average Time per Query: 34.345 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt0_msb50_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=0 msb=150 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=0 msb=150 md=60000
+  Average Recall@30 = 0.800761
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=479.623 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=154.233
+
+[TIME-QUERY] Average Time per Query: 34.6388 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt0_msb150_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=0 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=0 md=60000
+  Average Recall@30 = 0.797286
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=822.699 avg_blocks_skipped=0.0023175 avg_docs_examined=60000 avg_docs_popped=152.215
+
+[TIME-QUERY] Average Time per Query: 35.1854 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt50_msb0_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=50 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=50 md=60000
+  Average Recall@30 = 0.798444
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=388.067 avg_blocks_skipped=0.0023175 avg_docs_examined=59996.2 avg_docs_popped=158.101
+
+[TIME-QUERY] Average Time per Query: 33.9032 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt50_msb50_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=150 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=150 md=60000
+  Average Recall@30 = 0.800761
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=479.623 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=154.233
+
+[TIME-QUERY] Average Time per Query: 33.96 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt50_msb150_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=0 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=0 md=60000
+  Average Recall@30 = 0.797286
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=822.699 avg_blocks_skipped=0.0023175 avg_docs_examined=60000 avg_docs_popped=152.215
+
+[TIME-QUERY] Average Time per Query: 34.8888 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt150_msb0_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=50 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=50 md=60000
+  Average Recall@30 = 0.798444
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=388.067 avg_blocks_skipped=0.0023175 avg_docs_examined=59996.2 avg_docs_popped=158.101
+
+[TIME-QUERY] Average Time per Query: 33.925 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt150_msb50_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=150 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=150 md=60000
+  Average Recall@30 = 0.800761
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=479.623 avg_blocks_skipped=0.000289687 avg_docs_examined=60000 avg_docs_popped=154.233
+
+[TIME-QUERY] Average Time per Query: 34.0985 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt150_msb150_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=0 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=0 md=60000
+  Average Recall@30 = 0.797286
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=822.65 avg_blocks_skipped=0.0544612 avg_docs_examined=60000 avg_docs_popped=152.215
+
+[TIME-QUERY] Average Time per Query: 34.8946 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt0_msb0_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=50 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=50 md=60000
+  Average Recall@30 = 0.798444
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=388.035 avg_blocks_skipped=0.0544612 avg_docs_examined=59996.2 avg_docs_popped=158.101
+
+[TIME-QUERY] Average Time per Query: 33.925 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt0_msb50_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=150 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=150 md=60000
+  Average Recall@30 = 0.800761
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=479.611 avg_blocks_skipped=0.0165122 avg_docs_examined=60000 avg_docs_popped=154.233
+
+[TIME-QUERY] Average Time per Query: 34.1758 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt0_msb150_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=0 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=0 md=60000
+  Average Recall@30 = 0.797286
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=822.65 avg_blocks_skipped=0.0544612 avg_docs_examined=60000 avg_docs_popped=152.215
+
+[TIME-QUERY] Average Time per Query: 34.6095 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt50_msb0_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=50 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=50 md=60000
+  Average Recall@30 = 0.798444
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=388.035 avg_blocks_skipped=0.0544612 avg_docs_examined=59996.2 avg_docs_popped=158.101
+
+[TIME-QUERY] Average Time per Query: 34.3447 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt50_msb50_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=150 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=150 md=60000
+  Average Recall@30 = 0.800761
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=479.611 avg_blocks_skipped=0.0165122 avg_docs_examined=60000 avg_docs_popped=154.233
+
+[TIME-QUERY] Average Time per Query: 34.2413 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt50_msb150_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=0 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=0 md=60000
+  Average Recall@30 = 0.797286
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=822.65 avg_blocks_skipped=0.0544612 avg_docs_examined=60000 avg_docs_popped=152.215
+
+[TIME-QUERY] Average Time per Query: 34.9212 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt150_msb0_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=50 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=50 md=60000
+  Average Recall@30 = 0.798444
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=388.035 avg_blocks_skipped=0.0544612 avg_docs_examined=59996.2 avg_docs_popped=158.101
+
+[TIME-QUERY] Average Time per Query: 33.9829 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt150_msb50_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=150 md=60000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=60000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=150 md=60000
+  Average Recall@30 = 0.800761
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=479.611 avg_blocks_skipped=0.0165122 avg_docs_examined=60000 avg_docs_popped=154.233
+
+[TIME-QUERY] Average Time per Query: 34.2349 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt150_msb150_md60000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=0 msb=0 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=0 msb=0 md=100000
+  Average Recall@30 = 0.84858
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1144.93 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=156.314
+
+[TIME-QUERY] Average Time per Query: 57.197 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p05_mqt0_msb0_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=0 msb=50 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=0 msb=50 md=100000
+  Average Recall@30 = 0.844609
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=609.564 avg_blocks_skipped=0.00144844 avg_docs_examined=99801.3 avg_docs_popped=160.459
+
+[TIME-QUERY] Average Time per Query: 55.6356 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p05_mqt0_msb50_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.917154
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=766.602 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=162.185
+
+[TIME-QUERY] Average Time per Query: 56.3427 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p05_mqt0_msb150_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=50 msb=0 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=50 msb=0 md=100000
+  Average Recall@30 = 0.84858
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1144.93 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=156.314
+
+[TIME-QUERY] Average Time per Query: 57.1228 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p05_mqt50_msb0_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=50 msb=50 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=50 msb=50 md=100000
+  Average Recall@30 = 0.844609
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=609.564 avg_blocks_skipped=0.00144844 avg_docs_examined=99801.3 avg_docs_popped=160.459
+
+[TIME-QUERY] Average Time per Query: 55.69 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p05_mqt50_msb50_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=50 msb=150 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=50 msb=150 md=100000
+  Average Recall@30 = 0.917154
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=766.602 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=162.185
+
+[TIME-QUERY] Average Time per Query: 56.3071 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p05_mqt50_msb150_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=150 msb=0 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=150 msb=0 md=100000
+  Average Recall@30 = 0.84858
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1144.93 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=156.314
+
+[TIME-QUERY] Average Time per Query: 57.1341 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p05_mqt150_msb0_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=150 msb=50 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=150 msb=50 md=100000
+  Average Recall@30 = 0.844609
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=609.564 avg_blocks_skipped=0.00144844 avg_docs_examined=99801.3 avg_docs_popped=160.459
+
+[TIME-QUERY] Average Time per Query: 55.3833 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p05_mqt150_msb50_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=150 msb=150 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.05 mqt=150 msb=150 md=100000
+  Average Recall@30 = 0.917154
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=766.602 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=162.185
+
+[TIME-QUERY] Average Time per Query: 56.4815 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p05_mqt150_msb150_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=0 msb=0 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=0 msb=0 md=100000
+  Average Recall@30 = 0.84858
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1144.93 avg_blocks_skipped=0.00289687 avg_docs_examined=100000 avg_docs_popped=156.314
+
+[TIME-QUERY] Average Time per Query: 57.3505 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt0_msb0_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=0 msb=50 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=0 msb=50 md=100000
+  Average Recall@30 = 0.844609
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=609.555 avg_blocks_skipped=0.0127462 avg_docs_examined=99801.2 avg_docs_popped=160.459
+
+[TIME-QUERY] Average Time per Query: 55.7497 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt0_msb50_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=0 msb=150 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.917154
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=766.602 avg_blocks_skipped=0.00173812 avg_docs_examined=100000 avg_docs_popped=162.185
+
+[TIME-QUERY] Average Time per Query: 56.7862 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt0_msb150_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=0 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=0 md=100000
+  Average Recall@30 = 0.84858
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1144.93 avg_blocks_skipped=0.00289687 avg_docs_examined=100000 avg_docs_popped=156.314
+
+[TIME-QUERY] Average Time per Query: 57.3778 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt50_msb0_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=50 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=50 md=100000
+  Average Recall@30 = 0.844609
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=609.555 avg_blocks_skipped=0.0127462 avg_docs_examined=99801.2 avg_docs_popped=160.459
+
+[TIME-QUERY] Average Time per Query: 55.7364 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt50_msb50_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=150 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=50 msb=150 md=100000
+  Average Recall@30 = 0.917154
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=766.602 avg_blocks_skipped=0.00173812 avg_docs_examined=100000 avg_docs_popped=162.185
+
+[TIME-QUERY] Average Time per Query: 56.7767 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt50_msb150_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=0 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=0 md=100000
+  Average Recall@30 = 0.84858
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1144.93 avg_blocks_skipped=0.00289687 avg_docs_examined=100000 avg_docs_popped=156.314
+
+[TIME-QUERY] Average Time per Query: 57.2245 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt150_msb0_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=50 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=50 md=100000
+  Average Recall@30 = 0.844609
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=609.555 avg_blocks_skipped=0.0127462 avg_docs_examined=99801.2 avg_docs_popped=160.459
+
+[TIME-QUERY] Average Time per Query: 55.4163 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt150_msb50_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=150 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.15 mqt=150 msb=150 md=100000
+  Average Recall@30 = 0.917154
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=766.602 avg_blocks_skipped=0.00173812 avg_docs_examined=100000 avg_docs_popped=162.185
+
+[TIME-QUERY] Average Time per Query: 56.1912 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p15_mqt150_msb150_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=0 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=0 md=100000
+  Average Recall@30 = 0.84858
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1144.85 avg_blocks_skipped=0.0979143 avg_docs_examined=100000 avg_docs_popped=156.314
+
+[TIME-QUERY] Average Time per Query: 57.0985 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt0_msb0_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=50 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=50 md=100000
+  Average Recall@30 = 0.844609
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=609.44 avg_blocks_skipped=0.182793 avg_docs_examined=99799.1 avg_docs_popped=160.459
+
+[TIME-QUERY] Average Time per Query: 55.7781 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt0_msb50_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=150 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.917154
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=766.555 avg_blocks_skipped=0.0854577 avg_docs_examined=100000 avg_docs_popped=162.185
+
+[TIME-QUERY] Average Time per Query: 56.564 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt0_msb150_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=0 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=0 md=100000
+  Average Recall@30 = 0.84858
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1144.85 avg_blocks_skipped=0.0979143 avg_docs_examined=100000 avg_docs_popped=156.314
+
+[TIME-QUERY] Average Time per Query: 57.1121 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt50_msb0_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=50 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=50 md=100000
+  Average Recall@30 = 0.844609
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=609.44 avg_blocks_skipped=0.182793 avg_docs_examined=99799.1 avg_docs_popped=160.459
+
+[TIME-QUERY] Average Time per Query: 55.706 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt50_msb50_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=150 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=50 msb=150 md=100000
+  Average Recall@30 = 0.917154
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=766.555 avg_blocks_skipped=0.0854577 avg_docs_examined=100000 avg_docs_popped=162.185
+
+[TIME-QUERY] Average Time per Query: 56.7984 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt50_msb150_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=0 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=0 md=100000
+  Average Recall@30 = 0.84858
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1144.85 avg_blocks_skipped=0.0979143 avg_docs_examined=100000 avg_docs_popped=156.314
+
+[TIME-QUERY] Average Time per Query: 57.8395 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt150_msb0_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=50 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=50 md=100000
+  Average Recall@30 = 0.844609
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=609.44 avg_blocks_skipped=0.182793 avg_docs_examined=99799.1 avg_docs_popped=160.459
+
+[TIME-QUERY] Average Time per Query: 55.6764 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt150_msb50_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
+
+[RUN starts] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=150 md=100000
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12583177 total_docs_in_blocks=325710391 avg_docs_per_block=25.8846 avg_blocks_per_dimension=412.266 empty_dimensions=1783
+Total Summary Vectors: 2000
+Total Concepts indexed: 30522
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=2000 itr=3 nb_build=500 nd_build=500 heap_factor=0.3 mqt=150 msb=150 md=100000
+  Average Recall@30 = 0.917154
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=766.555 avg_blocks_skipped=0.0854577 avg_docs_examined=100000 avg_docs_popped=162.185
+
+[TIME-QUERY] Average Time per Query: 56.467 ms
+[OK] SISAP HDF5 saved to "/sisap2026/results/task3/chnsw_nq_k2000_itr3_nb500_nd500_hf0p3_mqt150_msb150_md100000.h5"
+
+[OK] Results saved to "results/static_engine_experiments_v1.csv"
