@@ -35,10 +35,10 @@ int main(int argc, char* argv[]) {
         // Default fallbacks if flags aren't passed
         std::string dataset = STATIC_DATASET;
         std::string task = STATIC_TASK;
-        std::string config_folder = "clusters";
+        std::string config_folder = "final_sub_config";
         std::string input_h5_path;
         std::string task_description_path;
-        std::filesystem::path output_root = "results";
+        std::filesystem::path output_root = "results/task3";
 
         std::filesystem::path params_path = std::filesystem::path("config") / config_folder;
         std::vector<std::filesystem::path> config_paths;
@@ -263,8 +263,7 @@ int main(int argc, char* argv[]) {
                         task,
                         algo_name,
                         dataset,
-                        exec_config,
-                        true
+                        exec_config
                     );
                     const double build_time_seconds = clustering_time_sec + indexing_time_sec;
                     const double query_time_seconds = static_cast<double>(search_time) / 1000.0;

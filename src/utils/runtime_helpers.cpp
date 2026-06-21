@@ -249,8 +249,7 @@ std::filesystem::path buildSisapResultPath(
     const std::string& task,
     const std::string& algo,
     const std::string& dataset,
-    const ExecConfig& cfg,
-    bool include_task_subdir
+    const ExecConfig& cfg
 ) {
     const std::string filename = sanitizeFilenameToken(algo)
         + "_"
@@ -265,9 +264,6 @@ std::filesystem::path buildSisapResultPath(
         + "_md" + std::to_string(cfg.max_docs_to_visit)
         + ".h5";
 
-    if (include_task_subdir) {
-        return output_root / task / filename;
-    }
     return output_root / filename;
 }
 

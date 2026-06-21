@@ -16,8 +16,7 @@ std::filesystem::path buildSisapResultPath(
     const std::string& task,
     const std::string& algo,
     const std::string& dataset,
-    const ExecConfig& cfg,
-    bool include_task_subdir
+    const ExecConfig& cfg
 );
 std::string parseJsonString(const std::string& json, const std::string& key, const std::string& default_value);
 std::string normalizeTaskName(const std::string& raw_task, const std::string& fallback_task);
