@@ -1,1 +1,4 @@
 k,itr,nb,nd,heap_factor,mqt,msb,md,Avg_Cluster_Size,Median_Cluster_Size,Avg_Cluster_Similarity,Avg_Blocks_Entered,Avg_Blocks_Skipped,Avg_Docs_Examined,Avg_Docs_Popped,Clustering_Time_s,Indexing_Time_s,Recall@30,Avg_Time_Per_Query_ms,Search_Time_s,Total_Time_s
+100,3,500,500,0.05,0,150,150000,26814.7,25847,3.78022,555.086,0,150000,153.85,50.344,183.016,0.988526,91.4006,315.515,548.875
+1000,3,500,500,0.05,0,150,150000,2681.47,2451,4.75061,908.923,0,150000,160.233,1811.26,316.613,0.964546,87.4986,302.045,2429.92
+1020,3,500,500,0.05,0,150,150000,2628.89,2403,4.75698,918.853,0,150000,163.29,2011.42,334.572,0.963572,86.1787,297.489,2643.48
