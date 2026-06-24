@@ -1,0 +1,60 @@
+[SISAP] Running task3 on dataset: data/nq.h5
+[CONFIG] Executing 100 config files from `config/static_exps_02_k`
+
+--- Read data (data/nq.h5) ---
+train: 2681468 x 30522
+query: 3452 x 30522
+
+=====================
+[CONFIG] Running config: config/static_exps_02_k/k_100.json
+[PARAMS] k=100 itr=3 (base values)
+
+--- Clustering | k = 100 | iterations = 3 ---
+Initializing 100 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 26814.7
+Median Cluster Size: 23727
+Largest Cluster Size: 86904
+Smallest Cluster Size: 4874
+Empty Clusters: 0
+Cluster Size Deviation: 12787
+Avg Similarity (Docs and its cluster assignments with dot product): 3.77951
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 100 clusters...
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=0
+[INDEX_PROFILE] total_blocks=2509052 total_docs_in_blocks=268744471 avg_docs_per_block=107.11 avg_blocks_per_dimension=82.2047 empty_dimensions=1783
+Total Summary Vectors: 100
+Total Concepts indexed: 30522
+
+[RUN starts] k=100 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=0
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...

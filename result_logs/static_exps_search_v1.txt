@@ -1,0 +1,5439 @@
+[SISAP] Running task3 on dataset: data/nq.h5
+[CONFIG] Executing 5 config files from `config/static_exps_search_v1`
+
+--- Read data (data/nq.h5) ---
+train: 2681468 x 30522
+query: 3452 x 30522
+
+=====================
+[CONFIG] Running config: config/static_exps_search_v1/baseline_fixed_indexing.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1591
+Largest Cluster Size: 9656
+Smallest Cluster Size: 55
+Empty Clusters: 0
+Cluster Size Deviation: 1035.9
+Avg Similarity (Docs and its cluster assignments with dot product): 4.92041
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=100000
+[INDEX_PROFILE] total_blocks=12368424 total_docs_in_blocks=354786846 avg_docs_per_block=28.6849 avg_blocks_per_dimension=405.23 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.920457
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=693.793 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=162.441
+
+[TIME-QUERY] Average Time per Query: 53.2714 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_search_v1/md_wide_sweep.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1643
+Largest Cluster Size: 9143
+Smallest Cluster Size: 69
+Empty Clusters: 0
+Cluster Size Deviation: 1014.87
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91057
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=25000
+[INDEX_PROFILE] total_blocks=12363997 total_docs_in_blocks=355361849 avg_docs_per_block=28.7417 avg_blocks_per_dimension=405.085 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=25000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=25000
+  Average Recall@30 = 0.682311
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=237.686 avg_blocks_skipped=0 avg_docs_examined=25000 avg_docs_popped=140.809
+
+[TIME-QUERY] Average Time per Query: 14.1333 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=30000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=30000
+  Average Recall@30 = 0.707996
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=269.062 avg_blocks_skipped=0 avg_docs_examined=30000 avg_docs_popped=143.28
+
+[TIME-QUERY] Average Time per Query: 15.1231 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.776795
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=382.441 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.483
+
+[TIME-QUERY] Average Time per Query: 25.7199 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=75000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=75000
+  Average Recall@30 = 0.862222
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=531.582 avg_blocks_skipped=0 avg_docs_examined=75000 avg_docs_popped=156.058
+
+[TIME-QUERY] Average Time per Query: 38.2097 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.923053
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=698.266 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.559
+
+[TIME-QUERY] Average Time per Query: 51.3604 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=125000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=125000
+  Average Recall@30 = 0.944162
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=856.973 avg_blocks_skipped=0 avg_docs_examined=125000 avg_docs_popped=160.528
+
+[TIME-QUERY] Average Time per Query: 63.9676 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.95772
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.84 avg_blocks_skipped=0 avg_docs_examined=149994 avg_docs_popped=161.074
+
+[TIME-QUERY] Average Time per Query: 76.5817 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=200000
+  Average Recall@30 = 0.971064
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1325.93 avg_blocks_skipped=0 avg_docs_examined=199950 avg_docs_popped=161.57
+
+[TIME-QUERY] Average Time per Query: 102.277 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=300000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=300000
+  Average Recall@30 = 0.983252
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1959.84 avg_blocks_skipped=0.000579374 avg_docs_examined=298774 avg_docs_popped=161.996
+
+[TIME-QUERY] Average Time per Query: 153.619 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=400000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=400000
+  Average Recall@30 = 0.989181
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2603.55 avg_blocks_skipped=0.000869061 avg_docs_examined=391931 avg_docs_popped=162.189
+
+[TIME-QUERY] Average Time per Query: 201.933 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=500000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=500000
+  Average Recall@30 = 0.992464
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=3182.71 avg_blocks_skipped=0.00144844 avg_docs_examined=469629 avg_docs_popped=162.294
+
+[TIME-QUERY] Average Time per Query: 241.924 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_search_v1/mqt_wide_sweep.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1632
+Largest Cluster Size: 7902
+Smallest Cluster Size: 44
+Empty Clusters: 0
+Cluster Size Deviation: 986.25
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91763
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=50000
+[INDEX_PROFILE] total_blocks=12374375 total_docs_in_blocks=353977232 avg_docs_per_block=28.6057 avg_blocks_per_dimension=405.425 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 26.1805 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=10 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=10 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.6628 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=20 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=20 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.686 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=30 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=30 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.7645 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=40 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=40 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.2471 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.7787 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=60 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=60 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.7587 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=70 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=70 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.7923 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=80 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=80 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.8013 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=90 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=90 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.232 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.7937 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.7813 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.7648 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=300 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=300 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.248 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=500 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=500 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 26.0672 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=800 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=800 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.5098 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=1200 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=1200 msb=150 md=50000
+  Average Recall@30 = 0.774942
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=381.169 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.86
+
+[TIME-QUERY] Average Time per Query: 25.7477 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 50.8902 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=10 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=10 msb=150 md=100000
+  Average Recall@30 = 0.922514
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=696.792 avg_blocks_skipped=0 avg_docs_examined=99950.3 avg_docs_popped=159.962
+
+[TIME-QUERY] Average Time per Query: 51.2674 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=20 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=20 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 50.816 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=30 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=30 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 51.3549 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=40 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=40 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 50.8357 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 51.5461 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=60 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=60 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 51.471 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=70 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=70 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 50.8792 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=80 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=80 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 51.4371 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=90 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=90 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 50.863 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 51.4151 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 50.8479 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 51.5249 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=300 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=300 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 50.9861 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=500 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=500 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 51.4537 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=800 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=800 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 50.9432 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=1200 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=1200 msb=150 md=100000
+  Average Recall@30 = 0.922523
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=697.307 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.963
+
+[TIME-QUERY] Average Time per Query: 51.4444 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 77.887 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=10 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=10 msb=150 md=150000
+  Average Recall@30 = 0.957333
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=997.84 avg_blocks_skipped=0 avg_docs_examined=148467 avg_docs_popped=161.483
+
+[TIME-QUERY] Average Time per Query: 76.5353 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=20 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=20 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 76.6153 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=30 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=30 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 76.7051 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=40 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=40 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 77.2767 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 76.8618 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=60 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=60 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 76.7312 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=70 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=70 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 77.3554 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=80 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=80 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 76.7758 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=90 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=90 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 76.7995 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 77.2804 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 76.9122 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 76.7413 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=300 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=300 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 77.4267 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=500 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=500 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 76.6935 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=800 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=800 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 76.6616 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=1200 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=1200 msb=150 md=150000
+  Average Recall@30 = 0.95743
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1014.12 avg_blocks_skipped=0 avg_docs_examined=149995 avg_docs_popped=161.486
+
+[TIME-QUERY] Average Time per Query: 77.3465 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.733 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=10 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=10 msb=150 md=200000
+  Average Recall@30 = 0.969867
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1243.2 avg_blocks_skipped=0 avg_docs_examined=191098 avg_docs_popped=161.956
+
+[TIME-QUERY] Average Time per Query: 97.7459 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=20 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=20 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.27 avg_blocks_skipped=0.000289687 avg_docs_examined=199931 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.725 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=30 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=30 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.503 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=40 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=40 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 103.301 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.629 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=60 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=60 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.554 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=70 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=70 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.565 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=80 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=80 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.598 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=90 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=90 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.517 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.669 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.559 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.625 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=300 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=300 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.677 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=500 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=500 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 103.147 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=800 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=800 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.677 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=1200 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=1200 msb=150 md=200000
+  Average Recall@30 = 0.970389
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1324.69 avg_blocks_skipped=0.000289687 avg_docs_examined=199950 avg_docs_popped=161.972
+
+[TIME-QUERY] Average Time per Query: 102.681 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_search_v1/msb_wide_sweep.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1648
+Largest Cluster Size: 12495
+Smallest Cluster Size: 55
+Empty Clusters: 0
+Cluster Size Deviation: 965.376
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91185
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=50000
+[INDEX_PROFILE] total_blocks=12396200 total_docs_in_blocks=353013622 avg_docs_per_block=28.4776 avg_blocks_per_dimension=406.14 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=0 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=0 md=50000
+  Average Recall@30 = 0.770113
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=683.766 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=150.855
+
+[TIME-QUERY] Average Time per Query: 27.1527 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=10 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=10 md=50000
+  Average Recall@30 = 0.585024
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=218.076 avg_blocks_skipped=0.000579374 avg_docs_examined=46967.2 avg_docs_popped=150.397
+
+[TIME-QUERY] Average Time per Query: 24.0127 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=20 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=20 md=50000
+  Average Recall@30 = 0.681567
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=252.402 avg_blocks_skipped=0 avg_docs_examined=49922.7 avg_docs_popped=153.974
+
+[TIME-QUERY] Average Time per Query: 24.7738 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=30 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=30 md=50000
+  Average Recall@30 = 0.730446
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=272.303 avg_blocks_skipped=0 avg_docs_examined=49992.9 avg_docs_popped=155.853
+
+[TIME-QUERY] Average Time per Query: 25.4641 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=40 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=40 md=50000
+  Average Recall@30 = 0.765807
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=287.388 avg_blocks_skipped=0 avg_docs_examined=49998.3 avg_docs_popped=157.133
+
+[TIME-QUERY] Average Time per Query: 25.5093 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=50000
+  Average Recall@30 = 0.787639
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=300.091 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=157.872
+
+[TIME-QUERY] Average Time per Query: 25.5145 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=60 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=60 md=50000
+  Average Recall@30 = 0.801784
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=309.924 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=158.324
+
+[TIME-QUERY] Average Time per Query: 24.9757 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=70 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=70 md=50000
+  Average Recall@30 = 0.810909
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=319.716 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=158.221
+
+[TIME-QUERY] Average Time per Query: 25.6573 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=80 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=80 md=50000
+  Average Recall@30 = 0.813237
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=327.183 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=157.851
+
+[TIME-QUERY] Average Time per Query: 25.6405 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=90 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=90 md=50000
+  Average Recall@30 = 0.811305
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=334.099 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=157.466
+
+[TIME-QUERY] Average Time per Query: 25.6104 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=50000
+  Average Recall@30 = 0.798299
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=339.765 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=156.159
+
+[TIME-QUERY] Average Time per Query: 25.0944 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.776525
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=383.807 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=152.77
+
+[TIME-QUERY] Average Time per Query: 25.7735 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=200 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=200 md=50000
+  Average Recall@30 = 0.777982
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=432.994 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=152.161
+
+[TIME-QUERY] Average Time per Query: 25.8644 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=50000
+  Average Recall@30 = 0.776891
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=524.434 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=151.613
+
+[TIME-QUERY] Average Time per Query: 26.1237 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=500 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=500 md=50000
+  Average Recall@30 = 0.770113
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=683.766 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=150.855
+
+[TIME-QUERY] Average Time per Query: 26.3899 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=800 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=800 md=50000
+  Average Recall@30 = 0.770113
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=683.766 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=150.855
+
+[TIME-QUERY] Average Time per Query: 25.8019 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=1200 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=1200 md=50000
+  Average Recall@30 = 0.770113
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=683.766 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=150.855
+
+[TIME-QUERY] Average Time per Query: 26.3256 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=0 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=0 md=100000
+  Average Recall@30 = 0.845354
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1071.35 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=156.707
+
+[TIME-QUERY] Average Time per Query: 52.4849 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=10 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=10 md=100000
+  Average Recall@30 = 0.606857
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=268.876 avg_blocks_skipped=0.000579374 avg_docs_examined=58130.9 avg_docs_popped=151.949
+
+[TIME-QUERY] Average Time per Query: 29.2697 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=20 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=20 md=100000
+  Average Recall@30 = 0.75058
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=451.433 avg_blocks_skipped=0.000579374 avg_docs_examined=92329.3 avg_docs_popped=158.05
+
+[TIME-QUERY] Average Time per Query: 46.4073 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=30 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=30 md=100000
+  Average Recall@30 = 0.802123
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=506.669 avg_blocks_skipped=0.000579374 avg_docs_examined=98788.3 avg_docs_popped=159.871
+
+[TIME-QUERY] Average Time per Query: 49.4864 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=40 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=40 md=100000
+  Average Recall@30 = 0.832742
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=532.444 avg_blocks_skipped=0 avg_docs_examined=99701.7 avg_docs_popped=160.67
+
+[TIME-QUERY] Average Time per Query: 50.615 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=100000
+  Average Recall@30 = 0.853918
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=556.566 avg_blocks_skipped=0 avg_docs_examined=99914.9 avg_docs_popped=161.295
+
+[TIME-QUERY] Average Time per Query: 50.3134 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=60 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=60 md=100000
+  Average Recall@30 = 0.870747
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=576.748 avg_blocks_skipped=0 avg_docs_examined=99972.9 avg_docs_popped=161.852
+
+[TIME-QUERY] Average Time per Query: 51.0133 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=70 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=70 md=100000
+  Average Recall@30 = 0.884024
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=596.24 avg_blocks_skipped=0 avg_docs_examined=99988.5 avg_docs_popped=162.006
+
+[TIME-QUERY] Average Time per Query: 50.5116 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=80 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=80 md=100000
+  Average Recall@30 = 0.894212
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=613.827 avg_blocks_skipped=0 avg_docs_examined=99994.2 avg_docs_popped=162.178
+
+[TIME-QUERY] Average Time per Query: 51.1741 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=90 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=90 md=100000
+  Average Recall@30 = 0.902274
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=630.152 avg_blocks_skipped=0 avg_docs_examined=99996.1 avg_docs_popped=162.468
+
+[TIME-QUERY] Average Time per Query: 50.6243 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=100000
+  Average Recall@30 = 0.908058
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=643.292 avg_blocks_skipped=0 avg_docs_examined=99998.5 avg_docs_popped=162.59
+
+[TIME-QUERY] Average Time per Query: 51.2587 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.92008
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=700.082 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=162.546
+
+[TIME-QUERY] Average Time per Query: 50.9209 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=200 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=200 md=100000
+  Average Recall@30 = 0.8926
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=735.346 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=160.644
+
+[TIME-QUERY] Average Time per Query: 51.6547 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=100000
+  Average Recall@30 = 0.858621
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=841.263 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=157.774
+
+[TIME-QUERY] Average Time per Query: 51.3963 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=500 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=500 md=100000
+  Average Recall@30 = 0.845354
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1071.35 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=156.707
+
+[TIME-QUERY] Average Time per Query: 52.5324 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=800 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=800 md=100000
+  Average Recall@30 = 0.845354
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1071.35 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=156.707
+
+[TIME-QUERY] Average Time per Query: 52.4383 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=1200 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=1200 md=100000
+  Average Recall@30 = 0.845354
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1071.35 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=156.707
+
+[TIME-QUERY] Average Time per Query: 51.8497 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=0 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=0 md=150000
+  Average Recall@30 = 0.888585
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1430.08 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=159.995
+
+[TIME-QUERY] Average Time per Query: 78.5823 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=10 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=10 md=150000
+  Average Recall@30 = 0.607098
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=269.842 avg_blocks_skipped=0.000579374 avg_docs_examined=58307 avg_docs_popped=151.959
+
+[TIME-QUERY] Average Time per Query: 29.3653 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=20 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=20 md=150000
+  Average Recall@30 = 0.765904
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=527.806 avg_blocks_skipped=0.000579374 avg_docs_examined=107678 avg_docs_popped=158.833
+
+[TIME-QUERY] Average Time per Query: 54.2274 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=30 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=30 md=150000
+  Average Recall@30 = 0.8339
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=694.571 avg_blocks_skipped=0.000579374 avg_docs_examined=136120 avg_docs_popped=161.43
+
+[TIME-QUERY] Average Time per Query: 68.2144 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=40 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=40 md=150000
+  Average Recall@30 = 0.865252
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=765.781 avg_blocks_skipped=0.000579374 avg_docs_examined=145730 avg_docs_popped=162.161
+
+[TIME-QUERY] Average Time per Query: 73.5866 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=150000
+  Average Recall@30 = 0.887143
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=807.495 avg_blocks_skipped=0.000579374 avg_docs_examined=148447 avg_docs_popped=162.746
+
+[TIME-QUERY] Average Time per Query: 75.1573 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=60 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=60 md=150000
+  Average Recall@30 = 0.902448
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=836.296 avg_blocks_skipped=0.000289687 avg_docs_examined=149332 avg_docs_popped=163.236
+
+[TIME-QUERY] Average Time per Query: 76.1225 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=70 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=70 md=150000
+  Average Recall@30 = 0.914296
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=862.105 avg_blocks_skipped=0.000289687 avg_docs_examined=149667 avg_docs_popped=163.305
+
+[TIME-QUERY] Average Time per Query: 75.8902 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=80 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=80 md=150000
+  Average Recall@30 = 0.922368
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=886.46 avg_blocks_skipped=0 avg_docs_examined=149840 avg_docs_popped=163.383
+
+[TIME-QUERY] Average Time per Query: 76.1069 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=90 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=90 md=150000
+  Average Recall@30 = 0.930103
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=910.026 avg_blocks_skipped=0 avg_docs_examined=149918 avg_docs_popped=163.636
+
+[TIME-QUERY] Average Time per Query: 76.2268 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=150000
+  Average Recall@30 = 0.935423
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=929.387 avg_blocks_skipped=0 avg_docs_examined=149953 avg_docs_popped=163.72
+
+[TIME-QUERY] Average Time per Query: 76.3021 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.954755
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1018.5 avg_blocks_skipped=0 avg_docs_examined=149994 avg_docs_popped=164.113
+
+[TIME-QUERY] Average Time per Query: 77.3908 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=200 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=200 md=150000
+  Average Recall@30 = 0.95997
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1081.64 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=164.189
+
+[TIME-QUERY] Average Time per Query: 77.044 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=150000
+  Average Recall@30 = 0.930694
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1175.72 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=162.778
+
+[TIME-QUERY] Average Time per Query: 78.0695 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=500 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=500 md=150000
+  Average Recall@30 = 0.888585
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1430.08 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=159.995
+
+[TIME-QUERY] Average Time per Query: 78.0817 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=800 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=800 md=150000
+  Average Recall@30 = 0.888585
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1430.08 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=159.995
+
+[TIME-QUERY] Average Time per Query: 78.3071 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=1200 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=1200 md=150000
+  Average Recall@30 = 0.888585
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1430.08 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=159.995
+
+[TIME-QUERY] Average Time per Query: 78.7459 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=0 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=0 md=200000
+  Average Recall@30 = 0.912001
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1799.98 avg_blocks_skipped=0 avg_docs_examined=200000 avg_docs_popped=161.587
+
+[TIME-QUERY] Average Time per Query: 104.343 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=10 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=10 md=200000
+  Average Recall@30 = 0.607098
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=269.988 avg_blocks_skipped=0.000579374 avg_docs_examined=58329.7 avg_docs_popped=151.959
+
+[TIME-QUERY] Average Time per Query: 29.418 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=20 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=20 md=200000
+  Average Recall@30 = 0.767826
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=538.887 avg_blocks_skipped=0.000579374 avg_docs_examined=109805 avg_docs_popped=158.921
+
+[TIME-QUERY] Average Time per Query: 55.3326 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=30 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=30 md=200000
+  Average Recall@30 = 0.843875
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=780.822 avg_blocks_skipped=0.000579374 avg_docs_examined=152370 avg_docs_popped=161.853
+
+[TIME-QUERY] Average Time per Query: 77.177 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=40 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=40 md=200000
+  Average Recall@30 = 0.883222
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=943.296 avg_blocks_skipped=0.000579374 avg_docs_examined=178840 avg_docs_popped=162.927
+
+[TIME-QUERY] Average Time per Query: 90.011 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=200000
+  Average Recall@30 = 0.906272
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1033.65 avg_blocks_skipped=0.000579374 avg_docs_examined=190545 avg_docs_popped=163.544
+
+[TIME-QUERY] Average Time per Query: 96.9006 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=60 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=60 md=200000
+  Average Recall@30 = 0.921287
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1088.58 avg_blocks_skipped=0.000579374 avg_docs_examined=195573 avg_docs_popped=163.991
+
+[TIME-QUERY] Average Time per Query: 99.3876 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=70 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=70 md=200000
+  Average Recall@30 = 0.93159
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1129.33 avg_blocks_skipped=0.000869061 avg_docs_examined=197771 avg_docs_popped=163.985
+
+[TIME-QUERY] Average Time per Query: 99.9389 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=80 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=80 md=200000
+  Average Recall@30 = 0.940019
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1161.03 avg_blocks_skipped=0.000869061 avg_docs_examined=198762 avg_docs_popped=164.061
+
+[TIME-QUERY] Average Time per Query: 101.271 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=90 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=90 md=200000
+  Average Recall@30 = 0.946459
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1190.67 avg_blocks_skipped=0.000579374 avg_docs_examined=199253 avg_docs_popped=164.259
+
+[TIME-QUERY] Average Time per Query: 101.698 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=200000
+  Average Recall@30 = 0.951124
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1215.68 avg_blocks_skipped=0.000289687 avg_docs_examined=199535 avg_docs_popped=164.331
+
+[TIME-QUERY] Average Time per Query: 101.963 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=200000
+  Average Recall@30 = 0.9681
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1330.58 avg_blocks_skipped=0 avg_docs_examined=199945 avg_docs_popped=164.607
+
+[TIME-QUERY] Average Time per Query: 103.134 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=200 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=200 md=200000
+  Average Recall@30 = 0.976308
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1419.7 avg_blocks_skipped=0 avg_docs_examined=199987 avg_docs_popped=164.838
+
+[TIME-QUERY] Average Time per Query: 103.537 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=200000
+  Average Recall@30 = 0.976676
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1558.11 avg_blocks_skipped=0 avg_docs_examined=200000 avg_docs_popped=165.041
+
+[TIME-QUERY] Average Time per Query: 103.503 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=500 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=500 md=200000
+  Average Recall@30 = 0.912001
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1799.98 avg_blocks_skipped=0 avg_docs_examined=200000 avg_docs_popped=161.587
+
+[TIME-QUERY] Average Time per Query: 104.168 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=800 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=800 md=200000
+  Average Recall@30 = 0.912001
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1799.98 avg_blocks_skipped=0 avg_docs_examined=200000 avg_docs_popped=161.587
+
+[TIME-QUERY] Average Time per Query: 104.258 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=1200 md=200000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=1200 md=200000
+  Average Recall@30 = 0.912001
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1799.98 avg_blocks_skipped=0 avg_docs_examined=200000 avg_docs_popped=161.587
+
+[TIME-QUERY] Average Time per Query: 104.989 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_search_v1/search_joint_coarse_grid.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1629
+Largest Cluster Size: 15183
+Smallest Cluster Size: 48
+Empty Clusters: 0
+Cluster Size Deviation: 1010.94
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91164
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=50000
+[INDEX_PROFILE] total_blocks=12378786 total_docs_in_blocks=354018569 avg_docs_per_block=28.5988 avg_blocks_per_dimension=405.569 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=50000
+  Average Recall@30 = 0.790101
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=301.949 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=154.923
+
+[TIME-QUERY] Average Time per Query: 26.2853 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=50000
+  Average Recall@30 = 0.793316
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=338.574 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=153.043
+
+[TIME-QUERY] Average Time per Query: 25.6851 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.772691
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=382.219 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.647
+
+[TIME-QUERY] Average Time per Query: 25.2037 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=50000
+  Average Recall@30 = 0.776892
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=523.037 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=148.666
+
+[TIME-QUERY] Average Time per Query: 26.097 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=600 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=600 md=50000
+  Average Recall@30 = 0.76851
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=681.504 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=147.886
+
+[TIME-QUERY] Average Time per Query: 26.3694 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=50 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=50 md=50000
+  Average Recall@30 = 0.790101
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=301.949 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=154.923
+
+[TIME-QUERY] Average Time per Query: 25.5805 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=100 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=100 md=50000
+  Average Recall@30 = 0.793316
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=338.574 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=153.043
+
+[TIME-QUERY] Average Time per Query: 25.6926 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=50000
+  Average Recall@30 = 0.772691
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=382.219 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.647
+
+[TIME-QUERY] Average Time per Query: 25.2193 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=300 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=300 md=50000
+  Average Recall@30 = 0.776892
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=523.037 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=148.666
+
+[TIME-QUERY] Average Time per Query: 26.135 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=600 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=600 md=50000
+  Average Recall@30 = 0.76851
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=681.504 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=147.886
+
+[TIME-QUERY] Average Time per Query: 26.3468 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=50 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=50 md=50000
+  Average Recall@30 = 0.790101
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=301.949 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=154.923
+
+[TIME-QUERY] Average Time per Query: 25.5913 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=100 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=100 md=50000
+  Average Recall@30 = 0.793316
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=338.574 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=153.043
+
+[TIME-QUERY] Average Time per Query: 25.6651 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=50000
+  Average Recall@30 = 0.772691
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=382.219 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.647
+
+[TIME-QUERY] Average Time per Query: 25.2187 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=300 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=300 md=50000
+  Average Recall@30 = 0.776892
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=523.037 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=148.666
+
+[TIME-QUERY] Average Time per Query: 26.071 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=600 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=600 md=50000
+  Average Recall@30 = 0.76851
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=681.504 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=147.886
+
+[TIME-QUERY] Average Time per Query: 26.3751 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=50 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=50 md=50000
+  Average Recall@30 = 0.790101
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=301.949 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=154.923
+
+[TIME-QUERY] Average Time per Query: 25.5475 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=100 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=100 md=50000
+  Average Recall@30 = 0.793316
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=338.574 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=153.043
+
+[TIME-QUERY] Average Time per Query: 25.1289 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=50000
+  Average Recall@30 = 0.772691
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=382.219 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.647
+
+[TIME-QUERY] Average Time per Query: 25.8062 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=300 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=300 md=50000
+  Average Recall@30 = 0.776892
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=523.037 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=148.666
+
+[TIME-QUERY] Average Time per Query: 26.1118 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=600 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=600 md=50000
+  Average Recall@30 = 0.76851
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=681.504 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=147.886
+
+[TIME-QUERY] Average Time per Query: 26.3265 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=50 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=50 md=50000
+  Average Recall@30 = 0.790101
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=301.949 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=154.923
+
+[TIME-QUERY] Average Time per Query: 25.542 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=100 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=100 md=50000
+  Average Recall@30 = 0.793316
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=338.574 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=153.043
+
+[TIME-QUERY] Average Time per Query: 25.1637 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=50000
+  Average Recall@30 = 0.772691
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=382.219 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=149.647
+
+[TIME-QUERY] Average Time per Query: 25.7865 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=300 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=300 md=50000
+  Average Recall@30 = 0.776892
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=523.037 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=148.666
+
+[TIME-QUERY] Average Time per Query: 26.0823 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=600 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=600 md=50000
+  Average Recall@30 = 0.76851
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=681.504 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=147.886
+
+[TIME-QUERY] Average Time per Query: 26.3607 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=100000
+  Average Recall@30 = 0.859643
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=558.579 avg_blocks_skipped=0 avg_docs_examined=99911 avg_docs_popped=158.448
+
+[TIME-QUERY] Average Time per Query: 50.2393 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=100000
+  Average Recall@30 = 0.910771
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=644.452 avg_blocks_skipped=0 avg_docs_examined=99999.2 avg_docs_popped=159.842
+
+[TIME-QUERY] Average Time per Query: 51.281 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.920263
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=699.167 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.811
+
+[TIME-QUERY] Average Time per Query: 50.8653 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=100000
+  Average Recall@30 = 0.860398
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=841.08 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=154.913
+
+[TIME-QUERY] Average Time per Query: 51.9134 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=600 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=600 md=100000
+  Average Recall@30 = 0.846011
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1069.62 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=153.871
+
+[TIME-QUERY] Average Time per Query: 51.7688 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=50 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=50 md=100000
+  Average Recall@30 = 0.859643
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=558.579 avg_blocks_skipped=0 avg_docs_examined=99911 avg_docs_popped=158.448
+
+[TIME-QUERY] Average Time per Query: 50.8569 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=100 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=100 md=100000
+  Average Recall@30 = 0.910771
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=644.452 avg_blocks_skipped=0 avg_docs_examined=99999.2 avg_docs_popped=159.842
+
+[TIME-QUERY] Average Time per Query: 50.6941 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=100000
+  Average Recall@30 = 0.920263
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=699.167 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.811
+
+[TIME-QUERY] Average Time per Query: 51.4789 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=300 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=300 md=100000
+  Average Recall@30 = 0.860398
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=841.08 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=154.913
+
+[TIME-QUERY] Average Time per Query: 51.3053 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=600 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=600 md=100000
+  Average Recall@30 = 0.846011
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1069.62 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=153.871
+
+[TIME-QUERY] Average Time per Query: 52.4464 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=50 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=50 md=100000
+  Average Recall@30 = 0.859643
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=558.579 avg_blocks_skipped=0 avg_docs_examined=99911 avg_docs_popped=158.448
+
+[TIME-QUERY] Average Time per Query: 50.2732 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=100 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=100 md=100000
+  Average Recall@30 = 0.910771
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=644.452 avg_blocks_skipped=0 avg_docs_examined=99999.2 avg_docs_popped=159.842
+
+[TIME-QUERY] Average Time per Query: 51.3094 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=100000
+  Average Recall@30 = 0.920263
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=699.167 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.811
+
+[TIME-QUERY] Average Time per Query: 50.9047 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=300 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=300 md=100000
+  Average Recall@30 = 0.860398
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=841.08 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=154.913
+
+[TIME-QUERY] Average Time per Query: 51.9154 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=600 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=600 md=100000
+  Average Recall@30 = 0.846011
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1069.62 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=153.871
+
+[TIME-QUERY] Average Time per Query: 52.3317 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=50 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=50 md=100000
+  Average Recall@30 = 0.859643
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=558.579 avg_blocks_skipped=0 avg_docs_examined=99911 avg_docs_popped=158.448
+
+[TIME-QUERY] Average Time per Query: 50.1776 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=100 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=100 md=100000
+  Average Recall@30 = 0.910771
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=644.452 avg_blocks_skipped=0 avg_docs_examined=99999.2 avg_docs_popped=159.842
+
+[TIME-QUERY] Average Time per Query: 51.2911 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=100000
+  Average Recall@30 = 0.920263
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=699.167 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.811
+
+[TIME-QUERY] Average Time per Query: 50.8659 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=300 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=300 md=100000
+  Average Recall@30 = 0.860398
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=841.08 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=154.913
+
+[TIME-QUERY] Average Time per Query: 51.9108 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=600 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=600 md=100000
+  Average Recall@30 = 0.846011
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1069.62 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=153.871
+
+[TIME-QUERY] Average Time per Query: 51.7486 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=50 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=50 md=100000
+  Average Recall@30 = 0.859643
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=558.579 avg_blocks_skipped=0 avg_docs_examined=99911 avg_docs_popped=158.448
+
+[TIME-QUERY] Average Time per Query: 50.8447 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=100 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=100 md=100000
+  Average Recall@30 = 0.910771
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=644.452 avg_blocks_skipped=0 avg_docs_examined=99999.2 avg_docs_popped=159.842
+
+[TIME-QUERY] Average Time per Query: 50.6892 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=100000
+  Average Recall@30 = 0.920263
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=699.167 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=159.811
+
+[TIME-QUERY] Average Time per Query: 51.4615 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=300 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=300 md=100000
+  Average Recall@30 = 0.860398
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=841.08 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=154.913
+
+[TIME-QUERY] Average Time per Query: 51.3239 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=600 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=600 md=100000
+  Average Recall@30 = 0.846011
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1069.62 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=153.871
+
+[TIME-QUERY] Average Time per Query: 52.3615 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=150000
+  Average Recall@30 = 0.892493
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=809.223 avg_blocks_skipped=0 avg_docs_examined=148412 avg_docs_popped=159.851
+
+[TIME-QUERY] Average Time per Query: 74.9693 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=150000
+  Average Recall@30 = 0.93858
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=931.07 avg_blocks_skipped=0.000289687 avg_docs_examined=149954 avg_docs_popped=160.971
+
+[TIME-QUERY] Average Time per Query: 76.3329 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.957025
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1017.34 avg_blocks_skipped=0 avg_docs_examined=149994 avg_docs_popped=161.43
+
+[TIME-QUERY] Average Time per Query: 77.5545 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=150000
+  Average Recall@30 = 0.930317
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1175.84 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=159.727
+
+[TIME-QUERY] Average Time per Query: 77.6926 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=600 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=600 md=150000
+  Average Recall@30 = 0.889328
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1426.86 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=156.971
+
+[TIME-QUERY] Average Time per Query: 77.9765 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=50 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=50 md=150000
+  Average Recall@30 = 0.892493
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=809.223 avg_blocks_skipped=0 avg_docs_examined=148412 avg_docs_popped=159.851
+
+[TIME-QUERY] Average Time per Query: 75.0174 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=100 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=100 md=150000
+  Average Recall@30 = 0.93858
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=931.07 avg_blocks_skipped=0.000289687 avg_docs_examined=149954 avg_docs_popped=160.971
+
+[TIME-QUERY] Average Time per Query: 76.9647 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=150000
+  Average Recall@30 = 0.957025
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1017.34 avg_blocks_skipped=0 avg_docs_examined=149994 avg_docs_popped=161.43
+
+[TIME-QUERY] Average Time per Query: 76.7248 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=300 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=300 md=150000
+  Average Recall@30 = 0.930317
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1175.84 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=159.727
+
+[TIME-QUERY] Average Time per Query: 77.2248 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=600 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=600 md=150000
+  Average Recall@30 = 0.889328
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1426.86 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=156.971
+
+[TIME-QUERY] Average Time per Query: 78.4001 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=50 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=50 md=150000
+  Average Recall@30 = 0.892493
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=809.223 avg_blocks_skipped=0 avg_docs_examined=148412 avg_docs_popped=159.851
+
+[TIME-QUERY] Average Time per Query: 74.9313 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=100 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=100 md=150000
+  Average Recall@30 = 0.93858
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=931.07 avg_blocks_skipped=0.000289687 avg_docs_examined=149954 avg_docs_popped=160.971
+
+[TIME-QUERY] Average Time per Query: 76.3244 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=150000
+  Average Recall@30 = 0.957025
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1017.34 avg_blocks_skipped=0 avg_docs_examined=149994 avg_docs_popped=161.43
+
+[TIME-QUERY] Average Time per Query: 76.6918 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=300 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=300 md=150000
+  Average Recall@30 = 0.930317
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1175.84 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=159.727
+
+[TIME-QUERY] Average Time per Query: 77.8482 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=600 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=600 md=150000
+  Average Recall@30 = 0.889328
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1426.86 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=156.971
+
+[TIME-QUERY] Average Time per Query: 77.8725 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=50 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=50 md=150000
+  Average Recall@30 = 0.892493
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=809.223 avg_blocks_skipped=0 avg_docs_examined=148412 avg_docs_popped=159.851
+
+[TIME-QUERY] Average Time per Query: 75.1967 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=100 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=100 md=150000
+  Average Recall@30 = 0.93858
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=931.07 avg_blocks_skipped=0.000289687 avg_docs_examined=149954 avg_docs_popped=160.971
+
+[TIME-QUERY] Average Time per Query: 76.6249 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=150000
+  Average Recall@30 = 0.957025
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1017.34 avg_blocks_skipped=0 avg_docs_examined=149994 avg_docs_popped=161.43
+
+[TIME-QUERY] Average Time per Query: 76.9719 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=300 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=300 md=150000
+  Average Recall@30 = 0.930317
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1175.84 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=159.727
+
+[TIME-QUERY] Average Time per Query: 77.4861 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=600 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=600 md=150000
+  Average Recall@30 = 0.889328
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1426.86 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=156.971
+
+[TIME-QUERY] Average Time per Query: 78.3818 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=50 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=50 md=150000
+  Average Recall@30 = 0.892493
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=809.223 avg_blocks_skipped=0 avg_docs_examined=148412 avg_docs_popped=159.851
+
+[TIME-QUERY] Average Time per Query: 74.9997 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=100 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=100 md=150000
+  Average Recall@30 = 0.93858
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=931.07 avg_blocks_skipped=0.000289687 avg_docs_examined=149954 avg_docs_popped=160.971
+
+[TIME-QUERY] Average Time per Query: 76.5718 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=150000
+  Average Recall@30 = 0.957025
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1017.34 avg_blocks_skipped=0 avg_docs_examined=149994 avg_docs_popped=161.43
+
+[TIME-QUERY] Average Time per Query: 76.8572 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=300 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=300 md=150000
+  Average Recall@30 = 0.930317
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1175.84 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=159.727
+
+[TIME-QUERY] Average Time per Query: 77.4673 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=600 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=600 md=150000
+  Average Recall@30 = 0.889328
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1426.86 avg_blocks_skipped=0 avg_docs_examined=150000 avg_docs_popped=156.971
+
+[TIME-QUERY] Average Time per Query: 78.104 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=50 md=250000
+  Average Recall@30 = 0.920533
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1199.93 avg_blocks_skipped=0 avg_docs_examined=219525 avg_docs_popped=160.978
+
+[TIME-QUERY] Average Time per Query: 111.238 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=100 md=250000
+  Average Recall@30 = 0.964603
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1507.73 avg_blocks_skipped=0.000579374 avg_docs_examined=247878 avg_docs_popped=161.928
+
+[TIME-QUERY] Average Time per Query: 126.605 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=250000
+  Average Recall@30 = 0.978143
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1641.51 avg_blocks_skipped=0.000579374 avg_docs_examined=249657 avg_docs_popped=162.194
+
+[TIME-QUERY] Average Time per Query: 128.152 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=300 md=250000
+  Average Recall@30 = 0.988439
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1935.28 avg_blocks_skipped=0 avg_docs_examined=249991 avg_docs_popped=162.481
+
+[TIME-QUERY] Average Time per Query: 129.457 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=600 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=600 md=250000
+  Average Recall@30 = 0.965187
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2191.51 avg_blocks_skipped=0.000289687 avg_docs_examined=250000 avg_docs_popped=161.667
+
+[TIME-QUERY] Average Time per Query: 130.247 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=50 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=50 md=250000
+  Average Recall@30 = 0.920533
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1199.93 avg_blocks_skipped=0 avg_docs_examined=219525 avg_docs_popped=160.978
+
+[TIME-QUERY] Average Time per Query: 111.371 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=100 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=100 md=250000
+  Average Recall@30 = 0.964603
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1507.73 avg_blocks_skipped=0.000579374 avg_docs_examined=247878 avg_docs_popped=161.928
+
+[TIME-QUERY] Average Time per Query: 126.63 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=150 md=250000
+  Average Recall@30 = 0.978143
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1641.51 avg_blocks_skipped=0.000579374 avg_docs_examined=249657 avg_docs_popped=162.194
+
+[TIME-QUERY] Average Time per Query: 128.151 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=300 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=300 md=250000
+  Average Recall@30 = 0.988439
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1935.28 avg_blocks_skipped=0 avg_docs_examined=249991 avg_docs_popped=162.481
+
+[TIME-QUERY] Average Time per Query: 129.479 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=600 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=50 msb=600 md=250000
+  Average Recall@30 = 0.965187
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2191.51 avg_blocks_skipped=0.000289687 avg_docs_examined=250000 avg_docs_popped=161.667
+
+[TIME-QUERY] Average Time per Query: 130.248 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=50 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=50 md=250000
+  Average Recall@30 = 0.920533
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1199.93 avg_blocks_skipped=0 avg_docs_examined=219525 avg_docs_popped=160.978
+
+[TIME-QUERY] Average Time per Query: 111.059 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=100 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=100 md=250000
+  Average Recall@30 = 0.964603
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1507.73 avg_blocks_skipped=0.000579374 avg_docs_examined=247878 avg_docs_popped=161.928
+
+[TIME-QUERY] Average Time per Query: 127.13 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=150 md=250000
+  Average Recall@30 = 0.978143
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1641.51 avg_blocks_skipped=0.000579374 avg_docs_examined=249657 avg_docs_popped=162.194
+
+[TIME-QUERY] Average Time per Query: 128.152 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=300 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=300 md=250000
+  Average Recall@30 = 0.988439
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1935.28 avg_blocks_skipped=0 avg_docs_examined=249991 avg_docs_popped=162.481
+
+[TIME-QUERY] Average Time per Query: 129.494 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=600 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=100 msb=600 md=250000
+  Average Recall@30 = 0.965187
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2191.51 avg_blocks_skipped=0.000289687 avg_docs_examined=250000 avg_docs_popped=161.667
+
+[TIME-QUERY] Average Time per Query: 130.246 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=50 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=50 md=250000
+  Average Recall@30 = 0.920533
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1199.93 avg_blocks_skipped=0 avg_docs_examined=219525 avg_docs_popped=160.978
+
+[TIME-QUERY] Average Time per Query: 110.932 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=100 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=100 md=250000
+  Average Recall@30 = 0.964603
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1507.73 avg_blocks_skipped=0.000579374 avg_docs_examined=247878 avg_docs_popped=161.928
+
+[TIME-QUERY] Average Time per Query: 126.469 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=150 md=250000
+  Average Recall@30 = 0.978143
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1641.51 avg_blocks_skipped=0.000579374 avg_docs_examined=249657 avg_docs_popped=162.194
+
+[TIME-QUERY] Average Time per Query: 128.003 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=300 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=300 md=250000
+  Average Recall@30 = 0.988439
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1935.28 avg_blocks_skipped=0 avg_docs_examined=249991 avg_docs_popped=162.481
+
+[TIME-QUERY] Average Time per Query: 129.609 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=600 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=150 msb=600 md=250000
+  Average Recall@30 = 0.965187
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2191.51 avg_blocks_skipped=0.000289687 avg_docs_examined=250000 avg_docs_popped=161.667
+
+[TIME-QUERY] Average Time per Query: 130.344 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=50 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=50 md=250000
+  Average Recall@30 = 0.920533
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1199.93 avg_blocks_skipped=0 avg_docs_examined=219525 avg_docs_popped=160.978
+
+[TIME-QUERY] Average Time per Query: 111.161 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=100 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=100 md=250000
+  Average Recall@30 = 0.964603
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1507.73 avg_blocks_skipped=0.000579374 avg_docs_examined=247878 avg_docs_popped=161.928
+
+[TIME-QUERY] Average Time per Query: 126.67 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=150 md=250000
+  Average Recall@30 = 0.978143
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1641.51 avg_blocks_skipped=0.000579374 avg_docs_examined=249657 avg_docs_popped=162.194
+
+[TIME-QUERY] Average Time per Query: 128.196 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=300 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=300 md=250000
+  Average Recall@30 = 0.988439
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1935.28 avg_blocks_skipped=0 avg_docs_examined=249991 avg_docs_popped=162.481
+
+[TIME-QUERY] Average Time per Query: 129.494 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=600 md=250000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=200 msb=600 md=250000
+  Average Recall@30 = 0.965187
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2191.51 avg_blocks_skipped=0.000289687 avg_docs_examined=250000 avg_docs_popped=161.667
+
+[TIME-QUERY] Average Time per Query: 130.391 ms
+
+[OK] Results saved to "results/static_exps_search_v1.csv"

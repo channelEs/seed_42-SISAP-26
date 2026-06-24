@@ -1,0 +1,762 @@
+[SISAP] Running task3 on dataset: data/nq.h5
+[CONFIG] Executing 7 config files from `config/static_exps_nb_nd`
+
+--- Read data (data/nq.h5) ---
+train: 2681468 x 30522
+query: 3452 x 30522
+
+=====================
+[CONFIG] Running config: config/static_exps_nb_nd/nb1000_nd150.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1635
+Largest Cluster Size: 11630
+Smallest Cluster Size: 87
+Empty Clusters: 0
+Cluster Size Deviation: 1003.43
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91582
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 150 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=150 max_docs_to_visit=50000
+[INDEX_PROFILE] total_blocks=20001732 total_docs_in_blocks=359621137 avg_docs_per_block=17.9795 avg_blocks_per_dimension=655.322 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=150 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=150 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.88415
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=686.105 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=156.324
+
+[TIME-QUERY] Average Time per Query: 30.4731 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=150 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=150 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.940386
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1307.69 avg_blocks_skipped=0 avg_docs_examined=99998 avg_docs_popped=158.746
+
+[TIME-QUERY] Average Time per Query: 57.6425 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.959196
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1922.25 avg_blocks_skipped=0.000579374 avg_docs_examined=149765 avg_docs_popped=159.449
+
+[TIME-QUERY] Average Time per Query: 86.7564 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_nb_nd/nb1000_nd25.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1587
+Largest Cluster Size: 9068
+Smallest Cluster Size: 46
+Empty Clusters: 0
+Cluster Size Deviation: 998.225
+Avg Similarity (Docs and its cluster assignments with dot product): 4.9129
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 25 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=25 max_docs_to_visit=50000
+[INDEX_PROFILE] total_blocks=19999430 total_docs_in_blocks=179652999 avg_docs_per_block=8.98291 avg_blocks_per_dimension=655.246 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=25 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=25 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.815816
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2461.1 avg_blocks_skipped=0.00115875 avg_docs_examined=49788.6 avg_docs_popped=136.562
+
+[TIME-QUERY] Average Time per Query: 31.8065 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=25 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=25 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.841587
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=3883.37 avg_blocks_skipped=0.00260718 avg_docs_examined=78414.2 avg_docs_popped=137.829
+
+[TIME-QUERY] Average Time per Query: 48.137 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.843518
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=4037.22 avg_blocks_skipped=0.00289687 avg_docs_examined=81401.9 avg_docs_popped=137.92
+
+[TIME-QUERY] Average Time per Query: 49.4571 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_nb_nd/nb1000_nd500.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1644
+Largest Cluster Size: 6604
+Smallest Cluster Size: 62
+Empty Clusters: 0
+Cluster Size Deviation: 984.343
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90507
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=500 max_docs_to_visit=50000
+[INDEX_PROFILE] total_blocks=19966680 total_docs_in_blocks=469512082 avg_docs_per_block=23.5148 avg_blocks_per_dimension=654.173 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.776825
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=382.631 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=151.335
+
+[TIME-QUERY] Average Time per Query: 28.7798 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.921866
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=699.261 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=161.122
+
+[TIME-QUERY] Average Time per Query: 54.7094 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.956879
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1017.88 avg_blocks_skipped=0 avg_docs_examined=149994 avg_docs_popped=162.629
+
+[TIME-QUERY] Average Time per Query: 82.1924 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_nb_nd/nb250_nd25.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1640
+Largest Cluster Size: 11609
+Smallest Cluster Size: 53
+Empty Clusters: 0
+Cluster Size Deviation: 960.134
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91168
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 250 | nd = 25 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=250 max_docs_per_block=25 max_docs_to_visit=50000
+[INDEX_PROFILE] total_blocks=6709246 total_docs_in_blocks=71923151 avg_docs_per_block=10.72 avg_blocks_per_dimension=219.817 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=250 nd=25 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=250 nd=25 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.813459
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2464.25 avg_blocks_skipped=0.000289687 avg_docs_examined=49785.1 avg_docs_popped=136.407
+
+[TIME-QUERY] Average Time per Query: 30.9583 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=250 nd=25 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=250 nd=25 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.838593
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=3884.18 avg_blocks_skipped=0.00202781 avg_docs_examined=78329.2 avg_docs_popped=137.659
+
+[TIME-QUERY] Average Time per Query: 50.9241 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=250 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=250 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.840515
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=4037.32 avg_blocks_skipped=0.00202781 avg_docs_examined=81303.2 avg_docs_popped=137.751
+
+[TIME-QUERY] Average Time per Query: 49.6651 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_nb_nd/nb500_nd150.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1606
+Largest Cluster Size: 13046
+Smallest Cluster Size: 46
+Empty Clusters: 0
+Cluster Size Deviation: 1016.87
+Avg Similarity (Docs and its cluster assignments with dot product): 4.9067
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 500 | nd = 150 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=150 max_docs_to_visit=50000
+[INDEX_PROFILE] total_blocks=12379402 total_docs_in_blocks=259674634 avg_docs_per_block=20.9763 avg_blocks_per_dimension=405.589 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=500 nd=150 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=150 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.883262
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=687.461 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=153.935
+
+[TIME-QUERY] Average Time per Query: 29.5368 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=150 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=150 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.939459
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1309.47 avg_blocks_skipped=0.000289687 avg_docs_examined=99997.8 avg_docs_popped=156.365
+
+[TIME-QUERY] Average Time per Query: 57.5571 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.959052
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1923.17 avg_blocks_skipped=0.000869061 avg_docs_examined=149765 avg_docs_popped=157.096
+
+[TIME-QUERY] Average Time per Query: 86.6199 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_nb_nd/nb500_nd25.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1651
+Largest Cluster Size: 12713
+Smallest Cluster Size: 99
+Empty Clusters: 0
+Cluster Size Deviation: 967.989
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91564
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 500 | nd = 25 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=25 max_docs_to_visit=50000
+[INDEX_PROFILE] total_blocks=12383141 total_docs_in_blocks=121069341 avg_docs_per_block=9.77695 avg_blocks_per_dimension=405.712 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=500 nd=25 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=25 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.813459
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2461.16 avg_blocks_skipped=0.000869061 avg_docs_examined=49787.3 avg_docs_popped=136.024
+
+[TIME-QUERY] Average Time per Query: 31.1315 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=25 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=25 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.838536
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=3883.51 avg_blocks_skipped=0.00202781 avg_docs_examined=78404.6 avg_docs_popped=137.286
+
+[TIME-QUERY] Average Time per Query: 47.2216 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.840351
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=4037.29 avg_blocks_skipped=0.00202781 avg_docs_examined=81389.7 avg_docs_popped=137.373
+
+[TIME-QUERY] Average Time per Query: 48.9409 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_nb_nd/nb500_nd500.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1619
+Largest Cluster Size: 10358
+Smallest Cluster Size: 47
+Empty Clusters: 0
+Cluster Size Deviation: 979.003
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91122
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=500 max_docs_per_block=500 max_docs_to_visit=50000
+[INDEX_PROFILE] total_blocks=12373555 total_docs_in_blocks=353685848 avg_docs_per_block=28.584 avg_blocks_per_dimension=405.398 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=50000
+  Average Recall@30 = 0.776757
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=383.74 avg_blocks_skipped=0 avg_docs_examined=50000 avg_docs_popped=151.912
+
+[TIME-QUERY] Average Time per Query: 27.9557 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=100000
+  Average Recall@30 = 0.922195
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=700.527 avg_blocks_skipped=0 avg_docs_examined=100000 avg_docs_popped=161.836
+
+[TIME-QUERY] Average Time per Query: 54.8268 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"
+
+[RUN starts] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.957633
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1019.56 avg_blocks_skipped=0 avg_docs_examined=149994 avg_docs_popped=163.36
+
+[TIME-QUERY] Average Time per Query: 82.3563 ms
+
+[OK] Results saved to "results/static_exps_nb_nd.csv"

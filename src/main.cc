@@ -38,6 +38,7 @@ int main(int argc, char* argv[]) {
         std::string config_folder = "final_sub_config";
         std::string input_h5_path;
         std::string task_description_path;
+        bool output_h5 = false;
         std::filesystem::path output_root = "results/task3";
 
         std::filesystem::path params_path = std::filesystem::path("config") / config_folder;
@@ -57,6 +58,7 @@ int main(int argc, char* argv[]) {
             } else if (arg == "--task-description" && i + 1 < argc) {
                 task_description_path = argv[++i];
             } else if (arg == "--output" && i + 1 < argc) {
+                output_h5 = true;
                 output_root = std::filesystem::path(argv[++i]);
             }
         }
@@ -256,52 +258,54 @@ int main(int argc, char* argv[]) {
                     std::cout << "\n[TIME-QUERY] Average Time per Query: " << avg_time_per_query_ms << " ms\n";
                     double total_time_sec = clustering_time_sec + indexing_time_sec + (static_cast<double>(search_time) / 1000.0);
 
-                    const std::string algo_name = "chnsw";
-                    const std::string params_str = RuntimeHelpers::buildParamsString(exec_config);
-                    const std::filesystem::path sisap_output_path = RuntimeHelpers::buildSisapResultPath(
-                        output_root,
-                        task,
-                        algo_name,
-                        dataset,
-                        exec_config
-                    );
-                    const double build_time_seconds = clustering_time_sec + indexing_time_sec;
-                    const double query_time_seconds = static_cast<double>(search_time) / 1000.0;
-                    RuntimeHelpers::writeSisapResultH5(
-                        sisap_output_path,
-                        evaluation_results,
-                        top_n_to_check,
-                        algo_name,
-                        task,
-                        build_time_seconds,
-                        query_time_seconds,
-                        params_str
-                    );
-                    std::cout << "[OK] SISAP HDF5 saved to " << sisap_output_path << "\n";
+                    if (output_h5) {
+                        const std::string algo_name = "chnsw";
+                        const std::string params_str = RuntimeHelpers::buildParamsString(exec_config);
+                        const std::filesystem::path sisap_output_path = RuntimeHelpers::buildSisapResultPath(
+                            output_root,
+                            task,
+                            algo_name,
+                            dataset,
+                            exec_config
+                        );
+                        const double build_time_seconds = clustering_time_sec + indexing_time_sec;
+                        const double query_time_seconds = static_cast<double>(search_time) / 1000.0;
+                        RuntimeHelpers::writeSisapResultH5(
+                            sisap_output_path,
+                            evaluation_results,
+                            top_n_to_check,
+                            algo_name,
+                            task,
+                            build_time_seconds,
+                            query_time_seconds,
+                            params_str
+                        );
+                        std::cout << "[OK] SISAP HDF5 saved to " << sisap_output_path << "\n";
+                    }
 
-                        csv_file << exec_config.num_clusters << ","
-                            << exec_config.max_iterations << ","
-                            << exec_config.max_blocks_per_dimension << ","
-                            << exec_config.max_docs_per_block << ","
-                            << exec_config.heap_factor << ","
-                            << exec_config.max_query_terms << ","
-                            << exec_config.max_search_blocks << ","
-                            << exec_config.max_docs_to_visit << ","
-                            << clustering_metrics.avg_cluster_size << ","
-                            << clustering_metrics.median_cluster_size << ","
-                            << clustering_metrics.avg_intra_cluster_similarity << ","
-                            << avg_blocks_entered << ","
-                            << avg_blocks_skipped << ","
-                            << avg_docs_examined << ","
-                            << avg_docs_popped << ","
-                            << clustering_time_sec << ","
-                            << indexing_time_sec << ","
-                            << average_recall_30 << ","
-                            << avg_time_per_query_ms << ","
-                            << search_time / 1000.0 << ","
-                            << total_time_sec << std::endl;
+                    csv_file << exec_config.num_clusters << ","
+                        << exec_config.max_iterations << ","
+                        << exec_config.max_blocks_per_dimension << ","
+                        << exec_config.max_docs_per_block << ","
+                        << exec_config.heap_factor << ","
+                        << exec_config.max_query_terms << ","
+                        << exec_config.max_search_blocks << ","
+                        << exec_config.max_docs_to_visit << ","
+                        << clustering_metrics.avg_cluster_size << ","
+                        << clustering_metrics.median_cluster_size << ","
+                        << clustering_metrics.avg_intra_cluster_similarity << ","
+                        << avg_blocks_entered << ","
+                        << avg_blocks_skipped << ","
+                        << avg_docs_examined << ","
+                        << avg_docs_popped << ","
+                        << clustering_time_sec << ","
+                        << indexing_time_sec << ","
+                        << average_recall_30 << ","
+                        << avg_time_per_query_ms << ","
+                        << search_time / 1000.0 << ","
+                        << total_time_sec << std::endl;
 
-                        std::cout << "\n[OK] Results saved to " << results_csv << "\n";
+                    std::cout << "\n[OK] Results saved to " << results_csv << "\n";
                 } catch (const std::bad_alloc& e) {
                     std::cerr << "[SKIP] Run skipped due to memory allocation failure: " << e.what() << "\n";
                     continue;
