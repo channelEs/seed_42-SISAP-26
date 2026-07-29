@@ -282,21 +282,24 @@ def save_search_plots(df: pd.DataFrame, outdir: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate plots for static experiments (k, indexing, search)")
-    parser.add_argument("--k-csv", required=True, help="Path to static_exps_k.csv")
-    parser.add_argument("--nbnd-csv", required=True, help="Path to static_exps_nb_nd.csv")
-    parser.add_argument("--search-csv", required=True, help="Path to static_exps_search_v1.csv")
+    parser.add_argument("--k-csv", required=False, help="Path to static_exps_k.csv")
+    parser.add_argument("--nbnd-csv", required=False, help="Path to static_exps_nb_nd.csv")
+    parser.add_argument("--search-csv", required=False, help="Path to static_exps_search_v1.csv")
     parser.add_argument("--outdir", default="figures/static_exps_analysis", help="Output directory for plots")
     args = parser.parse_args()
 
     os.makedirs(args.outdir, exist_ok=True)
 
-    k_df = ensure_numeric(pd.read_csv(args.k_csv), ["k", "md", "Recall@30", "Avg_Time_Per_Query_ms"])
-    nbnd_df = ensure_numeric(pd.read_csv(args.nbnd_csv), ["nb", "nd", "md", "Recall@30", "Avg_Time_Per_Query_ms"])
-    search_df = ensure_numeric(pd.read_csv(args.search_csv), ["md", "mqt", "msb", "Recall@30", "Avg_Time_Per_Query_ms"])
+    k_df = ensure_numeric(pd.read_csv(args.k_csv), ["k", "md", "Recall@30", "Avg_Time_Per_Query_ms"]) if args.k_csv else None
+    nbnd_df = ensure_numeric(pd.read_csv(args.nbnd_csv), ["nb", "nd", "md", "Recall@30", "Avg_Time_Per_Query_ms"]) if args.nbnd_csv else None
+    search_df = ensure_numeric(pd.read_csv(args.search_csv), ["md", "mqt", "msb", "Recall@30", "Avg_Time_Per_Query_ms"]) if args.search_csv else None
 
-    save_k_plots(k_df, args.outdir)
-    save_nbnd_plots(nbnd_df, args.outdir)
-    save_search_plots(search_df, args.outdir)
+    if k_df is not None:
+        save_k_plots(k_df, args.outdir)
+    if nbnd_df is not None:
+        save_nbnd_plots(nbnd_df, args.outdir)
+    if search_df is not None:
+        save_search_plots(search_df, args.outdir)
 
 
 if __name__ == "__main__":

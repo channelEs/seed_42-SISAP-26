@@ -1,0 +1,2722 @@
+[SISAP] Running task3 on dataset: data/nq.h5
+[CONFIG] Executing 100 config files from `config/static_exps_02_nb_nd`
+
+--- Read data (data/nq.h5) ---
+train: 2681468 x 30522
+query: 3452 x 30522
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1000_nd100.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1583
+Largest Cluster Size: 10502
+Smallest Cluster Size: 44
+Empty Clusters: 0
+Cluster Size Deviation: 1024.04
+Avg Similarity (Docs and its cluster assignments with dot product): 4.9136
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 100 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=100 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=19944041 total_docs_in_blocks=317986486 avg_docs_per_block=15.9439 avg_blocks_per_dimension=653.432 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=100 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=100 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.953614
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2496.45 avg_blocks_skipped=0.0023175 avg_docs_examined=148841 avg_docs_popped=154.347
+
+[TIME-QUERY] Average Time per Query: 88.1561 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1000_nd150.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1600
+Largest Cluster Size: 8022
+Smallest Cluster Size: 55
+Empty Clusters: 0
+Cluster Size Deviation: 995.306
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91097
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 150 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=150 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=19968675 total_docs_in_blocks=360087292 avg_docs_per_block=18.0326 avg_blocks_per_dimension=654.239 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.958521
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1912.95 avg_blocks_skipped=0.000289687 avg_docs_examined=149783 avg_docs_popped=158.875
+
+[TIME-QUERY] Average Time per Query: 86.3042 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1000_nd200.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1630
+Largest Cluster Size: 8437
+Smallest Cluster Size: 62
+Empty Clusters: 0
+Cluster Size Deviation: 973.992
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91151
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 200 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=200 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=19959630 total_docs_in_blocks=388264806 avg_docs_per_block=19.4525 avg_blocks_per_dimension=653.942 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=200 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=200 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.960172
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1616.8 avg_blocks_skipped=0.000289687 avg_docs_examined=149929 avg_docs_popped=158.838
+
+[TIME-QUERY] Average Time per Query: 85.7216 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1000_nd25.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1635
+Largest Cluster Size: 7947
+Smallest Cluster Size: 47
+Empty Clusters: 0
+Cluster Size Deviation: 972
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90849
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 25 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=25 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=19970662 total_docs_in_blocks=179905307 avg_docs_per_block=9.00848 avg_blocks_per_dimension=654.304 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.841712
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=4037.28 avg_blocks_skipped=0.00318656 avg_docs_examined=81412.5 avg_docs_popped=137.948
+
+[TIME-QUERY] Average Time per Query: 50.226 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1000_nd300.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1622
+Largest Cluster Size: 7766
+Smallest Cluster Size: 49
+Empty Clusters: 0
+Cluster Size Deviation: 967.715
+Avg Similarity (Docs and its cluster assignments with dot product): 4.9146
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 300 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=300 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=19957301 total_docs_in_blocks=426744633 avg_docs_per_block=21.3829 avg_blocks_per_dimension=653.866 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=300 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=300 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.961438
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1301 avg_blocks_skipped=0.000579374 avg_docs_examined=149986 avg_docs_popped=162.305
+
+[TIME-QUERY] Average Time per Query: 84.2167 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1000_nd400.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1677
+Largest Cluster Size: 13178
+Smallest Cluster Size: 110
+Empty Clusters: 0
+Cluster Size Deviation: 971.564
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91014
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 400 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=400 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=19978735 total_docs_in_blocks=452245353 avg_docs_per_block=22.6363 avg_blocks_per_dimension=654.568 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=400 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=400 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.958858
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1130.68 avg_blocks_skipped=0 avg_docs_examined=149992 avg_docs_popped=161.03
+
+[TIME-QUERY] Average Time per Query: 83.4134 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1000_nd50.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1670
+Largest Cluster Size: 7363
+Smallest Cluster Size: 41
+Empty Clusters: 0
+Cluster Size Deviation: 913.982
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91484
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 50 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=50 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=20026562 total_docs_in_blocks=246541592 avg_docs_per_block=12.3107 avg_blocks_per_dimension=656.135 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=50 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=50 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.91949
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=3679.68 avg_blocks_skipped=0.00260718 avg_docs_examined=130406 avg_docs_popped=147.947
+
+[TIME-QUERY] Average Time per Query: 77.9276 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1000_nd500.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1603
+Largest Cluster Size: 10316
+Smallest Cluster Size: 15
+Empty Clusters: 0
+Cluster Size Deviation: 1016.65
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91128
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=500 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=19997545 total_docs_in_blocks=469494483 avg_docs_per_block=23.4776 avg_blocks_per_dimension=655.185 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.955894
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1013.44 avg_blocks_skipped=0 avg_docs_examined=149994 avg_docs_popped=163.736
+
+[TIME-QUERY] Average Time per Query: 86.7503 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1000_nd75.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1622
+Largest Cluster Size: 9555
+Smallest Cluster Size: 13
+Empty Clusters: 0
+Cluster Size Deviation: 961.789
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91351
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 75 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=75 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=19951659 total_docs_in_blocks=287829336 avg_docs_per_block=14.4263 avg_blocks_per_dimension=653.681 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=75 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=75 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.944218
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=3002.41 avg_blocks_skipped=0.0023175 avg_docs_examined=145590 avg_docs_popped=152.501
+
+[TIME-QUERY] Average Time per Query: 87.1918 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1000_nd750.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1673
+Largest Cluster Size: 12094
+Smallest Cluster Size: 60
+Empty Clusters: 0
+Cluster Size Deviation: 973.824
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91557
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1000 | nd = 750 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1000 max_docs_per_block=750 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=20000264 total_docs_in_blocks=497048586 avg_docs_per_block=24.8521 avg_blocks_per_dimension=655.274 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1000 nd=750 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1000 nd=750 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.950128
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=857.721 avg_blocks_skipped=0 avg_docs_examined=149999 avg_docs_popped=160.875
+
+[TIME-QUERY] Average Time per Query: 81.2457 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb100_nd100.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1625
+Largest Cluster Size: 9961
+Smallest Cluster Size: 52
+Empty Clusters: 0
+Cluster Size Deviation: 982.933
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91532
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 100 | nd = 100 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=100 max_docs_per_block=100 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=2771260 total_docs_in_blocks=70050280 avg_docs_per_block=25.2774 avg_blocks_per_dimension=90.7955 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=100 nd=100 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=100 nd=100 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.925718
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2242.61 avg_blocks_skipped=0.00260718 avg_docs_examined=139670 avg_docs_popped=154.926
+
+[TIME-QUERY] Average Time per Query: 81.6503 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb100_nd150.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1663
+Largest Cluster Size: 11385
+Smallest Cluster Size: 20
+Empty Clusters: 0
+Cluster Size Deviation: 968.299
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91298
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 100 | nd = 150 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=100 max_docs_per_block=150 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=2771128 total_docs_in_blocks=83368727 avg_docs_per_block=30.0848 avg_blocks_per_dimension=90.7912 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=100 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=100 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.937432
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1793.44 avg_blocks_skipped=0.00202781 avg_docs_examined=147818 avg_docs_popped=159.31
+
+[TIME-QUERY] Average Time per Query: 85.0096 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb100_nd200.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1657
+Largest Cluster Size: 8302
+Smallest Cluster Size: 42
+Empty Clusters: 0
+Cluster Size Deviation: 968.958
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91384
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 100 | nd = 200 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=100 max_docs_per_block=200 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=2771388 total_docs_in_blocks=93546023 avg_docs_per_block=33.7542 avg_blocks_per_dimension=90.7997 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=100 nd=200 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=100 nd=200 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.938251
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1510.4 avg_blocks_skipped=0.00144844 avg_docs_examined=149249 avg_docs_popped=161.657
+
+[TIME-QUERY] Average Time per Query: 82.6422 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb100_nd25.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1632
+Largest Cluster Size: 9066
+Smallest Cluster Size: 94
+Empty Clusters: 0
+Cluster Size Deviation: 1035.81
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90662
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 100 | nd = 25 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=100 max_docs_per_block=25 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=2770652 total_docs_in_blocks=33468312 avg_docs_per_block=12.0796 avg_blocks_per_dimension=90.7756 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=100 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=100 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.776148
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2697.4 avg_blocks_skipped=0.00144844 avg_docs_examined=55932.6 avg_docs_popped=134.433
+
+[TIME-QUERY] Average Time per Query: 32.0014 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb100_nd300.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1604
+Largest Cluster Size: 10694
+Smallest Cluster Size: 58
+Empty Clusters: 0
+Cluster Size Deviation: 970.767
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91279
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 100 | nd = 300 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=100 max_docs_per_block=300 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=2771254 total_docs_in_blocks=107389491 avg_docs_per_block=38.7512 avg_blocks_per_dimension=90.7953 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=100 nd=300 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=100 nd=300 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.937519
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1199.77 avg_blocks_skipped=0.000579374 avg_docs_examined=149792 avg_docs_popped=162.337
+
+[TIME-QUERY] Average Time per Query: 80.4774 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb100_nd400.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1659
+Largest Cluster Size: 12718
+Smallest Cluster Size: 60
+Empty Clusters: 0
+Cluster Size Deviation: 1001.37
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91299
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 100 | nd = 400 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=100 max_docs_per_block=400 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=2771122 total_docs_in_blocks=117838123 avg_docs_per_block=42.5236 avg_blocks_per_dimension=90.791 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=100 nd=400 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=100 nd=400 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.939016
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1034.47 avg_blocks_skipped=0 avg_docs_examined=149915 avg_docs_popped=161.96
+
+[TIME-QUERY] Average Time per Query: 78.8636 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb100_nd50.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1601
+Largest Cluster Size: 10812
+Smallest Cluster Size: 92
+Empty Clusters: 0
+Cluster Size Deviation: 1044.74
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91484
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 100 | nd = 50 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=100 max_docs_per_block=50 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=2770803 total_docs_in_blocks=49742722 avg_docs_per_block=17.9525 avg_blocks_per_dimension=90.7805 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=100 nd=50 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=100 nd=50 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.876695
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2672.68 avg_blocks_skipped=0.00434531 avg_docs_examined=98409.4 avg_docs_popped=148.427
+
+[TIME-QUERY] Average Time per Query: 55.1921 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb100_nd500.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1665
+Largest Cluster Size: 10431
+Smallest Cluster Size: 61
+Empty Clusters: 0
+Cluster Size Deviation: 948.35
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91544
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 100 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=100 max_docs_per_block=500 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=2771109 total_docs_in_blocks=125492121 avg_docs_per_block=45.2859 avg_blocks_per_dimension=90.7905 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=100 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=100 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.939615
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=929.546 avg_blocks_skipped=0 avg_docs_examined=149955 avg_docs_popped=162.397
+
+[TIME-QUERY] Average Time per Query: 77.648 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb100_nd75.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1634
+Largest Cluster Size: 10797
+Smallest Cluster Size: 65
+Empty Clusters: 0
+Cluster Size Deviation: 1011.04
+Avg Similarity (Docs and its cluster assignments with dot product): 4.9125
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 100 | nd = 75 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=100 max_docs_per_block=75 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=2771060 total_docs_in_blocks=60924985 avg_docs_per_block=21.9862 avg_blocks_per_dimension=90.7889 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=100 nd=75 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=100 nd=75 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.909766
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2508.73 avg_blocks_skipped=0.00144844 avg_docs_examined=126025 avg_docs_popped=151.835
+
+[TIME-QUERY] Average Time per Query: 69.4774 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb100_nd750.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1646
+Largest Cluster Size: 7931
+Smallest Cluster Size: 48
+Empty Clusters: 0
+Cluster Size Deviation: 943.498
+Avg Similarity (Docs and its cluster assignments with dot product): 4.9119
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 100 | nd = 750 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=100 max_docs_per_block=750 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=2771476 total_docs_in_blocks=137294880 avg_docs_per_block=49.5385 avg_blocks_per_dimension=90.8026 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=100 nd=750 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=100 nd=750 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.931812
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=790.481 avg_blocks_skipped=0 avg_docs_examined=149976 avg_docs_popped=165.393
+
+[TIME-QUERY] Average Time per Query: 76.3349 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1250_nd100.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1647
+Largest Cluster Size: 13503
+Smallest Cluster Size: 80
+Empty Clusters: 0
+Cluster Size Deviation: 992.511
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91841
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1250 | nd = 100 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1250 max_docs_per_block=100 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22142794 total_docs_in_blocks=337597821 avg_docs_per_block=15.2464 avg_blocks_per_dimension=725.47 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1250 nd=100 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1250 nd=100 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.951761
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2500.25 avg_blocks_skipped=0.00347625 avg_docs_examined=148817 avg_docs_popped=154.987
+
+[TIME-QUERY] Average Time per Query: 81.3126 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1250_nd150.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1622
+Largest Cluster Size: 8095
+Smallest Cluster Size: 70
+Empty Clusters: 0
+Cluster Size Deviation: 981.276
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91167
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1250 | nd = 150 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1250 max_docs_per_block=150 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22021139 total_docs_in_blocks=380548943 avg_docs_per_block=17.2811 avg_blocks_per_dimension=721.484 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1250 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1250 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.95881
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1914.87 avg_blocks_skipped=0.000289687 avg_docs_examined=149778 avg_docs_popped=161.051
+
+[TIME-QUERY] Average Time per Query: 80.8314 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1250_nd200.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1640
+Largest Cluster Size: 10932
+Smallest Cluster Size: 84
+Empty Clusters: 0
+Cluster Size Deviation: 997.023
+Avg Similarity (Docs and its cluster assignments with dot product): 4.9071
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1250 | nd = 200 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1250 max_docs_per_block=200 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22058583 total_docs_in_blocks=409096473 avg_docs_per_block=18.5459 avg_blocks_per_dimension=722.711 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1250 nd=200 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1250 nd=200 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.95994
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1616.42 avg_blocks_skipped=0.000869061 avg_docs_examined=149923 avg_docs_popped=157.623
+
+[TIME-QUERY] Average Time per Query: 80.1935 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1250_nd25.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1650
+Largest Cluster Size: 9810
+Smallest Cluster Size: 26
+Empty Clusters: 0
+Cluster Size Deviation: 1003.39
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91266
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1250 | nd = 25 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1250 max_docs_per_block=25 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22085339 total_docs_in_blocks=193661511 avg_docs_per_block=8.76878 avg_blocks_per_dimension=723.588 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1250 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1250 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.841711
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=4037.38 avg_blocks_skipped=0.00260718 avg_docs_examined=81300.7 avg_docs_popped=138.341
+
+[TIME-QUERY] Average Time per Query: 46.1251 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1250_nd300.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1618
+Largest Cluster Size: 9972
+Smallest Cluster Size: 92
+Empty Clusters: 0
+Cluster Size Deviation: 980.671
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90914
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1250 | nd = 300 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1250 max_docs_per_block=300 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22114471 total_docs_in_blocks=448357803 avg_docs_per_block=20.2744 avg_blocks_per_dimension=724.542 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1250 nd=300 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1250 nd=300 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.959969
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1295.63 avg_blocks_skipped=0.000289687 avg_docs_examined=149986 avg_docs_popped=160.313
+
+[TIME-QUERY] Average Time per Query: 78.8554 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1250_nd400.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1662
+Largest Cluster Size: 11363
+Smallest Cluster Size: 58
+Empty Clusters: 0
+Cluster Size Deviation: 1006.88
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90749
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1250 | nd = 400 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1250 max_docs_per_block=400 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22096836 total_docs_in_blocks=473347856 avg_docs_per_block=21.4215 avg_blocks_per_dimension=723.964 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1250 nd=400 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1250 nd=400 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.958628
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1131.63 avg_blocks_skipped=0.000289687 avg_docs_examined=149992 avg_docs_popped=162.558
+
+[TIME-QUERY] Average Time per Query: 78.0545 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1250_nd50.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1648
+Largest Cluster Size: 10848
+Smallest Cluster Size: 69
+Empty Clusters: 0
+Cluster Size Deviation: 1000.19
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90855
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1250 | nd = 50 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1250 max_docs_per_block=50 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22102033 total_docs_in_blocks=262987262 avg_docs_per_block=11.8988 avg_blocks_per_dimension=724.134 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1250 nd=50 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1250 nd=50 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.920697
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=3680.64 avg_blocks_skipped=0.0023175 avg_docs_examined=130315 avg_docs_popped=149.939
+
+[TIME-QUERY] Average Time per Query: 72.4826 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1250_nd500.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1613
+Largest Cluster Size: 11229
+Smallest Cluster Size: 42
+Empty Clusters: 0
+Cluster Size Deviation: 1018.63
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91774
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1250 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1250 max_docs_per_block=500 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22065781 total_docs_in_blocks=490905949 avg_docs_per_block=22.2474 avg_blocks_per_dimension=722.947 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1250 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1250 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.960183
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1017.6 avg_blocks_skipped=0.000289687 avg_docs_examined=149995 avg_docs_popped=164.164
+
+[TIME-QUERY] Average Time per Query: 77.4096 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1250_nd75.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1624
+Largest Cluster Size: 11583
+Smallest Cluster Size: 52
+Empty Clusters: 0
+Cluster Size Deviation: 1013.03
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91499
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1250 | nd = 75 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1250 max_docs_per_block=75 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22053437 total_docs_in_blocks=306142017 avg_docs_per_block=13.8818 avg_blocks_per_dimension=722.542 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1250 nd=75 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1250 nd=75 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.944837
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=3011.35 avg_blocks_skipped=0.00376593 avg_docs_examined=145529 avg_docs_popped=154.893
+
+[TIME-QUERY] Average Time per Query: 79.7998 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1250_nd750.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1636
+Largest Cluster Size: 7596
+Smallest Cluster Size: 52
+Empty Clusters: 0
+Cluster Size Deviation: 964.558
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90994
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1250 | nd = 750 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1250 max_docs_per_block=750 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22077711 total_docs_in_blocks=519066762 avg_docs_per_block=23.5109 avg_blocks_per_dimension=723.338 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1250 nd=750 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1250 nd=750 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.948489
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=859.653 avg_blocks_skipped=0 avg_docs_examined=149997 avg_docs_popped=163.349
+
+[TIME-QUERY] Average Time per Query: 75.7879 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1500_nd100.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1658
+Largest Cluster Size: 14410
+Smallest Cluster Size: 50
+Empty Clusters: 0
+Cluster Size Deviation: 971.177
+Avg Similarity (Docs and its cluster assignments with dot product): 4.9142
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1500 | nd = 100 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1500 max_docs_per_block=100 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=23028957 total_docs_in_blocks=343934016 avg_docs_per_block=14.9348 avg_blocks_per_dimension=754.504 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1500 nd=100 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1500 nd=100 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.951423
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2499.02 avg_blocks_skipped=0.00173812 avg_docs_examined=148809 avg_docs_popped=157.259
+
+[TIME-QUERY] Average Time per Query: 81.1002 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1500_nd150.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1626
+Largest Cluster Size: 8344
+Smallest Cluster Size: 85
+Empty Clusters: 0
+Cluster Size Deviation: 956.649
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90935
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1500 | nd = 150 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1500 max_docs_per_block=150 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=23034799 total_docs_in_blocks=387328964 avg_docs_per_block=16.8149 avg_blocks_per_dimension=754.695 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1500 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1500 nd=150 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.958095
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1926.1 avg_blocks_skipped=0.000869061 avg_docs_examined=149759 avg_docs_popped=157.522
+
+[TIME-QUERY] Average Time per Query: 80.5359 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1500_nd200.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1651
+Largest Cluster Size: 10674
+Smallest Cluster Size: 61
+Empty Clusters: 0
+Cluster Size Deviation: 1024.29
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90904
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1500 | nd = 200 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1500 max_docs_per_block=200 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22931048 total_docs_in_blocks=415852436 avg_docs_per_block=18.1349 avg_blocks_per_dimension=751.296 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1500 nd=200 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1500 nd=200 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.960326
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1607.15 avg_blocks_skipped=0.000869061 avg_docs_examined=149932 avg_docs_popped=162.159
+
+[TIME-QUERY] Average Time per Query: 79.8751 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1500_nd25.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1630
+Largest Cluster Size: 10492
+Smallest Cluster Size: 46
+Empty Clusters: 0
+Cluster Size Deviation: 968.858
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90884
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1500 | nd = 25 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1500 max_docs_per_block=25 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22971922 total_docs_in_blocks=198774514 avg_docs_per_block=8.65293 avg_blocks_per_dimension=752.635 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1500 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1500 nd=25 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.842281
+  STATUS: FAIL < 0.90 
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=4037.43 avg_blocks_skipped=0.00173812 avg_docs_examined=81321.5 avg_docs_popped=139.238
+
+[TIME-QUERY] Average Time per Query: 45.8082 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1500_nd300.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1623
+Largest Cluster Size: 9237
+Smallest Cluster Size: 47
+Empty Clusters: 0
+Cluster Size Deviation: 961.905
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91794
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1500 | nd = 300 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1500 max_docs_per_block=300 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22996978 total_docs_in_blocks=455155436 avg_docs_per_block=19.792 avg_blocks_per_dimension=753.456 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1500 nd=300 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1500 nd=300 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.959554
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1296.74 avg_blocks_skipped=0 avg_docs_examined=149986 avg_docs_popped=162.45
+
+[TIME-QUERY] Average Time per Query: 78.8244 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1500_nd400.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1637
+Largest Cluster Size: 12510
+Smallest Cluster Size: 87
+Empty Clusters: 0
+Cluster Size Deviation: 979.288
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91565
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1500 | nd = 400 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1500 max_docs_per_block=400 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22921673 total_docs_in_blocks=480474122 avg_docs_per_block=20.9616 avg_blocks_per_dimension=750.989 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1500 nd=400 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1500 nd=400 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.959738
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1130.26 avg_blocks_skipped=0 avg_docs_examined=149992 avg_docs_popped=160.174
+
+[TIME-QUERY] Average Time per Query: 78.0017 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1500_nd50.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1655
+Largest Cluster Size: 14439
+Smallest Cluster Size: 92
+Empty Clusters: 0
+Cluster Size Deviation: 1013.02
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91063
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1500 | nd = 50 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1500 max_docs_per_block=50 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22952111 total_docs_in_blocks=269258099 avg_docs_per_block=11.7313 avg_blocks_per_dimension=751.986 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1500 nd=50 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1500 nd=50 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.923362
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=3676.48 avg_blocks_skipped=0.00173812 avg_docs_examined=130463 avg_docs_popped=150.371
+
+[TIME-QUERY] Average Time per Query: 72.4461 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1500_nd500.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1619
+Largest Cluster Size: 8208
+Smallest Cluster Size: 41
+Empty Clusters: 0
+Cluster Size Deviation: 964.594
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91104
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1500 | nd = 500 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1500 max_docs_per_block=500 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22872308 total_docs_in_blocks=498083397 avg_docs_per_block=21.7767 avg_blocks_per_dimension=749.371 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1500 nd=500 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.957227
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=1015.73 avg_blocks_skipped=0.000289687 avg_docs_examined=149995 avg_docs_popped=161.578
+
+[TIME-QUERY] Average Time per Query: 77.3766 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1500_nd75.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1658
+Largest Cluster Size: 7555
+Smallest Cluster Size: 28
+Empty Clusters: 0
+Cluster Size Deviation: 978.889
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90528
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1500 | nd = 75 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1500 max_docs_per_block=75 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22932902 total_docs_in_blocks=311833437 avg_docs_per_block=13.5976 avg_blocks_per_dimension=751.356 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1500 nd=75 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1500 nd=75 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.9439
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=3012.78 avg_blocks_skipped=0.00115875 avg_docs_examined=145510 avg_docs_popped=152.076
+
+[TIME-QUERY] Average Time per Query: 79.9508 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1500_nd750.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1631
+Largest Cluster Size: 10295
+Smallest Cluster Size: 38
+Empty Clusters: 0
+Cluster Size Deviation: 1003.32
+Avg Similarity (Docs and its cluster assignments with dot product): 4.91502
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1500 | nd = 750 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1500 max_docs_per_block=750 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22856253 total_docs_in_blocks=525188415 avg_docs_per_block=22.9779 avg_blocks_per_dimension=748.845 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1500 nd=750 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1500 nd=750 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.948749
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=857.041 avg_blocks_skipped=0.000289687 avg_docs_examined=149998 avg_docs_popped=165.243
+
+[TIME-QUERY] Average Time per Query: 77.9371 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1750_nd100.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 2/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+--- Iteration 3/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
+Grouping documents by cluster assignments...
+Updating cluster centroid shapes in parallel...
+Centroids updated successfully!
+
+Clustering complete. Sample cluster sizes:
+
+--- Evaluate clustering (relating docs information) ---
+Objective Average Cluster Size: 1787.65
+Median Cluster Size: 1621
+Largest Cluster Size: 8990
+Smallest Cluster Size: 104
+Empty Clusters: 0
+Cluster Size Deviation: 996.139
+Avg Similarity (Docs and its cluster assignments with dot product): 4.90915
+
+--- Summary Vectors for each cluster & Indexing ---
+[INDEXING] Computing Summary Vectors (Sketches) for 1500 clusters...
+
+--- Indexing | nb = 1750 | nd = 100 ---
+[INDEXING] SIMPLE buildInvertedIndex start: n_docs=2681468 n_dims=30522 nonzeros=572792070 max_blocks_per_dimension=1750 max_docs_per_block=100 max_docs_to_visit=150000
+[INDEX_PROFILE] total_blocks=22891873 total_docs_in_blocks=343057655 avg_docs_per_block=14.986 avg_blocks_per_dimension=750.012 empty_dimensions=1783
+Total Summary Vectors: 1500
+Total Concepts indexed: 30522
+
+[RUN starts] k=1500 itr=3 nb=1750 nd=100 heap_factor=0.05 mqt=0 msb=150 md=150000
+
+--- SEARCH PHASE ---
+
+--- Evaluating Recall@30 ---
+  Processed 0/3452 queries...
+  Processed 1000/3452 queries...
+  Processed 2000/3452 queries...
+  Processed 3000/3452 queries...
+====================================================
+
+[RUN] k=1500 itr=3 nb=1750 nd=100 heap_factor=0.05 mqt=0 msb=150 md=150000
+  Average Recall@30 = 0.952371
+  STATUS: SUCCESS >= 0.90
+====================================================
+[SEARCH_DEBUG_AVG] avg_blocks_entered=2500.92 avg_blocks_skipped=0.00173812 avg_docs_examined=148812 avg_docs_popped=154.581
+
+[TIME-QUERY] Average Time per Query: 83.4377 ms
+
+[OK] Results saved to "results/static_exps_02_nb_nd.csv"
+
+=====================
+[CONFIG] Running config: config/static_exps_02_nb_nd/nb1750_nd150.json
+[PARAMS] k=1500 itr=3 (base values)
+
+--- Clustering | k = 1500 | iterations = 3 ---
+Initializing 1500 clusters... with 2681468 documents with 30522 dimensions
+
+--- Iteration 1/3 ---
+Assigning 2681468 documents to clusters (8 threads)...
