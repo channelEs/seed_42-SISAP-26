@@ -173,6 +173,12 @@ def save_search_plots(df: pd.DataFrame, outdir: str) -> None:
         .sort_values(["md", "mqt"])
     )
 
+    # Keep only md groups that actually sweep mqt (>= 2 points).
+    if not mqt_df.empty:
+        mqt_counts = mqt_df.groupby("md")["mqt"].nunique()
+        valid_md_mqt = mqt_counts[mqt_counts >= 2].index
+        mqt_df = mqt_df[mqt_df["md"].isin(valid_md_mqt)]
+
     if not mqt_df.empty:
         fig, axes = plt.subplots(1, 2, figsize=(14, 5))
         for md in sorted(mqt_df["md"].dropna().unique()):
@@ -201,6 +207,12 @@ def save_search_plots(df: pd.DataFrame, outdir: str) -> None:
         })
         .sort_values(["md", "msb"])
     )
+
+    # Keep only md groups that actually sweep msb (>= 2 points).
+    if not msb_df.empty:
+        msb_counts = msb_df.groupby("md")["msb"].nunique()
+        valid_md_msb = msb_counts[msb_counts >= 2].index
+        msb_df = msb_df[msb_df["md"].isin(valid_md_msb)]
 
     if not msb_df.empty:
         fig, axes = plt.subplots(1, 2, figsize=(14, 5))
