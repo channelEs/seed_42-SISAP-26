@@ -1,0 +1,4 @@
+dataset,config,reason,log_path
+benchmark-dev-fiqa-small,op-3,exit_139,/home/roger/ADS_MIRI/chnsw/results/optimal_runs/logs/benchmark-dev-fiqa-small__op-3.log
+benchmark-dev-wikipedia-bge-m3-small,op-1,exit_1,/home/roger/ADS_MIRI/chnsw/results/optimal_runs/logs/benchmark-dev-wikipedia-bge-m3-small__op-1.log
+llama-eval,op-1,exit_1,/home/roger/ADS_MIRI/chnsw/results/optimal_runs/logs/llama-eval__op-1.log
