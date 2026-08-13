@@ -19,12 +19,10 @@ std::vector<std::pair<float, int>> SearchEngineSimple::search(
     int n_docs = train.rows();
     int n_dims = train.cols();
 
-    std::vector<float> query_dense(n_dims, 0.0f);
     std::vector<std::pair<int, float>> query_terms;
     
-    // convert sparse query into dense + list of (concept_id, weight) for upper bound calculations
+    // Gather sparse (concept_id, weight) pairs first so mqt can define the effective query.
     for (Eigen::SparseMatrix<float, Eigen::RowMajor>::InnerIterator it(query_matrix, q_idx); it; ++it) {
-        query_dense[it.index()] = it.value();
         query_terms.push_back({it.index(), it.value()});
     }
 
@@ -32,6 +30,19 @@ std::vector<std::pair<float, int>> SearchEngineSimple::search(
     std::sort(query_terms.begin(), query_terms.end(), [](const auto& a, const auto& b) {
         return a.second > b.second;
     });
+
+    int max_query_terms = config.max_query_terms;
+
+    // Truncate long tail of sparse query to the top max_query_terms coordinates
+    if (max_query_terms > 0 && static_cast<int>(query_terms.size()) > max_query_terms) {
+        query_terms.resize(max_query_terms);
+    }
+
+    // Build dense query from the effective (possibly truncated) term set only.
+    std::vector<float> query_dense(n_dims, 0.0f);
+    for (const auto& [concept_id, q_weight] : query_terms) {
+        query_dense[concept_id] = q_weight;
+    }
 
     std::vector<float> cluster_ub(num_clusters, 0.0f);
     for (int c = 0; c < num_clusters; ++c) {
