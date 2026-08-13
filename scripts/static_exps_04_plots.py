@@ -122,7 +122,7 @@ def save_tradeoff_plot(df: pd.DataFrame, outdir: str) -> None:
     plt.axhline(0.9, color="red", linestyle="--", linewidth=1)
     plt.xlabel("Avg_Time_Per_Query_ms")
     plt.ylabel("Recall@30")
-    plt.title("Round-04 Search: Recall-Time Tradeoff")
+    plt.title("Round-04 Index: Recall-Time Tradeoff")
     plt.legend(loc="best", fontsize=8)
     plt.tight_layout()
     plt.savefig(os.path.join(outdir, "round04_tradeoff_by_k.png"), dpi=180)
@@ -133,15 +133,15 @@ def save_tradeoff_plot(df: pd.DataFrame, outdir: str) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate plots for static_exps_04_search")
-    parser.add_argument("--csv", required=True, help="Path to static_exps_04_search.csv")
+    parser = argparse.ArgumentParser(description="Generate plots for static_exps_04_index")
+    parser.add_argument("--index-csv", required=True, help="Path to static_exps_04_index.csv")
     parser.add_argument("--outdir", default="figures/04_static_exps_analysis", help="Output directory")
     args = parser.parse_args()
 
     os.makedirs(args.outdir, exist_ok=True)
 
     df = ensure_numeric(
-        pd.read_csv(args.csv),
+        pd.read_csv(args.index_csv),
         ["k", "nb", "nd", "Recall@30", "Avg_Time_Per_Query_ms"],
     )
 
