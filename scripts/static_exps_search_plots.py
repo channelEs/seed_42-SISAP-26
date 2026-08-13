@@ -10,13 +10,13 @@ import pandas as pd
 INDEX_COMBINATIONS: Dict[Tuple[int, int, int], str] = {
     (500, 500, 400): "I-1",
     (500, 750, 75): "I-2",
-    (500, 100, 750): "I-3",
-    (1000, 500, 400): "I-4",
-    (1000, 750, 75): "I-5",
-    (1000, 100, 750): "I-6",
-    (1500, 500, 400): "I-7",
-    (1500, 750, 75): "I-8",
-    (1500, 100, 750): "I-9",
+    (1000, 500, 400): "I-3",
+    (1000, 100, 750): "I-4",
+    (1500, 500, 400): "I-5",
+    (1500, 100, 750): "I-6",
+    # (500, 100, 750): "I-3",
+    # (1000, 750, 75): "I-3",
+    # (1500, 750, 75): "I-8",
 }
 
 INDEX_COLORS: Dict[str, str] = {
@@ -57,6 +57,27 @@ def index_legend_label(index_id: str) -> str:
     return f"{index_id} (k={k}, nb={nb}, nd={nd})"
 
 
+def configured_index_ids() -> list[str]:
+    # Only these index IDs are considered valid for plotting.
+    ids = list(dict.fromkeys(INDEX_COMBINATIONS.values()))
+
+    def sort_key(value: str) -> tuple[int, str]:
+        if value.startswith("I-"):
+            suffix = value[2:]
+            if suffix.isdigit():
+                return (0, f"{int(suffix):04d}")
+        return (1, value)
+
+    return sorted(ids, key=sort_key)
+
+
+def color_for_index(index_id: str, idx: int):
+    if index_id in INDEX_COLORS:
+        return INDEX_COLORS[index_id]
+    cmap = plt.get_cmap("tab20")
+    return cmap(idx % 20)
+
+
 def add_index_legend(fig: plt.Figure, axes: list[plt.Axes], title: str = "Static index") -> None:
     handles, labels = [], []
     for axis in axes:
@@ -93,150 +114,6 @@ def create_search_figure() -> tuple[plt.Figure, list[plt.Axes], plt.Axes]:
     legend_ax.axis("off")
     return fig, plot_axes, legend_ax
 
-
-def save_k_plot(k_df: pd.DataFrame, outdir: str) -> None:
-    grouped = (
-        k_df.groupby(["k", "md"], as_index=False)
-        .agg({
-            "Recall@30": "mean",
-            "Avg_Time_Per_Query_ms": "mean",
-        })
-        .sort_values(["md", "k"])
-    )
-
-    if grouped.empty:
-        return
-
-    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-
-    for md in sorted(grouped["md"].dropna().unique()):
-        sub = grouped[grouped["md"] == md]
-        axes[0].plot(sub["k"], sub["Recall@30"], marker="o", label=f"md={int(md)}")
-        axes[1].plot(sub["k"], sub["Avg_Time_Per_Query_ms"], marker="o", label=f"md={int(md)}")
-
-    axes[0].set_title("K Sweep: Recall vs k")
-    axes[0].set_xlabel("k")
-    axes[0].set_ylabel("Recall@30")
-    axes[0].axhline(0.9, color="red", linestyle="--", linewidth=1)
-
-    axes[1].set_title("K Sweep: Query Time vs k")
-    axes[1].set_xlabel("k")
-    axes[1].set_ylabel("Avg_Time_Per_Query_ms")
-    axes[1].legend(loc="best", fontsize=8)
-
-    plt.tight_layout()
-    plt.savefig(os.path.join(outdir, "k_recall_time_by_md.png"), dpi=180)
-    plt.close()
-
-
-def save_nbnd_plots(df: pd.DataFrame, outdir: str) -> None:
-    grouped = (
-        df.groupby(["nb", "nd", "md"], as_index=False)
-        .agg({
-            "Recall@30": "mean",
-            "Avg_Time_Per_Query_ms": "mean",
-        })
-        .sort_values(["md", "nb", "nd"])
-    )
-
-    if grouped.empty:
-        return
-
-    for md in sorted(grouped["md"].dropna().unique()):
-        sub = grouped[grouped["md"] == md]
-        recall_pivot = sub.pivot_table(index="nb", columns="nd", values="Recall@30", aggfunc="mean")
-        time_pivot = sub.pivot_table(index="nb", columns="nd", values="Avg_Time_Per_Query_ms", aggfunc="mean")
-        feasible_pivot = time_pivot.where(recall_pivot >= 0.9)
-
-        best_feasible = sub[sub["Recall@30"] >= 0.9].sort_values("Avg_Time_Per_Query_ms").head(1)
-        best_nb = None
-        best_nd = None
-        if not best_feasible.empty:
-            best_nb = int(best_feasible.iloc[0]["nb"])
-            best_nd = int(best_feasible.iloc[0]["nd"])
-
-        fig, axes = plt.subplots(1, 3, figsize=(18, 5))
-
-        im1 = axes[0].imshow(recall_pivot.values, aspect="auto", vmin=0.75, vmax=1.0, cmap="viridis")
-        axes[0].set_title(f"Recall Heatmap (md={int(md)})")
-        axes[0].set_xlabel("nd")
-        axes[0].set_ylabel("nb")
-        axes[0].set_xticks(range(len(recall_pivot.columns)))
-        axes[0].set_xticklabels([str(int(v)) for v in recall_pivot.columns])
-        axes[0].set_yticks(range(len(recall_pivot.index)))
-        axes[0].set_yticklabels([str(int(v)) for v in recall_pivot.index])
-        for i, nb in enumerate(recall_pivot.index):
-            for j, nd in enumerate(recall_pivot.columns):
-                val = recall_pivot.loc[nb, nd]
-                if pd.notna(val):
-                    axes[0].text(j, i, f"{val:.3f}", ha="center", va="center", color="white", fontsize=7)
-        plt.colorbar(im1, ax=axes[0], label="Recall@30")
-
-        im2 = axes[1].imshow(time_pivot.values, aspect="auto", cmap="magma_r")
-        axes[1].set_title(f"Time Heatmap (md={int(md)})")
-        axes[1].set_xlabel("nd")
-        axes[1].set_ylabel("nb")
-        axes[1].set_xticks(range(len(time_pivot.columns)))
-        axes[1].set_xticklabels([str(int(v)) for v in time_pivot.columns])
-        axes[1].set_yticks(range(len(time_pivot.index)))
-        axes[1].set_yticklabels([str(int(v)) for v in time_pivot.index])
-        for i, nb in enumerate(time_pivot.index):
-            for j, nd in enumerate(time_pivot.columns):
-                val = time_pivot.loc[nb, nd]
-                if pd.notna(val):
-                    axes[1].text(j, i, f"{val:.1f}", ha="center", va="center", color="white", fontsize=7)
-        if best_nb is not None and best_nd is not None:
-            i = list(time_pivot.index).index(best_nb)
-            j = list(time_pivot.columns).index(best_nd)
-            axes[1].scatter(j, i, marker="o", s=450, c="red", edgecolors="black", linewidths=0.9, alpha=0.4)
-        plt.colorbar(im2, ax=axes[1], label="Avg_Time_Per_Query_ms")
-
-        im3 = axes[2].imshow(feasible_pivot.values, aspect="auto", cmap="cividis_r")
-        axes[2].set_title("Feasible Time (Recall>=0.9)")
-        axes[2].set_xlabel("nd")
-        axes[2].set_ylabel("nb")
-        axes[2].set_xticks(range(len(feasible_pivot.columns)))
-        axes[2].set_xticklabels([str(int(v)) for v in feasible_pivot.columns])
-        axes[2].set_yticks(range(len(feasible_pivot.index)))
-        axes[2].set_yticklabels([str(int(v)) for v in feasible_pivot.index])
-        for i, nb in enumerate(feasible_pivot.index):
-            for j, nd in enumerate(feasible_pivot.columns):
-                val = feasible_pivot.loc[nb, nd]
-                label = "X" if pd.isna(val) else f"{val:.1f}"
-                color = "black" if pd.isna(val) else "white"
-                axes[2].text(j, i, label, ha="center", va="center", color=color, fontsize=7)
-        if best_nb is not None and best_nd is not None:
-            i = list(feasible_pivot.index).index(best_nb)
-            j = list(feasible_pivot.columns).index(best_nd)
-            axes[2].scatter(j, i, marker="o", s=450, c="red", edgecolors="black", linewidths=0.9, alpha=0.4)
-        plt.colorbar(im3, ax=axes[2], label="Avg_Time_Per_Query_ms")
-
-        plt.tight_layout()
-        plt.savefig(os.path.join(outdir, f"nb_nd_sweetspot_md_{int(md)}.png"), dpi=180)
-        plt.close()
-
-    plt.figure(figsize=(8, 6))
-    sc = plt.scatter(
-        grouped["Avg_Time_Per_Query_ms"],
-        grouped["Recall@30"],
-        c=grouped["md"],
-        cmap="plasma",
-        alpha=0.85,
-        edgecolors="none",
-    )
-    for _, row in grouped.iterrows():
-        label = f"nb={int(row['nb'])},nd={int(row['nd'])}"
-        plt.annotate(label, (row["Avg_Time_Per_Query_ms"], row["Recall@30"]), fontsize=7, alpha=0.7)
-    plt.colorbar(sc, label="md")
-    plt.axhline(0.9, color="red", linestyle="--", linewidth=1)
-    plt.xlabel("Avg_Time_Per_Query_ms")
-    plt.ylabel("Recall@30")
-    plt.title("NB/ND Sweep: Recall-Time Tradeoff")
-    plt.tight_layout()
-    plt.savefig(os.path.join(outdir, "nb_nd_tradeoff_scatter.png"), dpi=180)
-    plt.close()
-
-
 def save_search_md_effect(search_df: pd.DataFrame, outdir: str) -> None:
     md_df = (
         search_df[(search_df["mqt"] == 0) & (search_df["msb"] == 150)]
@@ -254,11 +131,11 @@ def save_search_md_effect(search_df: pd.DataFrame, outdir: str) -> None:
 
     fig, axes, legend_ax = create_search_figure()
 
-    for index_id in [f"I-{i}" for i in range(1, 10)]:
+    for idx, index_id in enumerate(configured_index_ids()):
         sub = md_df[md_df["index_id"] == index_id]
         if sub.empty:
             continue
-        color = INDEX_COLORS[index_id]
+        color = color_for_index(index_id, idx)
         label = index_legend_label(index_id)
         axes[0].plot(sub["md"], sub["Recall@30"], marker="o", color=color, label=label)
         axes[1].plot(sub["md"], sub["Avg_Time_Per_Query_ms"], marker="o", color=color, label=label)
@@ -298,11 +175,11 @@ def save_search_mqt_effect(search_df: pd.DataFrame, outdir: str) -> None:
 
     fig, axes, legend_ax = create_search_figure()
 
-    for index_id in [f"I-{i}" for i in range(1, 10)]:
+    for idx, index_id in enumerate(configured_index_ids()):
         sub = mqt_df[mqt_df["index_id"] == index_id]
         if sub.empty:
             continue
-        color = INDEX_COLORS[index_id]
+        color = color_for_index(index_id, idx)
         label = index_legend_label(index_id)
         axes[0].plot(sub["mqt"], sub["Recall@30"], marker="o", color=color, label=label)
         axes[1].plot(sub["mqt"], sub["Avg_Time_Per_Query_ms"], marker="o", color=color, label=label)
@@ -342,11 +219,11 @@ def save_search_msb_effect(search_df: pd.DataFrame, outdir: str) -> None:
 
     fig, axes, legend_ax = create_search_figure()
 
-    for index_id in [f"I-{i}" for i in range(1, 10)]:
+    for idx, index_id in enumerate(configured_index_ids()):
         sub = msb_df[msb_df["index_id"] == index_id]
         if sub.empty:
             continue
-        color = INDEX_COLORS[index_id]
+        color = color_for_index(index_id, idx)
         label = index_legend_label(index_id)
         axes[0].plot(sub["msb"], sub["Recall@30"], marker="o", color=color, label=label)
         axes[1].plot(sub["msb"], sub["Avg_Time_Per_Query_ms"], marker="o", color=color, label=label)
@@ -371,9 +248,7 @@ def save_search_msb_effect(search_df: pd.DataFrame, outdir: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate round-3 static experiment plots")
-    parser.add_argument("--plot", choices=["all", "k", "nbnd", "md", "mqt", "msb"], default="all", help="Select which plot(s) to generate")
-    parser.add_argument("--k-csv", required=False, help="Path to static_exps_k.csv")
-    parser.add_argument("--nbnd-csv", required=False, help="Path to static_exps_nbnd.csv")
+    parser.add_argument("--plot", choices=["all", "md", "mqt", "msb"], default="all", help="Select which plot(s) to generate")
     parser.add_argument("--search-md-csv", required=False, help="Path to static_exps_search_md.csv")
     parser.add_argument("--search-mqt-csv", required=False, help="Path to static_exps_search_mqt.csv")
     parser.add_argument("--search-msb-csv", required=False, help="Path to static_exps_search_msb.csv")
@@ -383,13 +258,11 @@ def main() -> None:
     os.makedirs(args.outdir, exist_ok=True)
 
     if (
-        args.k_csv is None
-        and args.nbnd_csv is None
-        and args.search_md_csv is None
+        args.search_md_csv is None
         and args.search_mqt_csv is None
         and args.search_msb_csv is None
     ):
-        parser.error("Provide at least one CSV input: --k-csv, --nbnd-csv, --search-md-csv, --search-mqt-csv, or --search-msb-csv")
+        parser.error("Provide at least one CSV input: --search-md-csv, --search-mqt-csv, or --search-msb-csv")
 
     def load_search_df(path: str) -> pd.DataFrame:
         df = ensure_numeric(
@@ -398,13 +271,13 @@ def main() -> None:
         )
         return annotate_index_columns(df)
 
-    if args.plot in ("all", "k") and args.k_csv:
-        k_df = ensure_numeric(pd.read_csv(args.k_csv), ["k", "md", "Recall@30", "Avg_Time_Per_Query_ms"])
-        save_k_plot(k_df, args.outdir)
+    # if args.plot in ("all", "k") and args.k_csv:
+    #     k_df = ensure_numeric(pd.read_csv(args.k_csv), ["k", "md", "Recall@30", "Avg_Time_Per_Query_ms"])
+    #     save_k_plot(k_df, args.outdir)
 
-    if args.plot in ("all", "nbnd") and args.nbnd_csv:
-        nbnd_df = ensure_numeric(pd.read_csv(args.nbnd_csv), ["nb", "nd", "md", "Recall@30", "Avg_Time_Per_Query_ms"])
-        save_nbnd_plots(nbnd_df, args.outdir)
+    # if args.plot in ("all", "nbnd") and args.nbnd_csv:
+    #     nbnd_df = ensure_numeric(pd.read_csv(args.nbnd_csv), ["nb", "nd", "md", "Recall@30", "Avg_Time_Per_Query_ms"])
+    #     save_nbnd_plots(nbnd_df, args.outdir)
 
     if args.plot in ("all", "md"):
         md_source = args.search_md_csv
