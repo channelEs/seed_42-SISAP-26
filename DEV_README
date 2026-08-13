@@ -1,0 +1,109 @@
+# SISAP 2026 Task 3 Developer Notes
+
+**Team:** Seed 42
+**Team ID:** 64
+
+## Scope
+
+This repository implements the SISAP 2026 Task 3 challenge: indexing very sparse high-dimensional vectors with memory-efficient methods under realistic hardware limits.
+
+The benchmark uses Natural Questions with 2.68M documents and 30,522 sparse dimensions, encoded with SPLADE-v3 style learned sparse representations. The goal is approximate top-30 retrieval with average recall at or above 0.9.
+
+## Final repository state
+
+- The paper and experiment narrative are finalized in `report/paper.tex`.
+- Final CSV summaries are stored in `report/final_csv_results/`.
+- Final figures used to support the paper are stored in `report/final_figures/`.
+- The implementation centers on the custom `InvertedBlock` structure with clustering, exact per-cluster summaries, inverted blocks, and query-time pruning.
+- Search is controlled by `md`, `mqt`, `msb`, and `heap_factor`.
+
+## Core executable
+
+The main entry point is [src/main.cc](src/main.cc). It is responsible for the full end-to-end benchmark loop:
+
+- parses the command line flags `--dataset`, `--task`, `--params`, `--input`, `--task-description`, and `--output`,
+- resolves the dataset and task metadata,
+- loads the selected JSON config set from `config/<folder>/`,
+- reads the sparse HDF5 train/query arrays,
+- runs clustering,
+- builds exact per-cluster summary vectors,
+- builds the partitioned inverted index,
+- evaluates the search engine over all queries,
+- computes Recall@30 and timing statistics,
+- appends the metrics to the results CSV.
+
+That file is the best place to inspect when changing how the benchmark is wired together or when adding a new execution mode.
+
+## Final experiment runners
+
+The final round-05 experiments are launched with the two scripts below.
+
+- [scripts/run_static_exps_05_index.sh](scripts/run_static_exps_05_index.sh) builds the Docker image, runs the final index-building sweep `static_exps_05_index`, copies the generated CSV into the round-05 results folder, and generates the corresponding plots.
+- [scripts/run_static_exps_05_search.sh](scripts/run_static_exps_05_search.sh) builds the Docker image, runs the final search sweep `static_exps_05_search`, and stores the resulting CSV and logs in the round-05 results folder.
+
+These scripts are the canonical way to reproduce the final paper figures for the last experiment set.
+
+## Plot scripts
+
+- [scripts/static_exps_plots.py](scripts/static_exps_plots.py) generates the main static-experiment figures from the sweep CSVs. It supports the cluster-count sweep, the nb/nd sweep, and the three search-parameter sweeps (`md`, `mqt`, and `msb`). The script reads the CSVs, annotates the final index families, and writes publication-ready PNG figures.
+- [scripts/static_exps_search_plots.py](scripts/static_exps_search_plots.py) is the search-only plotting helper used for the final result tables. It focuses on the `md`, `mqt`, and `msb` sweeps over the selected static index families and produces the plots stored in [report/final_figures](report/final_figures).
+
+## What the final experiments show
+
+- Index-building sweeps identify a compact family of usable structures, including the nine final configurations I-1 to I-9.
+- The restricted index setups preserve recall while avoiding unnecessary growth in block fan-out and document budget.
+- `md` is the primary global recall-latency control.
+- `msb` is the main secondary control and saturates around 150 in the final sweeps.
+- `mqt` is a weaker efficiency control once enough high-weight query terms are included.
+
+## Important artifacts
+
+- Paper source: `report/paper.tex`
+- Final md results: `report/final_csv_results/static_exps_search_md_end.csv`
+- Final mqt results: `report/final_csv_results/static_exps_search_mqt_end.csv`
+- Final msb results: `report/final_csv_results/static_exps_search_msb_end.csv`
+- Final plots:
+  - `report/final_figures/static_exps_index_summary.png`
+  - `report/final_figures/search_md_effect.png`
+  - `report/final_figures/search_mqt_effect.png`
+  - `report/final_figures/search_msb_effect.png`
+  - `report/final_figures/k_recall_time_by_md.png`
+
+## Implementation summary
+
+- Documents are assigned to clusters with sparse K-means.
+- Each cluster stores exact maximum weights for every sparse dimension.
+- Each term keeps only the strongest cluster blocks and strongest documents within each retained block.
+- Query execution sorts non-zero coordinates by weight, applies optional term truncation, and prunes blocks using cluster upper bounds before scoring candidate documents.
+
+## Build and run
+
+Build with:
+
+```bash
+./build.sh
+```
+
+Or manually:
+
+```bash
+cmake -B build \
+      -S . \
+      -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake
+
+cmake --build build
+```
+
+Run with:
+
+```bash
+./run.sh
+```
+
+The containerized benchmark setup uses 8 CPUs, 24 GB RAM, and the dataset mounted from `data/`.
+
+## Notes for future development
+
+- Keep experiment outputs under `results/` or `report/final_csv_results/` depending on whether they are raw runs or paper-ready summaries.
+- When changing search behavior, validate against the final CSV trend assumptions in the paper.
+- If new figures are added, store them under `report/final_figures/` so the paper and README can reference them consistently.

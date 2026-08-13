@@ -1,107 +1,90 @@
-# Project for the SISAP challenge 2026
-**Team:** Seed 42
+# SISAP 2026 Task 3: Indexing Very Sparse High-Dimensional Vectors
 
-## Task 3: Indexing very sparse high-dimensional vectors
+Team: Seed 42, ID 64
 
-This repository contains the implementation for the SISAP 2026 Task 3 challenge.
+This repository contains the final implementation and experimental study for the SISAP 2026 Task 3 challenge.
 
-Learned sparse models bridge traditional inverted indexing and neural retrieval. However, their high dimensionality and learned term distributions challenge classical IR data structures.
+Task 3, as defined by the challenge, asks participants to design scalable and memory-efficient indexing methods for very high-dimensional sparse vectors under realistic hardware constraints. The benchmark uses SPLADE-v3 sparse embeddings and focuses on information retrieval style search over extremely sparse learned representations.
 
-The task investigates scalable, memory-efficient indexing methods for very high-dimensional, sparse representations under realistic hardware constraints.
+## What this project studies
 
-- Container: 8 virtual CPUs, 24 GB RAM
-- Dataset: NQ (Natural Questions) with 2.68M documents and 30,522 sparse dimensions in `nq.h5`
-- Similarity: dot product
-- Goal: return k=30 nearest neighbors with average recall ≥ 0.9
-- Evaluation: index preprocessing phase, then search phase
+The core idea of this work is a custom sparse indexing structure called **InvertedBlock**. It combines:
 
-## Brief description of the implementation
+- document clustering for coarse partitioning,
+- exact per-cluster maximum summaries for safe upper bounds,
+- per-term inverted blocks with limited block and document fan-out,
+- query-time CaaT traversal with pruning controls.
 
-This implementation uses a hybrid sparse indexing approach tuned for SPLADE-v3 embeddings and the SISAP constraints.
+The study in the paper evaluates two phases:
 
-- Documents are grouped into clusters using an iterative sparse clustering engine with parallel assignments and centroid updates.
-- For each cluster, a dense summary vector stores the maximum weight seen for every sparse dimension, enabling fast upper-bound scoring.
-- The inverted index is partitioned by concept and then by cluster blocks; each block keeps only the strongest documents per concept and cluster to save memory.
-- Search uses query-driven pruning: it computes cluster upper bounds from summary vectors, visits only promising blocks, and computes exact dot products for candidate documents.
+1. **Index building experiments** to choose a compact but permissive index configuration.
+2. **Search parameter experiments** to measure the latency-recall trade-off of the final search engine.
 
-# Setup and Build Guide
+The final selected index families are:
 
-## Project Structure
+- I-1: $(k,nb,nd)=(100,150,110)$
+- I-2: $(120,100,140)$
+- I-3: $(100,150,140)$
+- I-4: $(500,500,400)$
+- I-5: $(500,750,75)$
+- I-6: $(1000,500,400)$
+- I-7: $(1000,100,750)$
+- I-8: $(1500,500,400)$
+- I-9: $(1500,100,750)$
 
-```text
-root/
-├── build/               # Generated build files
-├── data/                # HDF5 datasets
-├── include/             # Header files (.h)
-├── src/                 # Source files (.cpp) + main
-├── build.sh             # Build script
-├── run.sh               # Build + execute script
-├── CMakeLists.txt
-└── vcpkg.json
-```
+## Main conclusions
 
----
+- The custom index can reach Recall@30 above 0.90 while keeping practical query latency.
+- The index-building stage shows that a restricted but well-chosen $(k, nb, nd)$ combination is enough to preserve the useful candidate pool.
+- In search, `md` is the dominant global control, `msb` is the main secondary quality knob, and `mqt` is a finer efficiency control once enough query terms are retained.
+- The final design is mathematically safe at the block level because cluster summaries use exact maxima.
 
-# Requirements
+## Final plots
 
-This project uses:
+The figures below highlight the main conclusions from the paper.
 
-* C++20
-* CMake
-* vcpkg
-* Eigen3
-* HDF5
-* WSL/Linux environment
+### Index building summary
 
----
-# Set up
+![Restricted index-building summary](report/final_figures/static_exps_index_summary.png)
 
-Create the directory **data/** and insert the dataset to work with.
+This plot summarizes the restricted index-building experiments and motivates the nine final index configurations used in search.
 
-# Local Execution
-## Install System Dependencies
+### Recall and latency versus md
 
-```bash
-sudo apt update
-sudo apt install -y \
-    build-essential \
-    cmake \
-    git \
-    curl \
-    zip \
-    unzip \
-    tar
-```
+![md sweep](report/final_figures/search_md_effect.png)
 
-Verify installation:
+This is the main latency-recall frontier. Recall rises monotonically with `md`, while latency increases until the candidate budget saturates.
 
-```bash
-cmake --version
-g++ --version
-```
+### Effect of max query terms
 
----
+![mqt sweep](report/final_figures/search_mqt_effect.png)
 
-## Install vcpkg
+This plot shows that low `mqt` values remove too much useful signal, but beyond a moderate term budget the gain becomes small.
 
-Clone and bootstrap vcpkg:
+### Effect of max search blocks
 
-```bash
-cd ~
-git clone https://github.com/microsoft/vcpkg.git
-cd vcpkg
-./bootstrap-vcpkg.sh
-```
+![msb sweep](report/final_figures/search_msb_effect.png)
 
----
+This is the clearest secondary search control. The best trade-off appears around `msb ≈ 150`.
 
-## Build the Project
+### Cluster count trend
 
-The project uses vcpkg manifest mode through `vcpkg.json`.
+![K sweep](report/final_figures/k_recall_time_by_md.png)
 
-Dependencies are installed automatically when configuring CMake.
+This plot shows how cluster granularity shapes the recall ceiling before search-time pruning is applied.
 
-Run:
+## Repository layout
+
+- `src/`: C++ implementation and executable entry point
+- `include/`: public headers for clustering, indexing, search, and utilities
+- `config/`: experiment configuration files
+- `data/`: HDF5 datasets used by the benchmark
+- `results/`: generated CSV outputs and run artifacts
+- `report/`: paper source, final figures, and experiment CSVs
+
+## Build and run
+
+The project is built with CMake and vcpkg.
 
 ```bash
 ./build.sh
@@ -111,144 +94,25 @@ Or manually:
 
 ```bash
 cmake -B build \
-      -S . \
-      -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake
+	-S . \
+	-DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake
 
 cmake --build build
 ```
 
----
-
-## Run the compiled version
-
-```bash
-./build/main --dataset nq --task task3 --params clusters
-```
-
-Or:
+Run the executable with the default task configuration:
 
 ```bash
 ./run.sh
 ```
 
-**Command-line arguments:**
-- `--dataset <name>`: Dataset to run on (default: `nq`)
-- `--task <name>`: Task name (default: `task3`)
-- `--params <config_file>`: Path to JSON configuration file (default: `exec_config.json`)
-
-**Configuration file (exec_config.json):**
-```json
-{
-  "k": 200,
-  "itr": 3,
-  "nb": 100,
-  "nd": 50,
-  "md": 50000
-}
-```
-
-Where:
-- `k`: Number of clusters
-- `itr`: Maximum iterations for clustering
-- `nb`: Max blocks per dimension (0 = unlimited)
-- `nd`: Max docs per block (0 = unlimited)
-- `md`: Max docs to visit during search (0 = unlimited)
-
-**Output:**
-Results are automatically appended to `results.csv` with the following columns:
-- Configuration: k, itr, nb, nd, md
-- Clustering metrics: Avg_Cluster_Size, Median_Cluster_Size, Avg_Cluster_Similarity
-- Execution times: Clustering_Time_ms, Indexing_Time_ms, Search_Time_ms
-- Recall metrics: Recall@30, Avg_Time_Per_Query_ms
-
----
-
-# Docker execution
-
-Build the image with:
+Or directly:
 
 ```bash
-docker build --no-cache -t chnsw .
+./build/main --dataset nq --task task3 --params clusters
 ```
 
-Run it with the SISAP 2026 requirements:
+## Outputs
 
-```bash
-docker run \
-  -it \
-  --cpus=8 \
-  --memory=24g \
-  --memory-swap=24g \
-  --memory-swappiness=0 \
-  --volume $(pwd)/data:/sisap2026/data:ro \
-  --volume $(pwd)/config:/sisap2026/config:ro \
-  --volume $(pwd)/results:/sisap2026/results:rw \
-  chnsw --task task3 --dataset nq --params static_engine_experiments_v1 --output /sisap2026/results
-```
+Experimental runs append results to CSV files in `results/` and the paper stores the final summarized tables in `report/final_csv_results/`.
 
-**Docker run parameters:**
-- `--cpus=8`: Limit container to 8 CPUs
-- `--memory=24g`: Limit container memory to 24GB
-- `--volume $(pwd)/data:/sisap2026/data:ro`: Mount local data directory (read-only)
-- `--volume $(pwd)/config:/sisap2026/config:ro`: Mount config directory (read-only) so `--params <folder>` resolves inside container
-- `--volume $(pwd)/results:/sisap2026/results:rw`: Mount results directory (read-write) for CSV and generated `.h5` outputs
-
-**Capturing results locally:**
-
-After the container finishes execution, both CSV and generated `.h5` files will be in your local `results/` directory:
-
-```bash
-ls -lah results
-```
-
-The CSV file is cumulative—each run appends a new row with:
-- Configuration parameters used (k, itr, nb, nd, md)
-- Clustering metrics (average size, median size, similarity)
-- Execution times (clustering, indexing, search in milliseconds)
-- Search performance (recall@30, average time per query)
-
-**Example CSV output:**
-```
-k,itr,nb,nd,md,Avg_Cluster_Size,Median_Cluster_Size,Avg_Cluster_Similarity,Clustering_Time_ms,Indexing_Time_ms,Recall@30,Avg_Time_Per_Query_ms,Search_Time_ms
-200,3,100,50,50000,17.8957,11,5.22518,45234,12567,0.8524,123.45,567890
-```
-
----
-
-# Plotting Results
-
-The `scripts/plot_global_iterations.py` script generates visualization plots from the global iterations results CSV.
-
-## Requirements
-
-Ensure you have the required Python packages installed:
-
-```bash
-pip install pandas matplotlib numpy
-```
-
-## Usage
-
-```bash
-python scripts/plot_global_iterations.py --csv <csv_file> --k <k_value> --itr <itr_value> [--outdir <output_directory>]
-```
-
-**Arguments:**
-- `--csv`: Path to the global iterations CSV file (required)
-- `--k`: Value of k to filter results (required, must be integer)
-- `--itr`: Value of itr to filter results (required, must be integer)
-- `--outdir`: Output directory for generated plots (optional, default: `figures`)
-
-## Example
-
-Generate plots for k=1500 and itr=3 from the test results:
-
-```bash
-python scripts/plot_global_iterations.py --csv results/global_iterations_test.csv --k 1500 --itr 3 --md 30000 --outdir figures
-```
-
-This will create two plots in the `figures/` directory:
-1. **`global_iterations_k1500_itr3_time.png`** – Scatter plot of `nd` vs `nb` colored by average query time (green = fast, red = slow)
-2. **`global_iterations_k1500_itr3_recall.png`** – Scatter plot of `nd` vs `nb` with recall gradient (red = 0.6 or worse, green = 0.9 or better)
-
----
